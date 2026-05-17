@@ -1,19 +1,9 @@
-# MTD — Morocco Vibes
+# MTD — Morocco Travel Dossier
 
-Morocco, slowed down. Discover Morocco.
+Next.js 15 app · ~32 Moroccan places across 6 categories · Wikipedia-backed details · basePath `/mstravel/mtd` · port **19007** · accent #10b981.
 
-## Run
+Routes: `/`, `/morocco`, `/morocco/[slug]` + shared FAD `/apps`, `/videos`, `/github`, `/prompts`, `/scroller`.
 
-```
-npm install
-npm run dev    # http://localhost:13009
-```
+Live API: `/api/morocco`, `/api/morocco/[slug]` (Wikipedia REST summary) + shared.
 
-## Structure
-
-- `/` — claude.ai-style home with categories + 6 feature tiles
-- `/about` — long-form story, anchor links per feature
-- `/contact` — LinkedIn / email / GitHub
-- `legacy/` — the previous v2 codebase, archived
-
-Registered in `~/APPS/apps-registry.json` (id `mtd`, port 13009).
+Previous codebase preserved under [`2022/`](./2022).
