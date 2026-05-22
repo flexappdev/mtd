@@ -1,0 +1,246 @@
+<!doctype html>
+<html data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <title>MTD — Morocco Top Destinations</title>
+  <meta name="viewport" content="width=1440" />
+  <link rel="stylesheet" href="mtd/shell.css?v=2" />
+  <link rel="stylesheet" href="mtd/frontoffice.css?v=2" />
+  <link rel="stylesheet" href="mtd/frontoffice2.css?v=3" />
+</head>
+<body class="role-admin">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script src="mtd/data.js"></script>
+  <script src="mtd/data2.js"></script>
+  <script type="text/babel" src="mtd/icons.jsx"></script>
+  <script type="text/babel" src="mtd/shell.jsx"></script>
+  <script type="text/babel" src="mtd/Dashboard.jsx"></script>
+  <script type="text/babel" src="mtd/Destinations.jsx"></script>
+  <script type="text/babel" src="mtd/Hotels.jsx"></script>
+  <script type="text/babel" src="mtd/DestinationDetail.jsx"></script>
+  <script type="text/babel" src="mtd/SecondaryPages.jsx"></script>
+  <script type="text/babel" src="mtd/tweaks-panel.jsx"></script>
+
+  <!-- Front office + roles -->
+  <script type="text/babel" src="mtd/RoleControls.jsx"></script>
+  <script type="text/babel" src="mtd/FrontShell.jsx"></script>
+  <script type="text/babel" src="mtd/FrontPages.jsx"></script>
+  <script type="text/babel" src="mtd/FrontDestinationDetail.jsx"></script>
+
+  <!-- v2 cinematic -->
+  <script type="text/babel" src="mtd/FrontShellV2.jsx"></script>
+  <script type="text/babel" src="mtd/FrontHomeV2.jsx"></script>
+  <script type="text/babel" src="mtd/FrontListsVideos.jsx"></script>
+  <script type="text/babel" src="mtd/FrontMoreV2.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    const MTD_TWEAKS = /*EDITMODE-BEGIN*/{
+      "theme": "dark",
+      "density": "comfortable",
+      "sidebarCollapsed": false,
+      "view": "front",
+      "role": "user",
+      "scrollerMode": false
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const t = window.useTweaks(MTD_TWEAKS);
+      const tweaks = t[0];
+      const setTweak = t[1];
+
+      // Top-level view: 'front' or 'back'
+      const [view, setView] = React.useState(tweaks.view || 'front');
+
+      // Sync role with body class on init
+      React.useEffect(() => {
+        window.setRole(tweaks.role || 'admin');
+        // also listen for any role change and persist into tweaks
+        const h = (e) => setTweak('role', e.detail);
+        window.addEventListener('mtd-role-change', h);
+        return () => window.removeEventListener('mtd-role-change', h);
+      }, []);
+
+      // Apply theme + density
+      React.useEffect(() => {
+        document.documentElement.dataset.theme = tweaks.theme;
+        document.body.classList.toggle('density-compact', tweaks.density === 'compact');
+      }, [tweaks.theme, tweaks.density]);
+
+      // Saved destinations (user/admin only)
+      const [saved, setSaved] = React.useState({});
+      const toggleSave = (id) => setSaved(s => ({ ...s, [id]: !s[id] }));
+
+      // Back-office route
+      const [backRoute, setBackRoute] = React.useState('dashboard');
+      const [destId, setDestId] = React.useState('marrakech');
+
+      // Front-office route
+      const [frontRoute, setFrontRoute] = React.useState('fo-home');
+      const [scrollerMode, setScrollerMode] = React.useState(!!tweaks.scrollerMode);
+      const toggleScroller = () => { const next = !scrollerMode; setScrollerMode(next); setTweak('scrollerMode', next); window.scrollTo(0, 0); };
+      const doRandom = () => { setFrontRoute('fo-random'); window.scrollTo(0, 0); };
+
+      const role = window.useRole();
+
+      // Switch view (admin only allowed to back office)
+      const switchView = () => {
+        const next = view === 'front' ? 'back' : 'front';
+        setView(next);
+        setTweak('view', next);
+      };
+
+      // If role is not admin and view is back, force back to front
+      React.useEffect(() => {
+        if (view === 'back' && role !== 'admin') setView('front');
+      }, [view, role]);
+
+      // ===== Front-office router =====
+      const openDestFront = (d) => {
+        setDestId(d.id);
+        setFrontRoute('fo-destination');
+        window.scrollTo(0, 0);
+      };
+      const routeAndScroll = (r) => { setFrontRoute(r); window.scrollTo(0, 0); };
+
+      // Parse route: "fo-places/cities" -> top="fo-places", sub="cities"
+      const [topRoute, subRoute] = frontRoute.split('/');
+
+      let frontPage;
+      if (scrollerMode) {
+        frontPage = <ScrollerMode />;
+      } else if (topRoute === 'fo-home')         frontPage = <FrontHomeV2 onOpenDest={openDestFront} onRoute={routeAndScroll} saved={saved} onToggleSave={toggleSave} />;
+      else if (topRoute === 'fo-destinations')   frontPage = <FrontDestinations onOpenDest={openDestFront} saved={saved} onToggleSave={toggleSave} />;
+      else if (topRoute === 'fo-destination')    frontPage = <FrontDestinationDetail destId={destId} onRoute={routeAndScroll} saved={saved} onToggleSave={toggleSave} />;
+      else if (topRoute === 'fo-places')         frontPage = <FrontPlaces subroute={subRoute} onRoute={routeAndScroll} onOpenDest={openDestFront} saved={saved} onToggleSave={toggleSave} />;
+      else if (topRoute === 'fo-hotels')         frontPage = <FrontPlaces subroute="hotels" onRoute={routeAndScroll} onOpenDest={openDestFront} saved={saved} onToggleSave={toggleSave} />;
+      else if (topRoute === 'fo-saved')          frontPage = <FrontSaved saved={saved} onOpenDest={openDestFront} onToggleSave={toggleSave} onRoute={routeAndScroll} />;
+      else if (topRoute === 'fo-lists')          frontPage = <FrontLists subroute={subRoute} onRoute={routeAndScroll} onOpenDest={openDestFront} />;
+      else if (topRoute === 'fo-wiki')           frontPage = <FrontWiki onRoute={routeAndScroll} />;
+      else if (topRoute === 'fo-media')          frontPage = <FrontMedia subroute={subRoute} onRoute={routeAndScroll} />;
+      else if (topRoute === 'fo-guides')         frontPage = <FrontGuides subroute={subRoute} onRoute={routeAndScroll} />;
+      else if (topRoute === 'fo-moroccai')       frontPage = <FrontMoroccAI onRoute={routeAndScroll} onOpenDest={openDestFront} />;
+      else if (topRoute === 'fo-random')         frontPage = <FrontRandom onRoute={routeAndScroll} onOpenDest={openDestFront} />;
+      else {
+        frontPage = (
+          <section className="fo-section">
+            <div className="fo-saved-empty">
+              <h3 style={{ textTransform: 'capitalize' }}>{frontRoute.replace('fo-', '')}</h3>
+              <p>This section is part of the design backlog.</p>
+              <button className="fo-cta sm outline" onClick={() => routeAndScroll('fo-home')}>Back to home</button>
+            </div>
+          </section>
+        );
+      }
+
+      // ===== Back-office router =====
+      const openDestBack = (d) => { setDestId(d.id); setBackRoute('dest-detail'); };
+      const handleBackRoute = (r) => {
+        if (typeof r === 'string' && r.startsWith('dest:')) { setDestId(r.slice(5)); setBackRoute('dest-detail'); }
+        else setBackRoute(r);
+      };
+
+      let backPage, right = null;
+      if (backRoute === 'dashboard')        backPage = <Dashboard onOpenDest={openDestBack} onRoute={handleBackRoute} />;
+      else if (backRoute === 'destinations')backPage = <DestinationsList onOpenDest={openDestBack} />;
+      else if (backRoute === 'dest-detail') {
+        backPage = <DestinationDetail destId={destId} onBack={() => setBackRoute('destinations')} />;
+        right = <DestUtilityPanel destId={destId} />;
+      }
+      else if (backRoute === 'hotels')      backPage = <HotelsList />;
+      else if (backRoute === 'amazon')      backPage = <AmazonList />;
+      else if (backRoute === 'sources')     backPage = <SourcesList />;
+      else if (backRoute === 'agents')      backPage = <AgentsList />;
+      else if (backRoute === 'ideas')       backPage = <IdeasList />;
+      else {
+        backPage = (
+          <div>
+            <div className="page-head"><h1 className="type-h1" style={{ margin: 0, textTransform: 'capitalize' }}>{backRoute}</h1></div>
+            <section className="panel"><div className="empty">
+              <div className="empty-title">Coming in phase 2.</div>
+              <div className="empty-body">This section uses the same primitives — ask to have it built.</div>
+              <button className="btn btn-primary btn-sm" onClick={() => setBackRoute('dashboard')}>Back to Dashboard</button>
+            </div></section>
+          </div>
+        );
+      }
+      const shellRoute = backRoute === 'dest-detail' ? 'destinations' : backRoute;
+
+      // Friendly label for admin bar
+      const pageLabel = frontRoute === 'fo-destination' ? destId : frontRoute.replace('fo-', '').replace('/', ' · ');
+
+      const adminStats =
+        frontRoute === 'fo-destination'
+          ? [{ value: window.MTD.findDest(destId)?.clicks30 ? window.formatNum(window.MTD.findDest(destId).clicks30) + ' / 30d' : '—', title: 'clicks' }]
+          : [{ value: '412k / 30d', title: 'pageviews' }];
+
+      return (
+        <React.Fragment>
+          {view === 'front' ? (
+            <div className={'fo' + (scrollerMode ? ' scroller-mode' : '')}>
+              <FrontHeaderV2 route={frontRoute} onRoute={routeAndScroll} />
+              <main className="fo-main">{frontPage}</main>
+              <FrontFooter />
+              <StickyFooter scrollerMode={scrollerMode} onToggleScroller={toggleScroller} onRandom={doRandom} route={frontRoute} />
+              <AdminOnly>
+                <AdminBar pageLabel={pageLabel} stats={adminStats} onOpenBO={switchView} />
+              </AdminOnly>
+            </div>
+          ) : (
+            <AppShell route={shellRoute} onRoute={handleBackRoute} rightPanel={right} collapsed={tweaks.sidebarCollapsed}>
+              {backPage}
+            </AppShell>
+          )}
+
+          {/* Role switcher — always shown for prototyping */}
+          <RoleSwitcher view={view} onSwitchView={switchView} />
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection label="View">
+              <TweakRadio label="Surface" value={view} onChange={v => { setView(v); setTweak('view', v); }}
+                          options={[{ value: 'front', label: 'Front office' }, { value: 'back', label: 'Back office' }]} />
+              <TweakRadio label="Role" value={role} onChange={v => window.setRole(v)}
+                          options={[
+                            { value: 'guest', label: 'Guest' },
+                            { value: 'user',  label: 'User' },
+                            { value: 'admin', label: 'Admin' },
+                          ]} />
+            </TweakSection>
+            <TweakSection label="Appearance">
+              <TweakRadio label="Theme" value={tweaks.theme} onChange={v => setTweak('theme', v)}
+                          options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} />
+            </TweakSection>
+            <TweakSection label="Jump to (front)">
+              <TweakButton label="Home"            onClick={() => { setView('front'); routeAndScroll('fo-home'); }} />
+              <TweakButton label="Places · cities" onClick={() => { setView('front'); routeAndScroll('fo-places/cities'); }} />
+              <TweakButton label="Places · sights" onClick={() => { setView('front'); routeAndScroll('fo-places/sights'); }} />
+              <TweakButton label="Lists"           onClick={() => { setView('front'); routeAndScroll('fo-lists/all'); }} />
+              <TweakButton label="Top 100"         onClick={() => { setView('front'); routeAndScroll('fo-lists/top100'); }} />
+              <TweakButton label="Videos"          onClick={() => { setView('front'); routeAndScroll('fo-media/videos'); }} />
+              <TweakButton label="Wiki"            onClick={() => { setView('front'); routeAndScroll('fo-wiki'); }} />
+              <TweakButton label="Media"           onClick={() => { setView('front'); routeAndScroll('fo-media/images'); }} />
+              <TweakButton label="Guides shop"     onClick={() => { setView('front'); routeAndScroll('fo-guides/all'); }} />
+              <TweakButton label="MoroccAI"        onClick={() => { setView('front'); routeAndScroll('fo-moroccai'); }} />
+              <TweakButton label="Random"          onClick={() => { setView('front'); routeAndScroll('fo-random'); }} />
+              <TweakButton label="Marrakech detail" onClick={() => { setView('front'); setDestId('marrakech'); routeAndScroll('fo-destination'); }} />
+            </TweakSection>
+            <TweakSection label="Scroller">
+              <TweakToggle label="Scroller mode" value={scrollerMode} onChange={v => { setScrollerMode(v); setTweak('scrollerMode', v); window.scrollTo(0,0); }} />
+            </TweakSection>
+            <TweakSection label="Jump to (back)">
+              <TweakButton label="Dashboard"        onClick={() => { setView('back'); window.setRole('admin'); setBackRoute('dashboard'); }} />
+              <TweakButton label="Marrakech (BO)"   onClick={() => { setView('back'); window.setRole('admin'); setDestId('marrakech'); setBackRoute('dest-detail'); }} />
+              <TweakButton label="Agents"           onClick={() => { setView('back'); window.setRole('admin'); setBackRoute('agents'); }} />
+            </TweakSection>
+          </TweaksPanel>
+        </React.Fragment>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
