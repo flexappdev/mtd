@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "@/styles/mtd-v2.css";
 import { FrontHeaderV2, StickyFooter } from "@/components/v2/FrontShellV2";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { DESTINATIONS, TOTAL_RANKED } from "@/lib/mtd-v2/seed";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,11 +15,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" data-theme="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} mtd-v2`}>
-        <FrontHeaderV2 />
-        {children}
-        <StickyFooter destinations={DESTINATIONS.length} totalRanked={TOTAL_RANKED} />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <FrontHeaderV2 />
+          {children}
+          <StickyFooter destinations={DESTINATIONS.length} totalRanked={TOTAL_RANKED} />
+        </ThemeProvider>
       </body>
     </html>
   );
