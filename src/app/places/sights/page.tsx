@@ -3,6 +3,11 @@ import { SIGHTS, findDestination } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Sights",
+  description: "Mosques, kasbahs, medersas, ksars, dunes and beaches — Morocco's sights and monuments.",
+};
+
 export default function SightsPage() {
   const tiles: SectionTile[] = SIGHTS.map((s) => ({
     id: s.id,

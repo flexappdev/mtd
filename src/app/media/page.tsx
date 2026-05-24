@@ -2,6 +2,11 @@ import { SectionPage } from "@/components/v2/SectionPage";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Media",
+  description: "Images, audio, video, map, and downloadable guides — everything visual on Morocco.",
+};
+
 const SECTIONS = [
   { id: "images", title: "Images", subtitle: "Curated photography from across Morocco", meta: ["4,200 stock"], href: "/media/images" },
   { id: "audio", title: "Audio", subtitle: "Gnawa, Andalusian, Berber and contemporary", meta: ["120 tracks"], href: "/media/audio" },

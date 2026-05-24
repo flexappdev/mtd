@@ -3,6 +3,11 @@ import { HOTELS, findDestination } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Hotels & riads",
+  description: "From the Royal Mansour to clifftop Atlas retreats and Sahara desert camps.",
+};
+
 function bestRate(rates: Record<string, number | null>): number | null {
   const vals = Object.values(rates).filter((v): v is number => typeof v === "number");
   return vals.length ? Math.min(...vals) : null;

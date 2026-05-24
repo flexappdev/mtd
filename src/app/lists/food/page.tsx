@@ -3,6 +3,11 @@ import { RESTAURANTS, findDestination } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Top 100 restaurants in Morocco",
+  description: "Tagine to tasting menu — with the Jemaa el-Fna snail stall at #3.",
+};
+
 export default function ListsFoodPage() {
   const sorted = [...RESTAURANTS].sort((a, b) => b.clicks30 - a.clicks30);
   const tiles: SectionTile[] = sorted.map((r, i) => ({

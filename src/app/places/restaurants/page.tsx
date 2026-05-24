@@ -3,6 +3,11 @@ import { RESTAURANTS, findDestination } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Restaurants",
+  description: "Tagine to tasting menu — Moroccan restaurants, cafés, street food.",
+};
+
 export default function RestaurantsPage() {
   const tiles: SectionTile[] = RESTAURANTS.map((r) => ({
     id: r.id,

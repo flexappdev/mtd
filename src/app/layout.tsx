@@ -9,8 +9,23 @@ import { DESTINATIONS, TOTAL_RANKED } from "@/lib/mtd-v2/seed";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Morocco Top Destinations",
-  description: "Cinematic Netflix-style guide to Morocco — cities, kasbahs, beaches, desert, mountains, food.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://moroccotopdestinations.com",
+  ),
+  title: {
+    template: "%s · MTD",
+    default: "Morocco Top Destinations",
+  },
+  description:
+    "Cinematic Netflix-style guide to Morocco — cities, kasbahs, beaches, desert, mountains, food.",
+  openGraph: {
+    type: "website",
+    siteName: "Morocco Top Destinations",
+    title: "Morocco Top Destinations",
+    description:
+      "Cinematic Netflix-style guide to Morocco — cities, kasbahs, beaches, desert, mountains, food.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

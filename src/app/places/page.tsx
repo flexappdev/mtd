@@ -2,6 +2,11 @@ import { SectionPage } from "@/components/v2/SectionPage";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Places",
+  description: "Browse Morocco by region, city, sight, hotel, or restaurant.",
+};
+
 const SECTIONS = [
   { id: "regions", title: "Regions", subtitle: "5 regions, from coast to desert", href: "/places/regions" },
   { id: "cities", title: "Cities", subtitle: "14 cities & towns with travel info", href: "/places/cities" },

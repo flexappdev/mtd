@@ -3,6 +3,11 @@ import { DESTINATIONS, REGIONS, findRegion } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Cities",
+  description: "Marrakech, Fes, Chefchaouen, Casablanca and the rest — Moroccan cities across 5 regions.",
+};
+
 export default function CitiesPage() {
   const cities = DESTINATIONS.filter((d) => d.kind === "city");
   const tiles: SectionTile[] = cities.map((d) => ({

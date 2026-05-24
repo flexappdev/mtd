@@ -3,6 +3,11 @@ import { HOTELS, findDestination } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Top 100 hotels in Morocco",
+  description: "Ranked on revenue contribution — riads, palaces and desert camps.",
+};
+
 export default function ListsHotelsPage() {
   const sorted = [...HOTELS].sort((a, b) => b.rev30 - a.rev30);
   const tiles: SectionTile[] = sorted.map((h, i) => ({

@@ -3,6 +3,11 @@ import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Argan & beauty",
+  description: "Argan oil, hammam gift sets, rose water — Morocco-specific beauty shelf.",
+};
+
 export default function GuidesBeautyPage() {
   const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "beauty").map((g) => ({
     id: g.id,

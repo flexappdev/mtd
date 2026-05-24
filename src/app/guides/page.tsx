@@ -2,6 +2,11 @@ import { SectionPage } from "@/components/v2/SectionPage";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Guides & shop",
+  description: "Affiliate-linked guidebooks, cookbooks, travel gear and beauty products.",
+};
+
 const SECTIONS = [
   { id: "books", title: "Guidebooks", subtitle: "Lonely Planet, Rough Guide, phrasebooks", meta: ["64 titles"], href: "/guides/books" },
   { id: "cookbooks", title: "Cookbooks", subtitle: "Mourad, Paula Wolfert, tagine and couscous", meta: ["28 titles"], href: "/guides/cookbooks" },

@@ -2,6 +2,11 @@ import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Audio",
+  description: "Gnawa, Andalusian, Amazigh, chaabi, raï and ambient field recordings.",
+};
+
 const STREAMS: SectionTile[] = [
   { id: "gnawa", title: "Gnawa", subtitle: "Sufi trance music from Essaouira", meta: ["32 tracks"] },
   { id: "andalusian", title: "Andalusian", subtitle: "Classical Arab-Andalusian orchestras", meta: ["28 tracks"] },

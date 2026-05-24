@@ -2,6 +2,11 @@ import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Downloadable guides",
+  description: "Self-published MTD PDF guides — itineraries, packing lists, bargaining tips.",
+};
+
 const DOCS: SectionTile[] = [
   { id: "starter", title: "Morocco starter pack", subtitle: "10-day itinerary, packing list, phrasebook", meta: ["PDF · 24 pages"] },
   { id: "imperial", title: "Imperial cities tour", subtitle: "Marrakech / Fes / Meknes / Rabat in 14 days", meta: ["PDF · 32 pages"] },

@@ -3,6 +3,11 @@ import { FEATURED_VIDEOS, findDestination } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Videos",
+  description: "Walking tours, drone shots, sunrise dunes, food — curated from Morocco creators.",
+};
+
 export default function MediaVideosPage() {
   const tiles: SectionTile[] = FEATURED_VIDEOS.map((v) => ({
     id: v.id,

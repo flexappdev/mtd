@@ -3,6 +3,11 @@ import { DESTINATIONS, REGIONS } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Regions",
+  description: "Morocco's five regions — imperial heart, Atlantic coast, Atlas, Sahara, Mediterranean.",
+};
+
 export default function RegionsPage() {
   const tiles: SectionTile[] = REGIONS.map((r) => {
     const inRegion = DESTINATIONS.filter((d) => d.region === r.id);

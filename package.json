@@ -6,7 +6,8 @@
     "dev": "next dev --port 19007 --webpack",
     "build": "next build --webpack",
     "start": "next start --port 19007",
-    "lint": "next lint"
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1053.0",

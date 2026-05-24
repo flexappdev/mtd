@@ -3,6 +3,11 @@ import { DESTINATIONS, findRegion } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Images",
+  description: "Editorial photography by destination — 4,200 curated stock images + AI-generated hero art.",
+};
+
 export default function MediaImagesPage() {
   const tiles: SectionTile[] = DESTINATIONS.map((d) => ({
     id: d.id,

@@ -3,6 +3,11 @@ import { DESTINATIONS, SIGHTS, REGIONS, findRegion } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Top 100 places in Morocco",
+  description: "The definitive editorial ranking — cities, sights and regions in one list.",
+};
+
 type Entry = { id: string; title: string; subtitle?: string; meta?: string[]; score: number; href?: string };
 
 function build(): Entry[] {

@@ -3,6 +3,11 @@ import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Cookbooks",
+  description: "Mourad, Paula Wolfert and the tagine pots they cook from.",
+};
+
 export default function GuidesCookbooksPage() {
   const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "cookbook" || g.kind === "cooking").map((g) => ({
     id: g.id,

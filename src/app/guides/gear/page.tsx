@@ -3,6 +3,11 @@ import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Travel gear",
+  description: "Hiking shoes, sand tents, mirrorless cameras — kit for Morocco.",
+};
+
 export default function GuidesGearPage() {
   const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "gear").map((g) => ({
     id: g.id,

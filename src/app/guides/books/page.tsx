@@ -3,6 +3,11 @@ import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Guidebooks",
+  description: "Lonely Planet, Rough Guide, phrasebooks — Amazon affiliate links.",
+};
+
 export default function GuidesBooksPage() {
   const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "guidebook").map((g) => ({
     id: g.id,

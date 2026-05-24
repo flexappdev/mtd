@@ -3,6 +3,11 @@ import { LISTS, TOTAL_RANKED } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "All curated lists",
+  description: "Every ranked list on MTD — editorial and community.",
+};
+
 export default function ListsAllPage() {
   const tiles: SectionTile[] = LISTS.map((l) => ({
     id: l.id,

@@ -3,6 +3,11 @@ import { LISTS, TOTAL_RANKED } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "Lists",
+  description: "Editorial + community Top-100 lists across places, hotels, sights, food and media.",
+};
+
 export default function ListsIndex() {
   const tiles: SectionTile[] = LISTS.map((l) => ({
     id: l.id,

@@ -2,6 +2,11 @@ import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
 
 export const revalidate = 300;
 
+export const metadata = {
+  title: "MoroccAI",
+  description: "Ask anything about Morocco. MoroccAI grounds answers in the MTD catalogue.",
+};
+
 const CAPS: SectionTile[] = [
   { id: "trip-plan", title: "Plan my trip", subtitle: "Ask MoroccAI to draft a 7/10/14-day itinerary tuned to your tastes." },
   { id: "where-eat", title: "Where to eat", subtitle: "Tagine, fine dining, street food — local picks by city and budget." },
