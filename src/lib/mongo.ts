@@ -66,3 +66,62 @@ export async function pingDb(): Promise<number | null> {
     return null;
   }
 }
+
+/** Resolved Mongo collection names for MTD. The DB itself is `mtd`. */
+export const COLLECTIONS = {
+  destinations: "mtd_destinations",
+  regions: "mtd_regions",
+  cities: "mtd_cities",
+  sights: "mtd_sights",
+  hotels: "mtd_hotels",
+  restaurants: "mtd_restaurants",
+  lists: "mtd_lists",
+  pages: "mtd_pages",
+  prompts: "mtd_prompts",
+  s3Index: "s3_index",
+} as const;
+
+/** Collections the CMS UI is allowed to CRUD. Anything outside this list
+ *  goes through the raw Mongo admin instead. */
+export const CMS_COLLECTIONS = {
+  destinations: {
+    collection: COLLECTIONS.destinations,
+    label: "Destinations",
+    description: "Top Moroccan destinations — slug, title, region, hero, body.",
+  },
+  regions: {
+    collection: COLLECTIONS.regions,
+    label: "Regions",
+    description: "Morocco regions (Marrakech-Safi, Souss-Massa, etc.).",
+  },
+  cities: {
+    collection: COLLECTIONS.cities,
+    label: "Cities",
+    description: "Cities & towns with travel info.",
+  },
+  sights: {
+    collection: COLLECTIONS.sights,
+    label: "Sights",
+    description: "Sights, kasbahs, ruins, viewpoints, beaches.",
+  },
+  hotels: {
+    collection: COLLECTIONS.hotels,
+    label: "Hotels",
+    description: "Riads, resorts, kasbah hotels, desert camps.",
+  },
+  restaurants: {
+    collection: COLLECTIONS.restaurants,
+    label: "Restaurants",
+    description: "Restaurants, cafés, street food, tea houses.",
+  },
+  lists: {
+    collection: COLLECTIONS.lists,
+    label: "Lists",
+    description: "Top-100 lists and curated rankings.",
+  },
+  pages: {
+    collection: COLLECTIONS.pages,
+    label: "Pages",
+    description: "Editorial pages — slug, title, hero, body, status.",
+  },
+} as const;
