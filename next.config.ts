@@ -1,19 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/mstravel/mtd",
   images: {
     unoptimized: true,
-  },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/mstravel/mtd",
-        permanent: false,
-        basePath: false,
-      },
-    ];
   },
 };
 
