@@ -1,6 +1,19 @@
+import Link from "next/link";
 import { img, tint } from "@/lib/mtd-v2/seed";
 
 type Kind = "landscape" | "portrait" | "square" | "wide" | "thin";
+
+type TileProps = {
+  seed: string;
+  name: string;
+  meta?: string;
+  rank?: number;
+  badge?: string | null;
+  duration?: string;
+  kind?: Kind;
+  href?: string;
+  external?: boolean;
+};
 
 export function Tile({
   seed,
@@ -10,21 +23,15 @@ export function Tile({
   badge,
   duration,
   kind = "landscape",
-}: {
-  seed: string;
-  name: string;
-  meta?: string;
-  rank?: number;
-  badge?: string | null;
-  duration?: string;
-  kind?: Kind;
-}) {
+  href,
+  external,
+}: TileProps) {
   const [a, b] = tint(seed);
   const w = 800;
   const h = kind === "portrait" ? 1200 : kind === "thin" ? 1000 : 600;
   const imgUrl = img(seed, w, h);
 
-  return (
+  const inner = (
     <div className={`tile tile-${kind}`} style={{ ["--tint-a" as never]: `color-mix(in oklch, ${a} 35%, transparent)` }}>
       <div
         className="tile-img"
@@ -42,13 +49,44 @@ export function Tile({
       </div>
     </div>
   );
+
+  if (!href) return inner;
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="sponsored noreferrer"
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} style={{ textDecoration: "none", color: "inherit" }}>
+      {inner}
+    </Link>
+  );
 }
 
-export function BigRankTile({ seed, rank, name, meta }: { seed: string; rank: number; name: string; meta?: string }) {
+export function BigRankTile({
+  seed,
+  rank,
+  name,
+  meta,
+  href,
+}: {
+  seed: string;
+  rank: number;
+  name: string;
+  meta?: string;
+  href?: string;
+}) {
   const [a] = tint(seed);
   const imgUrl = img(seed, 400, 600);
 
-  return (
+  const inner = (
     <div className="tile-rank-big">
       <div className="num">{rank}</div>
       <div
@@ -68,6 +106,13 @@ export function BigRankTile({ seed, rank, name, meta }: { seed: string; rank: nu
         </div>
       </div>
     </div>
+  );
+
+  if (!href) return inner;
+  return (
+    <Link href={href} style={{ textDecoration: "none", color: "inherit" }}>
+      {inner}
+    </Link>
   );
 }
 

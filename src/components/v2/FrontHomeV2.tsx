@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Plus } from "lucide-react";
 import {
   DESTINATIONS,
@@ -20,6 +21,13 @@ function formatNum(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}k`;
   return String(n);
+}
+
+function guideKindHref(kind: string): string {
+  if (kind === "guidebook") return "/guides/books";
+  if (kind === "cookbook") return "/guides/cookbooks";
+  if (kind === "beauty") return "/guides/beauty";
+  return "/guides/gear";
 }
 
 export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: Destination[] }) {
@@ -63,24 +71,25 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             hotels, {featured.sights} sights, {featured.facts} facts — with live rates updated hourly.
           </p>
           <div className="cta-row">
-            <button className="btn-play" type="button">
+            <Link href={`/morocco/${featured.id}`} className="btn-play" style={{ textDecoration: "none" }}>
               <span style={{ fontSize: 18 }}>▶</span>
               Open guide
-            </button>
-            <button className="btn-more" type="button">
+            </Link>
+            <Link href={`/places/cities`} className="btn-more" style={{ textDecoration: "none" }}>
               <Plus size={16} /> More info
-            </button>
-            <button
+            </Link>
+            <Link
+              href={`/moroccai?dest=${featured.id}`}
               className="btn-more"
-              type="button"
               style={{
                 background: "rgba(193,39,45,0.18)",
                 borderColor: "rgba(193,39,45,0.4)",
                 color: "#c1272d",
+                textDecoration: "none",
               }}
             >
               <span style={{ fontSize: 16 }}>✦</span> Ask MoroccAI
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -93,6 +102,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             seed={d.id}
             name={d.name}
             meta={findRegion(d.region)?.name}
+            href={`/morocco/${d.id}`}
           />
         ))}
       </Row>
@@ -105,6 +115,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             kind="square"
             name={r.name}
             meta={DESTINATIONS.filter((d) => d.region === r.id).length + " destinations"}
+            href={`/places/regions#${r.id}`}
           />
         ))}
       </Row>
@@ -118,6 +129,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             name={s.name}
             meta={(findDestination(s.dest)?.name ?? "") + (s.unesco ? " · UNESCO" : "")}
             badge={s.unesco ? "UNESCO" : null}
+            href={`/morocco/${s.dest}#${s.id}`}
           />
         ))}
       </Row>
@@ -132,6 +144,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             meta={`${v.views} views · ${v.date}`}
             badge="VIDEO"
             duration={v.duration}
+            href={`/media/videos#${v.id}`}
           />
         ))}
       </Row>
@@ -145,6 +158,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             name={l.title}
             meta={`${l.items} entries · ${l.curator}`}
             badge={l.trending ? "TRENDING" : null}
+            href={`/lists/${l.id}`}
           />
         ))}
       </Row>
@@ -161,6 +175,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
               kind="square"
               name={h.name}
               meta={`${"★".repeat(h.stars)} · from €${minRate}`}
+              href={`/places/hotels#${h.id}`}
             />
           );
         })}
@@ -174,6 +189,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             kind="landscape"
             name={r.name}
             meta={`${r.kind} · ${r.price} · ${findDestination(r.dest)?.name ?? ""}`}
+            href={`/places/restaurants#${r.id}`}
           />
         ))}
       </Row>
@@ -187,12 +203,13 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             name={g.title}
             meta={`${g.price} · ★ ${g.rating}`}
             badge="SHOP"
+            href={guideKindHref(g.kind)}
           />
         ))}
       </Row>
 
       <div className="fo-promo-strip">
-        <div className="fo-promo">
+        <Link href="/moroccai" className="fo-promo" style={{ textDecoration: "none", color: "inherit" }}>
           <div
             className="mtd-photo"
             style={{ backgroundImage: `url(${img("promo-ai", 720, 405)})`, position: "absolute", inset: 0 }}
@@ -201,8 +218,8 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             <h4>Ask MoroccAI ✦</h4>
             <p>“Plan me 10 days in Morocco from Marrakech.” Done in 30 seconds.</p>
           </div>
-        </div>
-        <div className="fo-promo">
+        </Link>
+        <Link href="/lists" className="fo-promo" style={{ textDecoration: "none", color: "inherit" }}>
           <div
             className="mtd-photo"
             style={{ backgroundImage: `url(${img("promo-lists", 720, 405)})`, position: "absolute", inset: 0 }}
@@ -211,8 +228,8 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             <h4>10,000+ ranked entries</h4>
             <p>Every sight, hotel, restaurant scored across {LISTS.length} top-N lists.</p>
           </div>
-        </div>
-        <div className="fo-promo">
+        </Link>
+        <Link href="/media/videos" className="fo-promo" style={{ textDecoration: "none", color: "inherit" }}>
           <div
             className="mtd-photo"
             style={{ backgroundImage: `url(${img("promo-videos", 720, 405)})`, position: "absolute", inset: 0 }}
@@ -221,8 +238,8 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             <h4>10,000 Morocco videos</h4>
             <p>335 from Siems Production, the rest from the wider community.</p>
           </div>
-        </div>
-        <div className="fo-promo">
+        </Link>
+        <Link href="/random" className="fo-promo" style={{ textDecoration: "none", color: "inherit" }}>
           <div
             className="mtd-photo"
             style={{ backgroundImage: `url(${img("promo-random", 720, 405)})`, position: "absolute", inset: 0 }}
@@ -231,20 +248,24 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             <h4>🎲 Random Morocco</h4>
             <p>One click, one new place. Surprise yourself.</p>
           </div>
-        </div>
+        </Link>
       </div>
 
       <Row title="From the Wiki" sub="Sourced from Wikipedia · CC-BY-SA">
-        {WIKI_ARTICLES.map((w) => (
-          <Tile
-            key={w.id}
-            seed={"wiki-" + w.id}
-            kind="landscape"
-            name={w.title}
-            meta={`${w.length} · updated ${w.updated}`}
-            badge="WIKI"
-          />
-        ))}
+        {WIKI_ARTICLES.map((w) => {
+          const dest = w.dest !== "cross" ? findDestination(w.dest) : undefined;
+          return (
+            <Tile
+              key={w.id}
+              seed={"wiki-" + w.id}
+              kind="landscape"
+              name={w.title}
+              meta={`${w.length} · updated ${w.updated}`}
+              badge="WIKI"
+              href={dest ? `/morocco/${dest.id}` : "/wiki"}
+            />
+          );
+        })}
       </Row>
     </main>
   );

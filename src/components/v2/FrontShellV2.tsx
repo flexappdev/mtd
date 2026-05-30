@@ -180,12 +180,12 @@ export function FrontHeaderV2() {
         ))}
       </nav>
 
-      <div className="fo-search">
+      <form className="fo-search" action="/places" method="get" role="search">
         <span className="fo-search-icon">
           <Search size={14} />
         </span>
-        <input placeholder="Search Morocco…" />
-      </div>
+        <input name="q" placeholder="Search Morocco…" aria-label="Search Morocco" />
+      </form>
 
       <div className="fo-auth">
         <a title="Saved" style={{ color: "rgba(255,255,255,0.78)", padding: 8, cursor: "pointer" }}>
@@ -240,10 +240,10 @@ export function StickyFooter({
   return (
     <div className="fo-sticky-footer">
       <div className="group">
-        <button className="btn-dice" title="Random pick" type="button">
+        <Link href="/random" className="btn-dice" title="Random pick" prefetch={false} style={{ textDecoration: "none" }}>
           <span style={{ fontSize: 18 }}>🎲</span>
           Random
-        </button>
+        </Link>
         <div className="mini-stats" style={{ marginLeft: 8 }}>
           <span>
             <b>{destinations}</b> places
