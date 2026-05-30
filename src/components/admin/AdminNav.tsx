@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, FileText, Database, Cloud, LogOut, ArrowLeft } from "lucide-react";
+import { LayoutDashboard, FileText, Database, Cloud, LogOut, ArrowLeft, Network } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { DEV_BYPASS_COOKIE } from "@/lib/app-config";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,7 @@ const NAV = [
   { href: "/admin/cms", label: "CMS", icon: FileText },
   { href: "/admin/mongo", label: "Mongo", icon: Database },
   { href: "/admin/s3", label: "S3", icon: Cloud },
+  { href: "/admin/diagrams", label: "Diagrams", icon: Network },
 ];
 
 export function AdminNav() {
