@@ -1,37 +1,29 @@
-import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
-import { HOTELS, findDestination } from "@/lib/mtd-v2/seed";
+import { PageHeader } from "@/components/v2/PageHeader";
+import { HotelsGrid } from "@/components/v2/HotelsGrid";
+import { HOTELS } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
 export const metadata = {
   title: "Hotels & riads",
-  description: "From the Royal Mansour to clifftop Atlas retreats and Sahara desert camps.",
+  description: "From the Royal Mansour to clifftop Atlas retreats and Sahara desert camps. Live Booking/Expedia/Agoda rates.",
 };
 
-function bestRate(rates: Record<string, number | null>): number | null {
-  const vals = Object.values(rates).filter((v): v is number => typeof v === "number");
-  return vals.length ? Math.min(...vals) : null;
-}
-
 export default function HotelsPage() {
-  const tiles: SectionTile[] = HOTELS.map((h) => {
-    const rate = bestRate(h.rates as unknown as Record<string, number | null>);
-    return {
-      id: h.id,
-      title: h.name,
-      subtitle: findDestination(h.dest)?.name,
-      badge: `${h.stars}★`,
-      href: `/morocco/${h.dest}`,
-      meta: [rate ? `from €${rate}` : "rate tbd", `${h.clicks30.toLocaleString()} clicks/30d`],
-    };
-  });
+  const sorted = [...HOTELS].sort((a, b) => b.clicks30 - a.clicks30);
   return (
-    <SectionPage
-      crumb="Places · Hotels"
-      title="Hotels & riads"
-      tagline="From the Royal Mansour to clifftop Atlas retreats and Sahara desert camps."
-      stats={[{ label: "Hotels (live)", value: HOTELS.length }]}
-      tiles={tiles}
-    />
+    <div className="space-y-8 p-8">
+      <PageHeader
+        crumb="Places · Hotels"
+        title="Hotels & riads"
+        tagline="From the Royal Mansour to clifftop Atlas retreats and Sahara desert camps. Live rates across Booking, Expedia and Agoda — click any logo to compare."
+        stats={[
+          { label: "Hotels", value: HOTELS.length },
+          { label: "5★", value: HOTELS.filter((h) => h.stars === 5).length },
+          { label: "Cities", value: new Set(HOTELS.map((h) => h.dest)).size },
+        ]}
+      />
+      <HotelsGrid hotels={sorted} />
+    </div>
   );
 }

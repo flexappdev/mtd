@@ -15,6 +15,7 @@ export default function ListsIndex() {
     subtitle: l.description,
     badge: l.trending ? "Trending" : undefined,
     meta: [l.curator, `${l.items} items`],
+    href: `/lists/${l.id}`,
   }));
   return (
     <SectionPage

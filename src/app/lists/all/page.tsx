@@ -15,6 +15,7 @@ export default function ListsAllPage() {
     subtitle: l.description,
     badge: l.trending ? "Trending" : undefined,
     meta: [l.curator, `${l.items} items`, l.kind],
+    href: `/lists/${l.id}`,
   }));
   return (
     <SectionPage

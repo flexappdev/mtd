@@ -1,28 +1,25 @@
-import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
+import { PageHeader } from "@/components/v2/PageHeader";
+import { GuidesGrid } from "@/components/v2/GuidesGrid";
 import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
 export const metadata = {
   title: "Guidebooks",
-  description: "Lonely Planet, Rough Guide, phrasebooks — Amazon affiliate links.",
+  description: "Lonely Planet, Rough Guide, phrasebooks — Amazon affiliate links (tag fs08-21).",
 };
 
 export default function GuidesBooksPage() {
-  const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "guidebook").map((g) => ({
-    id: g.id,
-    title: g.title,
-    subtitle: `★ ${g.rating} (${g.reviews.toLocaleString()} reviews)`,
-    badge: g.price,
-    meta: [g.asin, "Amazon"],
-  }));
+  const books = GUIDES.filter((g) => g.kind === "guidebook");
   return (
-    <SectionPage
-      crumb="Guides · Books"
-      title="Guidebooks"
-      tagline="The canonical Lonely Planet, Rough Guide and phrasebook titles — all affiliate-linked to Amazon."
-      stats={[{ label: "Titles", value: tiles.length }]}
-      tiles={tiles}
-    />
+    <div className="space-y-8 p-8">
+      <PageHeader
+        crumb="Guides · Guidebooks"
+        title="Guidebooks"
+        tagline="Lonely Planet, Rough Guide and the essential phrasebooks. Every link is an Amazon affiliate (tag fs08-21) — see /legal/affiliates."
+        stats={[{ label: "Titles", value: books.length }]}
+      />
+      <GuidesGrid guides={books} emptyMessage="More guidebooks landing soon." />
+    </div>
   );
 }

@@ -1,28 +1,25 @@
-import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
+import { PageHeader } from "@/components/v2/PageHeader";
+import { GuidesGrid } from "@/components/v2/GuidesGrid";
 import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
 export const metadata = {
   title: "Cookbooks",
-  description: "Mourad, Paula Wolfert and the tagine pots they cook from.",
+  description: "Tagine, couscous, pastilla — Moroccan cookbooks (Mourad, Paula Wolfert) via Amazon.",
 };
 
 export default function GuidesCookbooksPage() {
-  const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "cookbook" || g.kind === "cooking").map((g) => ({
-    id: g.id,
-    title: g.title,
-    subtitle: `★ ${g.rating} (${g.reviews.toLocaleString()} reviews)`,
-    badge: g.price,
-    meta: [g.kind, g.asin],
-  }));
+  const books = GUIDES.filter((g) => g.kind === "cookbook" || g.kind === "cooking");
   return (
-    <SectionPage
-      crumb="Guides · Cookbooks"
-      title="Cookbooks"
-      tagline="Mourad, Paula Wolfert and the tagines they cook from — plus the pots themselves."
-      stats={[{ label: "Titles", value: tiles.length }]}
-      tiles={tiles}
-    />
+    <div className="space-y-8 p-8">
+      <PageHeader
+        crumb="Guides · Cookbooks"
+        title="Moroccan cookbooks"
+        tagline="Mourad — New Moroccan. Paula Wolfert — The Food of Morocco. The defining titles, all Amazon-affiliate-linked (tag fs08-21)."
+        stats={[{ label: "Titles", value: books.length }]}
+      />
+      <GuidesGrid guides={books} emptyMessage="More cookbooks landing soon." />
+    </div>
   );
 }

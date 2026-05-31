@@ -1,29 +1,25 @@
-import { SectionPage, type SectionTile } from "@/components/v2/SectionPage";
+import { PageHeader } from "@/components/v2/PageHeader";
+import { GuidesGrid } from "@/components/v2/GuidesGrid";
 import { GUIDES } from "@/lib/mtd-v2/seed";
 
 export const revalidate = 300;
 
 export const metadata = {
   title: "Argan & beauty",
-  description: "Argan oil, hammam gift sets, rose water — Morocco-specific beauty shelf.",
+  description: "Argan oil, hammam sets, rose water — Moroccan beauty essentials.",
 };
 
 export default function GuidesBeautyPage() {
-  const tiles: SectionTile[] = GUIDES.filter((g) => g.kind === "beauty").map((g) => ({
-    id: g.id,
-    title: g.title,
-    subtitle: `★ ${g.rating} (${g.reviews.toLocaleString()} reviews)`,
-    badge: g.price,
-    meta: [g.asin, "Amazon"],
-  }));
+  const beauty = GUIDES.filter((g) => g.kind === "beauty");
   return (
-    <SectionPage
-      crumb="Guides · Beauty"
-      title="Argan & beauty"
-      tagline="Argan oil, hammam gift sets, rose water — the Morocco-specific beauty shelf."
-      stats={[{ label: "Items", value: tiles.length }]}
-      tiles={tiles}
-      emptyMessage="Beauty assortment expanding — check back soon for argan, hammam and rose products."
-    />
+    <div className="space-y-8 p-8">
+      <PageHeader
+        crumb="Guides · Argan & beauty"
+        title="Argan & beauty"
+        tagline="Argan oil hammam gift sets, rose-water sprays, ghassoul clay. Amazon affiliate (tag fs08-21)."
+        stats={[{ label: "Items", value: beauty.length }]}
+      />
+      <GuidesGrid guides={beauty} emptyMessage="Beauty range landing soon." />
+    </div>
   );
 }
