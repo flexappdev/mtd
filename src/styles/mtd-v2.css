@@ -357,6 +357,23 @@ body.mtd-v2 {
 .fo-row-scroll::-webkit-scrollbar { display: none; }
 .fo-row-scroll > * { scroll-snap-align: start; flex-shrink: 0; }
 
+/* Scroller mode: persistent toggle in the sticky footer collapses every
+   .fo-row-scroll into a single-column, top-down feed instead of a
+   horizontal carousel. Persistence + toggle are wired in FrontShellV2. */
+html[data-scroller="on"] .fo-row-scroll {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  overflow-x: visible;
+  scroll-snap-type: none;
+  padding: 4px 24px;
+}
+html[data-scroller="on"] .fo-row-scroll > * {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 /* ===== Tile ===== */
 .tile {
   position: relative;

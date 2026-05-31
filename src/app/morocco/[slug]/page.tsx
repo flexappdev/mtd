@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/v2/PageHeader";
 import { HotelsGrid } from "@/components/v2/HotelsGrid";
+import { SaveButton } from "@/components/v2/SaveButton";
 import { MOROCCO_PLACES, getWikiSummary } from "@/lib/mtd-data";
 import {
   DESTINATIONS,
@@ -97,6 +98,7 @@ export default async function MoroccoPlacePage({ params }: { params: Promise<{ s
               >
                 🎲 Random place
               </Link>
+              <SaveButton id={v2?.id ?? legacy?.slug ?? ""} label="Save place" />
             </div>
           </div>
         </div>

@@ -188,9 +188,13 @@ export function FrontHeaderV2() {
       </form>
 
       <div className="fo-auth">
-        <a title="Saved" style={{ color: "rgba(255,255,255,0.78)", padding: 8, cursor: "pointer" }}>
+        <Link
+          href="/saved"
+          title="Saved places"
+          style={{ color: "rgba(255,255,255,0.78)", padding: 8, textDecoration: "none" }}
+        >
           <Star size={16} />
-        </a>
+        </Link>
         {session.kind === "user" ? (
           <>
             <Link
@@ -228,6 +232,8 @@ export function FrontHeaderV2() {
   );
 }
 
+const SCROLLER_KEY = "mtd:scroller-mode";
+
 export function StickyFooter({
   destinations,
   totalRanked,
@@ -236,6 +242,32 @@ export function StickyFooter({
   totalRanked: number;
 }) {
   const [scrollerMode, setScrollerMode] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(SCROLLER_KEY) === "1";
+      if (stored) {
+        setScrollerMode(true);
+        document.documentElement.dataset.scroller = "on";
+      }
+    } catch {}
+  }, []);
+
+  function toggleScroller() {
+    setScrollerMode((prev) => {
+      const next = !prev;
+      try {
+        if (next) {
+          window.localStorage.setItem(SCROLLER_KEY, "1");
+          document.documentElement.dataset.scroller = "on";
+        } else {
+          window.localStorage.removeItem(SCROLLER_KEY);
+          delete document.documentElement.dataset.scroller;
+        }
+      } catch {}
+      return next;
+    });
+  }
 
   return (
     <div className="fo-sticky-footer">
@@ -259,7 +291,7 @@ export function StickyFooter({
       <div className="group">
         <button
           className={`scroller-toggle${scrollerMode ? " on" : ""}`}
-          onClick={() => setScrollerMode((s) => !s)}
+          onClick={toggleScroller}
           type="button"
           title="Scroller mode: every page becomes one long ranked feed"
         >
