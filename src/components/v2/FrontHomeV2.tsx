@@ -115,7 +115,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             kind="square"
             name={r.name}
             meta={DESTINATIONS.filter((d) => d.region === r.id).length + " destinations"}
-            href={`/places/regions#${r.id}`}
+            href={`/places/regions/${r.id}`}
           />
         ))}
       </Row>

@@ -16,6 +16,7 @@ export default function RegionsPage() {
       title: r.name,
       subtitle: `${inRegion.length} destination${inRegion.length === 1 ? "" : "s"}`,
       meta: [r.id],
+      href: `/places/regions/${r.id}`,
     };
   });
   return (
