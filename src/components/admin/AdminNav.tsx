@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, FileText, Database, Cloud, LogOut, ArrowLeft, Network } from "lucide-react";
+import { LayoutDashboard, FileText, Database, Cloud, LogOut, ArrowLeft, Network, BarChart3, Banknote, Sparkles } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { DEV_BYPASS_COOKIE } from "@/lib/app-config";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,9 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/cms", label: "CMS", icon: FileText },
+  { href: "/admin/bookings", label: "Bookings", icon: BarChart3 },
+  { href: "/admin/affiliates", label: "Affiliates", icon: Banknote },
+  { href: "/admin/moroccai", label: "MoroccAI", icon: Sparkles },
   { href: "/admin/mongo", label: "Mongo", icon: Database },
   { href: "/admin/s3", label: "S3", icon: Cloud },
   { href: "/admin/diagrams", label: "Diagrams", icon: Network },
