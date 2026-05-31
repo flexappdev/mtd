@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { DESTINATIONS } from "@/lib/mtd-v2/seed";
+import { DESTINATIONS, LISTS, REGIONS } from "@/lib/mtd-v2/seed";
 
 const PUBLIC_ROUTES = [
   "/",
@@ -28,12 +28,16 @@ const PUBLIC_ROUTES = [
   "/guides/gear",
   "/guides/beauty",
   "/moroccai",
+  "/moroccai/chat",
   "/morocco",
   "/apps",
   "/videos",
   "/github",
   "/prompts",
   "/scroller",
+  "/saved",
+  "/legal/affiliates",
+  "/legal/privacy",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -51,5 +55,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
-  return [...top, ...destinations];
+  const regions = REGIONS.map((r) => ({
+    url: `${base}/places/regions/${r.id}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+  const lists = LISTS.map((l) => ({
+    url: `${base}/lists/${l.id}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+  return [...top, ...destinations, ...regions, ...lists];
 }
