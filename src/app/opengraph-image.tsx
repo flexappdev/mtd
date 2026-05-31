@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
-import { OG_SIZE, OG_CONTENT_TYPE, OG_RUNTIME, ogPayload } from "@/lib/og";
+import { ogPayload } from "@/lib/og";
 
 const BRAND = "MTD";
 
-export const runtime = OG_RUNTIME;
-export const contentType = OG_CONTENT_TYPE;
-export const size = OG_SIZE;
+export const runtime = "edge";
+export const contentType = "image/png";
+export const size = { width: 1200, height: 630 };
 export const alt = "MTD";
 
 export default function OpengraphImage() {
@@ -48,6 +48,6 @@ export default function OpengraphImage() {
         </div>
       </div>
     ),
-    { ...OG_SIZE }
+    { width: 1200, height: 630 }
   );
 }
