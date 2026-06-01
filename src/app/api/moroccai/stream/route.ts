@@ -2,7 +2,10 @@ import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest } from "next/server";
 import { MOROCCAI_BASE_PROMPT, MOROCCAI_MODEL, contextHint } from "@/lib/moroccai/system-prompt";
 
-export const runtime = "edge";
+// @anthropic-ai/sdk v0.100+ pulls in node:child_process via its agent-toolset
+// module, which the Edge runtime can't bundle. Run on Node — Anthropic streaming
+// works the same and the chat endpoint doesn't need Edge geo-replication.
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
