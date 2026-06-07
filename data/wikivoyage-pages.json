@@ -1,0 +1,334 @@
+[
+  {
+    "pageid": 1283,
+    "title": "Anti Atlas"
+  },
+  {
+    "pageid": 14595,
+    "title": "High Atlas"
+  },
+  {
+    "pageid": 21876,
+    "title": "Mediterranean Morocco"
+  },
+  {
+    "pageid": 22228,
+    "title": "Middle Atlas"
+  },
+  {
+    "pageid": 24830,
+    "title": "North Atlantic Coast (Morocco)"
+  },
+  {
+    "pageid": 30430,
+    "title": "Saharan Morocco"
+  },
+  {
+    "pageid": 33369,
+    "title": "South Atlantic Coast (Morocco)"
+  },
+  {
+    "pageid": 146695,
+    "title": "Aglou"
+  },
+  {
+    "pageid": 164035,
+    "title": "Akka"
+  },
+  {
+    "pageid": 136302,
+    "title": "Guelmim"
+  },
+  {
+    "pageid": 162773,
+    "title": "Legzira"
+  },
+  {
+    "pageid": 146694,
+    "title": "Mirleft"
+  },
+  {
+    "pageid": 146662,
+    "title": "Sidi Ifni"
+  },
+  {
+    "pageid": 35052,
+    "title": "Tafraoute"
+  },
+  {
+    "pageid": 172555,
+    "title": "Tan-Tan"
+  },
+  {
+    "pageid": 35332,
+    "title": "Tarfaya"
+  },
+  {
+    "pageid": 35356,
+    "title": "Taroudannt"
+  },
+  {
+    "pageid": 146663,
+    "title": "Tiznit"
+  },
+  {
+    "pageid": 216709,
+    "title": "Agafay Desert"
+  },
+  {
+    "pageid": 1010,
+    "title": "Amizmiz"
+  },
+  {
+    "pageid": 1748,
+    "title": "Asni"
+  },
+  {
+    "pageid": 139,
+    "title": "Aït-Benhaddou"
+  },
+  {
+    "pageid": 15433,
+    "title": "Ikkiss"
+  },
+  {
+    "pageid": 15519,
+    "title": "Imlil"
+  },
+  {
+    "pageid": 208732,
+    "title": "Khouribga"
+  },
+  {
+    "pageid": 21391,
+    "title": "Marigha"
+  },
+  {
+    "pageid": 21485,
+    "title": "Marrakech"
+  },
+  {
+    "pageid": 26279,
+    "title": "Oukaimeden"
+  },
+  {
+    "pageid": 111696,
+    "title": "Ourika Valley"
+  },
+  {
+    "pageid": 202270,
+    "title": "Ouzoud Falls"
+  },
+  {
+    "pageid": 32247,
+    "title": "Setti Fatma"
+  },
+  {
+    "pageid": 165039,
+    "title": "Tabant"
+  },
+  {
+    "pageid": 35024,
+    "title": "Tacheddirt"
+  },
+  {
+    "pageid": 36062,
+    "title": "Tinerhir"
+  },
+  {
+    "pageid": 122802,
+    "title": "Toubkal National Park"
+  },
+  {
+    "pageid": 174267,
+    "title": "Zaouiat Ahansal"
+  },
+  {
+    "pageid": 197612,
+    "title": "Al Hoceima"
+  },
+  {
+    "pageid": 215952,
+    "title": "Berkane"
+  },
+  {
+    "pageid": 6962,
+    "title": "Chefchaouen"
+  },
+  {
+    "pageid": 16263,
+    "title": "Jerada"
+  },
+  {
+    "pageid": 156571,
+    "title": "Nador"
+  },
+  {
+    "pageid": 26276,
+    "title": "Oued Laou"
+  },
+  {
+    "pageid": 26278,
+    "title": "Oujda"
+  },
+  {
+    "pageid": 208044,
+    "title": "Saidia"
+  },
+  {
+    "pageid": 35257,
+    "title": "Tangier"
+  },
+  {
+    "pageid": 35665,
+    "title": "Tétouan"
+  },
+  {
+    "pageid": 150378,
+    "title": "Azrou"
+  },
+  {
+    "pageid": 11575,
+    "title": "Fez"
+  },
+  {
+    "pageid": 15397,
+    "title": "Ifrane"
+  },
+  {
+    "pageid": 15952,
+    "title": "Itzer"
+  },
+  {
+    "pageid": 17467,
+    "title": "Khoukhate"
+  },
+  {
+    "pageid": 151406,
+    "title": "M'Rirt"
+  },
+  {
+    "pageid": 21911,
+    "title": "Meknes"
+  },
+  {
+    "pageid": 22283,
+    "title": "Midelt"
+  },
+  {
+    "pageid": 138924,
+    "title": "Moulay Idriss"
+  },
+  {
+    "pageid": 35461,
+    "title": "Taza"
+  },
+  {
+    "pageid": 40292,
+    "title": "Zaouiate Oued Ifrane"
+  },
+  {
+    "pageid": 132679,
+    "title": "Asilah"
+  },
+  {
+    "pageid": 6141,
+    "title": "Casablanca"
+  },
+  {
+    "pageid": 10799,
+    "title": "El Jadida"
+  },
+  {
+    "pageid": 19129,
+    "title": "Larache"
+  },
+  {
+    "pageid": 165371,
+    "title": "Moulay Bousselham"
+  },
+  {
+    "pageid": 29040,
+    "title": "Rabat"
+  },
+  {
+    "pageid": 149220,
+    "title": "Alnif"
+  },
+  {
+    "pageid": 11049,
+    "title": "Erfoud"
+  },
+  {
+    "pageid": 11051,
+    "title": "Erg Chebbi"
+  },
+  {
+    "pageid": 172125,
+    "title": "Errachidia"
+  },
+  {
+    "pageid": 17395,
+    "title": "Khamlia"
+  },
+  {
+    "pageid": 20618,
+    "title": "M'Hamid"
+  },
+  {
+    "pageid": 22069,
+    "title": "Merzouga"
+  },
+  {
+    "pageid": 24681,
+    "title": "Nkob"
+  },
+  {
+    "pageid": 26270,
+    "title": "Ouarzazate"
+  },
+  {
+    "pageid": 29792,
+    "title": "Rissani"
+  },
+  {
+    "pageid": 210672,
+    "title": "Skoura"
+  },
+  {
+    "pageid": 205280,
+    "title": "Tamsahelte"
+  },
+  {
+    "pageid": 214755,
+    "title": "Tinejdad"
+  },
+  {
+    "pageid": 40238,
+    "title": "Zagora"
+  },
+  {
+    "pageid": 292,
+    "title": "Agadir"
+  },
+  {
+    "pageid": 11133,
+    "title": "Essaouira"
+  },
+  {
+    "pageid": 15523,
+    "title": "Imouzzer"
+  },
+  {
+    "pageid": 203568,
+    "title": "Safi"
+  },
+  {
+    "pageid": 33343,
+    "title": "Souss-Massa National Park"
+  },
+  {
+    "pageid": 35062,
+    "title": "Taghazout"
+  }
+]

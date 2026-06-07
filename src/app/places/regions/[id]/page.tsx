@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/v2/PageHeader";
 import { DESTINATIONS, HOTELS, REGIONS, SIGHTS, img, tint } from "@/lib/mtd-v2/seed";
+import { findArticleForRegion } from "@/lib/wikivoyage";
 
 export const revalidate = 300;
 
@@ -33,6 +34,7 @@ export default async function RegionDetailPage({ params }: { params: Promise<{ i
     const dest = DESTINATIONS.find((d) => d.id === h.dest);
     return dest?.region === region.id;
   });
+  const wv = findArticleForRegion(region.id);
 
   return (
     <div className="space-y-8 p-8">
@@ -55,6 +57,40 @@ export default async function RegionDetailPage({ params }: { params: Promise<{ i
           </Link>
         </div>
       </PageHeader>
+
+      {wv && (
+        <section
+          className="rounded-lg border border-zinc-800 bg-zinc-900/60 p-6"
+          style={{ borderLeftWidth: 3, borderLeftColor: "var(--app-accent)" }}
+        >
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <h2 className="text-lg font-semibold text-zinc-100">From Wikivoyage</h2>
+            <Link
+              href={`/wiki/${wv.slug}`}
+              className="text-[11px] uppercase tracking-wider text-zinc-400 hover:text-zinc-200"
+              style={{ textDecoration: "none" }}
+            >
+              full article →
+            </Link>
+          </div>
+          <div className="flex flex-col items-start gap-6 md:flex-row">
+            {wv.thumbnail && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={wv.thumbnail}
+                alt={wv.title}
+                className="h-40 w-full shrink-0 rounded-md object-cover md:w-72"
+              />
+            )}
+            <div>
+              {wv.description && (
+                <div className="mb-2 text-[11px] uppercase tracking-wider text-zinc-500">{wv.description}</div>
+              )}
+              {wv.extract && <p className="text-sm leading-relaxed text-zinc-300">{wv.extract}</p>}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {destsInRegion.map((d) => {

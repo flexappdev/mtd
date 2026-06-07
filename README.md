@@ -45,7 +45,8 @@ S3 (com27 bucket) · Anthropic Claude Sonnet 4.6 streaming · Amazon / Booking /
 | `/guides` | Section index |
 | `/guides/books` · `/guides/cookbooks` · `/guides/gear` · `/guides/beauty` | `GuidesGrid` with Amazon `AffiliateLink` (`tag=fs08-21`, `rel="sponsored nofollow"`) |
 | `/media/images` · `/media/audio` · `/media/videos` · `/media/map` · `/media/pdf` | Tile grids over seed (map is region cards for now) |
-| `/wiki` | Long-form articles index |
+| `/wiki` | All 83 Wikivoyage Morocco articles (CC BY-SA 4.0) with thumbnails + summaries |
+| `/wiki/[slug]` | Per-article detail — image, lead extract, MoroccAI deep-link, Wikivoyage source link |
 | `/moroccai` | 6 capability cards — each links to `/moroccai/chat?topic=…` |
 | `/moroccai/chat` | Live chat against Claude Sonnet 4.6 (`runtime = "nodejs"`) — catalogue-grounded system prompt with prompt cache. Reads `?dest=`, `?region=`, `?topic=` for context seeding |
 | `/saved` | Locally-saved destinations (`localStorage[mtd:saved]`) |
@@ -106,6 +107,8 @@ npm run lint         # alias of typecheck
 
 node scripts/seed-mongo.mjs            # idempotent upsert of v2 seed into mtd_* collections
 node scripts/seed-mongo.mjs --reset    # drop + reseed
+node scripts/fetch-wikivoyage.mjs      # crawl Category:Morocco → data/wikivoyage-morocco.json
+node scripts/fetch-wikivoyage.mjs --offline   # refresh summaries from cached page list
 bash scripts/sync-env.sh               # sync env vars from central .env
 ```
 
@@ -118,7 +121,8 @@ bash scripts/sync-env.sh               # sync env vars from central .env
 - **OG per route.** Global brand card at `src/app/opengraph-image.tsx`. Per-route variants for `/morocco/[slug]`, `/lists/[id]`, `/places/regions/[id]`. All use `runtime = "edge"` literals (inlined — see commit `05d7d49` for why re-exports break static resolution).
 - **Security headers.** `next.config.ts` sets X-Frame-Options DENY, X-Content-Type-Options nosniff, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy `camera=() microphone=() geolocation=() interest-cohort=()`, HSTS `max-age=63072000; includeSubDomains; preload`.
 - **Auth is single-user.** Middleware redirects everything except the public path allowlist to `/login` if there is no Supabase session for `mat@matsiems.com`. Set the `appai-dev-bypass=1` cookie for local Playwright runs.
-- **Sitemap is dynamic.** `src/app/sitemap.ts` enumerates leaf pages + all 14 destinations + 5 regions + 18 lists.
+- **Sitemap is dynamic.** `src/app/sitemap.ts` enumerates leaf pages + all 14 destinations + 5 regions + 18 lists + 83 Wikivoyage articles.
+- **Wikivoyage content.** `data/wikivoyage-morocco.json` is the canonical local copy of 83 Morocco articles from en.wikivoyage.org (CC BY-SA 4.0). Refresh via `node scripts/fetch-wikivoyage.mjs`. Surfaced on `/wiki`, `/wiki/[slug]`, and as a section on `/morocco/[slug]` + `/places/regions/[id]` via `findArticleForDestination()` / `findArticleForRegion()`.
 
 ## Repo layout
 
@@ -147,6 +151,7 @@ src/
 │   └── ThemeProvider.tsx
 ├── lib/
 │   ├── mtd-v2/{seed,types}.ts            # canonical data
+│   ├── wikivoyage.ts                     # CC BY-SA Wikivoyage loader + dest/region lookup
 │   ├── moroccai/system-prompt.ts         # catalogue-grounded Claude prompt
 │   ├── og.ts                             # OG payload helper
 │   ├── saved.ts                          # localStorage favourites
@@ -156,7 +161,12 @@ src/
 
 scripts/
 ├── seed-mongo.mjs                        # idempotent upsert of v2 seed
+├── fetch-wikivoyage.mjs                  # recursive crawl of Category:Morocco
 └── sync-env.sh                           # pull env from ~/context-2026
+
+data/
+├── wikivoyage-morocco.json               # 83 articles (CC BY-SA 4.0)
+└── wikivoyage-pages.json                 # crawler page-list cache
 ```
 
 ## Roadmap

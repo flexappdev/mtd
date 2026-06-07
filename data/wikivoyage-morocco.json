@@ -1,0 +1,1586 @@
+{
+  "source": "en.wikivoyage.org",
+  "category": "Category:Morocco",
+  "license": "CC BY-SA 4.0",
+  "crawled_at": "2026-06-07T11:29:10.740Z",
+  "count": 83,
+  "articles": [
+    {
+      "slug": "agadir",
+      "title": "Agadir",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Agadir</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nAgadir is a city in the southern part of Morocco. Agadir is a tourist resort that is popular with European travelers and Moroccans alike. It has a beach with all the appropriate facilities for beach-tourism. The city is especially attractive, it is clean and orderly with very friendly locals.",
+      "extract_html": "<p>\n<b>Agadir</b> is a city in the southern part of Morocco. Agadir is a tourist resort that is popular with European travelers and Moroccans alike. It has a beach with all the appropriate facilities for <i>beach-tourism</i>. The city is especially attractive, it is clean and orderly with very friendly locals.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Agadir%2CMorocco.jpg/330px-Agadir%2CMorocco.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 30.4333,
+        "lon": -9.6
+      },
+      "url": "https://en.wikivoyage.org/wiki/Agadir",
+      "page_id": 292,
+      "revision": "5236664",
+      "timestamp": "2026-03-25T15:05:51Z"
+    },
+    {
+      "slug": "agafay-desert",
+      "title": "Agafay Desert",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Agafay Desert</span></span>",
+      "description": null,
+      "extract": "The Agafay Desert is a rocky desert landscape located about 30 kilometers south of Marrakech, Morocco. Often called the \"Marrakech Desert,\" it offers a harsh, beautiful landscape of stone dunes and white hills with the snow-capped High Atlas mountains in the background.",
+      "extract_html": "<p>The <b>Agafay Desert</b> is a rocky desert landscape located about 30 kilometers south of Marrakech, Morocco. Often called the \"Marrakech Desert,\" it offers a harsh, beautiful landscape of stone dunes and white hills with the snow-capped High Atlas mountains in the background.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.4286,
+        "lon": -8.1438
+      },
+      "url": "https://en.wikivoyage.org/wiki/Agafay_Desert",
+      "page_id": 216709,
+      "revision": "5288208",
+      "timestamp": "2026-06-04T22:13:26Z"
+    },
+    {
+      "slug": "aglou",
+      "title": "Aglou",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Aglou</span></span>",
+      "description": "fraction in Morocco",
+      "extract": "Aglou is in Anti Atlas, about 10 minutes west of Tiznit.",
+      "extract_html": "<p><b>Aglou</b> is in Anti Atlas, about 10 minutes west of Tiznit.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 29.802,
+        "lon": -9.831
+      },
+      "url": "https://en.wikivoyage.org/wiki/Aglou",
+      "page_id": 146695,
+      "revision": "4886162",
+      "timestamp": "2024-05-28T01:26:05Z"
+    },
+    {
+      "slug": "a-t-benhaddou",
+      "title": "Aït-Benhaddou",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Aït-Benhaddou</span></span>",
+      "description": "Historical village in southeastern Morocco",
+      "extract": "Aït-Benhaddou is a city in Morocco.",
+      "extract_html": "<p><b>Aït-Benhaddou</b> is a city in Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ksar_A%C3%AFt_Benhaddou%2C_Marocco_%28%D8%A3%D9%8A%D8%AA_%D8%A8%D9%86_%D8%AD%D8%AF%D9%88%D8%8C_%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%2C_%E2%B4%B0%E2%B5%A2%E2%B5%9C_%E2%B5%83%E2%B4%B0%E2%B4%B7%E2%B4%B7%E2%B5%93%29.jpg/330px-Ksar_A%C3%AFt_Benhaddou%2C_Marocco_%28%D8%A3%D9%8A%D8%AA_%D8%A8%D9%86_%D8%AD%D8%AF%D9%88%D8%8C_%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%2C_%E2%B4%B0%E2%B5%A2%E2%B5%9C_%E2%B5%83%E2%B4%B0%E2%B4%B7%E2%B4%B7%E2%B5%93%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 204,
+      "coordinates": {
+        "lat": 31.05,
+        "lon": -7.133333
+      },
+      "url": "https://en.wikivoyage.org/wiki/A%C3%AFt-Benhaddou",
+      "page_id": 139,
+      "revision": "5102427",
+      "timestamp": "2025-08-02T12:48:29Z"
+    },
+    {
+      "slug": "akka",
+      "title": "Akka",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Akka</span></span>",
+      "description": "town in Morocco",
+      "extract": "Akka is a town in Anti Atlas, Morocco.",
+      "extract_html": "<p><b>Akka</b> is a town in Anti Atlas, Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 29.3901,
+        "lon": -8.2736
+      },
+      "url": "https://en.wikivoyage.org/wiki/Akka",
+      "page_id": 164035,
+      "revision": "5266394",
+      "timestamp": "2026-04-24T02:30:10Z"
+    },
+    {
+      "slug": "al-hoceima",
+      "title": "Al Hoceima",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Al Hoceima</span></span>",
+      "description": "Moroccan town located in the Central Rif, beetween Ibaqoyen region and Ayt Ouriarhel region",
+      "extract": "Al Hoceima is a city on the northern edge of the Rif Mountains and on the Mediterranean coast. It's a known tourist destination despite its small size. It is characterised by its shining sandy beaches like Cala Iris, Bades, Torres, Quemado, and Tala Youssef, and its mountainous rocky areas. It has a population of about 57,000 people.",
+      "extract_html": "<p><b>Al Hoceima</b> is a city on the northern edge of the Rif Mountains and on the Mediterranean coast. It's a known tourist destination despite its small size. It is characterised by its shining sandy beaches like Cala Iris, Bades, Torres, Quemado, and Tala Youssef, and its mountainous rocky areas. It has a population of about 57,000 people.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Al_Hoceima_Morocco.jpg/330px-Al_Hoceima_Morocco.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 35.25,
+        "lon": -3.933333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Al_Hoceima",
+      "page_id": 197612,
+      "revision": "4615743",
+      "timestamp": "2023-02-07T19:29:10Z"
+    },
+    {
+      "slug": "alnif",
+      "title": "Alnif",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Alnif</span></span>",
+      "description": "human settlement",
+      "extract": "\nAlnif is in Saharan Morocco.",
+      "extract_html": "<p>\n<b>Alnif</b> is in Saharan Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.1161,
+        "lon": -5.1698
+      },
+      "url": "https://en.wikivoyage.org/wiki/Alnif",
+      "page_id": 149220,
+      "revision": "5003487",
+      "timestamp": "2025-01-10T00:55:02Z"
+    },
+    {
+      "slug": "amizmiz",
+      "title": "Amizmiz",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Amizmiz</span></span>",
+      "description": "urban commune in Al Haouz Province, Morocco",
+      "extract": "Amizmiz is a small town in Morocco approximately 55 kilometers south of Marrakech. It lies at the foot of the High Atlas mountain range.",
+      "extract_html": "<p><b>Amizmiz</b> is a small town in Morocco approximately 55 kilometers south of Marrakech. It lies at the foot of the High Atlas mountain range.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Amizmiz_002.jpeg/330px-Amizmiz_002.jpeg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 31.2167,
+        "lon": -8.25
+      },
+      "url": "https://en.wikivoyage.org/wiki/Amizmiz",
+      "page_id": 1010,
+      "revision": "5232901",
+      "timestamp": "2026-03-21T21:09:25Z"
+    },
+    {
+      "slug": "anti-atlas",
+      "title": "Anti Atlas",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Anti Atlas</span></span>",
+      "description": "mountain range",
+      "extract": "\nThe Anti Atlas region of Morocco covers the mountain range all the way down to the border with Western Sahara.",
+      "extract_html": "<p>\nThe <b>Anti Atlas</b> region of Morocco covers the mountain range all the way down to the border with Western Sahara.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 30,
+        "lon": -8.5
+      },
+      "url": "https://en.wikivoyage.org/wiki/Anti_Atlas",
+      "page_id": 1283,
+      "revision": "5266402",
+      "timestamp": "2026-04-24T03:12:42Z"
+    },
+    {
+      "slug": "asilah",
+      "title": "Asilah",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Asilah</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nAsilah is a city in northern Morocco.",
+      "extract_html": "<p>\n<b>Asilah</b> is a city in northern Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 35.4667,
+        "lon": -6.0333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Asilah",
+      "page_id": 132679,
+      "revision": "5242328",
+      "timestamp": "2026-03-26T12:10:16Z"
+    },
+    {
+      "slug": "asni",
+      "title": "Asni",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Asni</span></span>",
+      "description": "Commune in Morocco",
+      "extract": "\nAsni is a small town in the foothills of the High Atlas mountains in Morocco. It is about an hour's drive from Marrakech.",
+      "extract_html": "<p>\n<b>Asni</b> is a small town in the foothills of the High Atlas mountains in Morocco. It is about an hour's drive from Marrakech.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.2500377,
+        "lon": -7.9813423
+      },
+      "url": "https://en.wikivoyage.org/wiki/Asni",
+      "page_id": 1748,
+      "revision": "4718135",
+      "timestamp": "2023-08-29T07:46:55Z"
+    },
+    {
+      "slug": "azrou",
+      "title": "Azrou",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Azrou</span></span>",
+      "description": "City in Morocco",
+      "extract": "Azrou is a mid-sized Berber town in the Ifrane National Park in the Middle Atlas.",
+      "extract_html": "<p><b>Azrou</b> is a mid-sized Berber town in the Ifrane National Park in the Middle Atlas.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 33.43,
+        "lon": -5.21
+      },
+      "url": "https://en.wikivoyage.org/wiki/Azrou",
+      "page_id": 150378,
+      "revision": "5180934",
+      "timestamp": "2025-12-19T16:02:36Z"
+    },
+    {
+      "slug": "berkane",
+      "title": "Berkane",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Berkane</span></span>",
+      "description": "Moroccan city located in the Eastern Rif in the region of Yat Iznassen (Yat 'Atiq)",
+      "extract": "\nBerkane is a city in northeastern Morocco, near the Mediterranean coast and close to the Algerian border. It is known as the “Orange City” because of its vast citrus farms and high-quality oranges exported across Morocco and abroad. The city has a population of about 120,000 people.",
+      "extract_html": "<p>\n<b>Berkane</b> is a city in northeastern Morocco, near the Mediterranean coast and close to the Algerian border. It is known as the “Orange City” because of its vast citrus farms and high-quality oranges exported across Morocco and abroad. The city has a population of about 120,000 people.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Berkane_letchina.JPG/330px-Berkane_letchina.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 186,
+      "coordinates": {
+        "lat": 34.9167,
+        "lon": -2.3167
+      },
+      "url": "https://en.wikivoyage.org/wiki/Berkane",
+      "page_id": 215952,
+      "revision": "5234832",
+      "timestamp": "2026-03-24T17:38:38Z"
+    },
+    {
+      "slug": "casablanca",
+      "title": "Casablanca",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Casablanca</span></span>",
+      "description": "largest city of Morocco",
+      "extract": "\nCasablanca may be the cosmopolitan, industrial and economic heart of Morocco, and its largest city, but it is one of the less endearing of the country's sights. With a small, unassuming medina and a traffic-congested ville nouvelle, travellers arriving via Casablanca may be tempted to find the first train out to nearby Rabat. The awe-inspiring Hassan II Mosque and happening nightlife and architecture, however, are worth at least a day of your Moroccan itinerary.",
+      "extract_html": "<p>\n<b>Casablanca</b> may be the cosmopolitan, industrial and economic heart of Morocco, and its largest city, but it is one of the less endearing of the country's sights. With a small, unassuming <i>medina</i> and a traffic-congested <i>ville nouvelle</i>, travellers arriving via Casablanca may be tempted to find the first train out to nearby Rabat. The awe-inspiring Hassan II Mosque and happening nightlife and architecture, however, are worth at least a day of your Moroccan itinerary.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Casablanca_panorama.jpg/330px-Casablanca_panorama.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 330,
+      "coordinates": {
+        "lat": 33.65,
+        "lon": -7.5833
+      },
+      "url": "https://en.wikivoyage.org/wiki/Casablanca",
+      "page_id": 6141,
+      "revision": "5243230",
+      "timestamp": "2026-03-26T14:29:35Z"
+    },
+    {
+      "slug": "chefchaouen",
+      "title": "Chefchaouen",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Chefchaouen</span></span>",
+      "description": "Moroccan city located in the Western Rif in the Akhmas region",
+      "extract": "Chefchaouen is a gorgeous mountain city in northeastern Morocco.",
+      "extract_html": "<p><b>Chefchaouen</b> is a gorgeous mountain city in northeastern Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chefchaouen_overview.jpg/330px-Chefchaouen_overview.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 440,
+      "coordinates": {
+        "lat": 35.171389,
+        "lon": -5.269722
+      },
+      "url": "https://en.wikivoyage.org/wiki/Chefchaouen",
+      "page_id": 6962,
+      "revision": "5269832",
+      "timestamp": "2026-04-30T13:39:19Z"
+    },
+    {
+      "slug": "el-jadida",
+      "title": "El Jadida",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">El Jadida</span></span>",
+      "description": "city in Morocco",
+      "extract": " \nEl Jadida is a coastal town 100 km south of Casablanca in Morocco.",
+      "extract_html": "<p> \n<b>El Jadida</b> is a coastal town 100 km south of Casablanca in Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/MazaganCistern-CCBY.jpg/330px-MazaganCistern-CCBY.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 33.23333333,
+        "lon": -8.5
+      },
+      "url": "https://en.wikivoyage.org/wiki/El_Jadida",
+      "page_id": 10799,
+      "revision": "5238952",
+      "timestamp": "2026-03-26T08:08:41Z"
+    },
+    {
+      "slug": "erfoud",
+      "title": "Erfoud",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Erfoud</span></span>",
+      "description": "Moroccan town in Errachidia Province, Drâa-Tafilalet",
+      "extract": "Erfoud is a town in southern Morocco, in the Tafilalet-region.",
+      "extract_html": "<p><b>Erfoud</b> is a town in southern Morocco, in the Tafilalet-region.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Erfoud-Sahara-Morocco.jpg/330px-Erfoud-Sahara-Morocco.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 31.4333,
+        "lon": -4.2333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Erfoud",
+      "page_id": 11049,
+      "revision": "5244795",
+      "timestamp": "2026-03-26T15:42:53Z"
+    },
+    {
+      "slug": "erg-chebbi",
+      "title": "Erg Chebbi",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Erg Chebbi</span></span>",
+      "description": "Dune landscape in Morocco",
+      "extract": "\nErg Chebbi is in Saharan Morocco. The dunes are one of Morocco's best Sahara Desert destinations. Erg Chebbi special feature is its beautiful unique orange colored sand.",
+      "extract_html": "<p>\n<b>Erg Chebbi</b> is in Saharan Morocco. The dunes are one of Morocco's best Sahara Desert destinations. Erg Chebbi special feature is its beautiful unique orange colored sand.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.1667,
+        "lon": -3.9833
+      },
+      "url": "https://en.wikivoyage.org/wiki/Erg_Chebbi",
+      "page_id": 11051,
+      "revision": "5172931",
+      "timestamp": "2025-12-06T15:06:36Z"
+    },
+    {
+      "slug": "errachidia",
+      "title": "Errachidia",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Errachidia</span></span>",
+      "description": "City in Morocco",
+      "extract": "Errachidia (ar-Rachīdīya) is a city of 92,000 people (2014) in the Saharan Morocco of Morocco.",
+      "extract_html": "<p><b>Errachidia</b> (<i>ar-Rachīdīya</i>) is a city of 92,000 people (2014) in the Saharan Morocco of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Errachidia_north_view.jpg/330px-Errachidia_north_view.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 31.931944,
+        "lon": -4.424444
+      },
+      "url": "https://en.wikivoyage.org/wiki/Errachidia",
+      "page_id": 172125,
+      "revision": "4797518",
+      "timestamp": "2023-12-28T01:55:15Z"
+    },
+    {
+      "slug": "essaouira",
+      "title": "Essaouira",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Essaouira</span></span>",
+      "description": "city in Marrakech-Safi, Morocco",
+      "extract": "Essaouira is a coastal city in Morocco. It is known as the Windy City.",
+      "extract_html": "<p><b>Essaouira</b> is a coastal city in Morocco. It is known as the Windy City.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/City_of_Essaouira_%282844201257%29.jpg/330px-City_of_Essaouira_%282844201257%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 31.5131,
+        "lon": -9.7697
+      },
+      "url": "https://en.wikivoyage.org/wiki/Essaouira",
+      "page_id": 11133,
+      "revision": "5237145",
+      "timestamp": "2026-03-25T15:30:27Z"
+    },
+    {
+      "slug": "fez",
+      "title": "Fez",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fez</span></span>",
+      "description": "city in Morocco",
+      "extract": " \nFez (فاس) is a city in Morocco that is famous for being home to the world's oldest university, dating to 859, and the world's oldest continuously-operating library, dating to 1359. It has an ancient World Heritage listed walled city, which many compare to the walled city of Jerusalem.",
+      "extract_html": "<p> \n<b>Fez (فاس)</b> is a city in Morocco that is famous for being home to the world's oldest university, dating to 859, and the world's oldest continuously-operating library, dating to 1359. It has an ancient World Heritage listed walled city, which many compare to the walled city of Jerusalem.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fes_%285364182941%29.jpg/330px-Fes_%285364182941%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 219,
+      "coordinates": {
+        "lat": 34.03,
+        "lon": -5.01
+      },
+      "url": "https://en.wikivoyage.org/wiki/Fez",
+      "page_id": 11575,
+      "revision": "5279803",
+      "timestamp": "2026-05-20T09:03:41Z"
+    },
+    {
+      "slug": "guelmim",
+      "title": "Guelmim",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Guelmim</span></span>",
+      "description": "city in Morocco",
+      "extract": "Guelmim is a city in the Anti Atlas region of Morocco. Known as the \"Gateway to the Desert,\" Guelmim is a convenient starting point for experiencing the desert. Guelmim is also known for its market, and its camel market.",
+      "extract_html": "<p><b>Guelmim</b> is a city in the Anti Atlas region of Morocco. Known as the \"Gateway to the Desert,\" Guelmim is a convenient starting point for experiencing the desert. Guelmim is also known for its market, and its camel market.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/%D8%A7%D9%84%D9%82%D8%B5%D8%A8%D8%A9_%D8%AD%D8%AF%D8%A7_%D8%A7%D9%84%D9%88%D9%8A%D9%82%D8%A7%D9%8A%D8%A9_%D9%86%D9%88%D8%B1%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A3%D8%B2%D9%86%D8%A7%D9%83.jpg/330px-%D8%A7%D9%84%D9%82%D8%B5%D8%A8%D8%A9_%D8%AD%D8%AF%D8%A7_%D8%A7%D9%84%D9%88%D9%8A%D9%82%D8%A7%D9%8A%D8%A9_%D9%86%D9%88%D8%B1%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A3%D8%B2%D9%86%D8%A7%D9%83.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 28.98,
+        "lon": -10.07
+      },
+      "url": "https://en.wikivoyage.org/wiki/Guelmim",
+      "page_id": 136302,
+      "revision": "4695277",
+      "timestamp": "2023-07-13T16:16:43Z"
+    },
+    {
+      "slug": "high-atlas",
+      "title": "High Atlas",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">High Atlas</span></span>",
+      "description": "mountain range in central Morocco",
+      "extract": "The High Atlas is a region in Morocco covering the mountain range and surrounding destinations such as Marrakech. It's a regular destination for mountain hikers, ski enthusiasts, or travellers interested in the indigenous Berber culture found throughout its many peaks and valleys.",
+      "extract_html": "<p>The <b>High Atlas</b> is a region in Morocco covering the mountain range and surrounding destinations such as Marrakech. It's a regular destination for mountain hikers, ski enthusiasts, or travellers interested in the indigenous Berber culture found throughout its many peaks and valleys.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Berber_village_Atlas.jpg/330px-Berber_village_Atlas.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 31.061944,
+        "lon": -7.916111
+      },
+      "url": "https://en.wikivoyage.org/wiki/High_Atlas",
+      "page_id": 14595,
+      "revision": "5252730",
+      "timestamp": "2026-04-03T08:53:58Z"
+    },
+    {
+      "slug": "ifrane",
+      "title": "Ifrane",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Ifrane</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nIfrane is a city in the Middle Atlas region of Morocco.",
+      "extract_html": "<p>\n<b>Ifrane</b> is a city in the Middle Atlas region of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Ifrane_map_with_listings.png/330px-Ifrane_map_with_listings.png?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 468,
+      "coordinates": {
+        "lat": 33.53333333,
+        "lon": -5.11666667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Ifrane",
+      "page_id": 15397,
+      "revision": "5062328",
+      "timestamp": "2025-05-14T03:14:18Z"
+    },
+    {
+      "slug": "ikkiss",
+      "title": "Ikkiss",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Ikkiss</span></span>",
+      "description": "human settlement in Morocco",
+      "extract": "\nIkkiss is a small village in the High Atlas mountains of Morocco, in the Rhirhaia valley. It's just over 2000 m above sea level and has a population of about 600 people. There is a small school for the children from the surrounding villages and a local mosque.",
+      "extract_html": "<p>\n<b>Ikkiss</b> is a small village in the High Atlas mountains of Morocco, in the Rhirhaia valley. It's just over 2000 m above sea level and has a population of about 600 people. There is a small school for the children from the surrounding villages and a local mosque.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.1663,
+        "lon": -7.8896
+      },
+      "url": "https://en.wikivoyage.org/wiki/Ikkiss",
+      "page_id": 15433,
+      "revision": "3503166",
+      "timestamp": "2018-05-13T18:04:37Z"
+    },
+    {
+      "slug": "imlil",
+      "title": "Imlil",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Imlil</span></span>",
+      "description": "fraction in Marrakesh-Safi, Morocco",
+      "extract": "Imlil is a village in the High Atlas Mountains in Marrakesh-Safi, Morocco.",
+      "extract_html": "<p>Imlil is a village in the High Atlas Mountains in Marrakesh-Safi, Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Imlil_view.jpg/330px-Imlil_view.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 31.1264,
+        "lon": -7.9178
+      },
+      "url": "https://en.wikivoyage.org/wiki/Imlil",
+      "page_id": 15519,
+      "revision": "5247094",
+      "timestamp": "2026-03-29T12:59:21Z"
+    },
+    {
+      "slug": "imouzzer",
+      "title": "Imouzzer",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Imouzzer</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "\nImouzzer Ida Ou Tanane is a small village 60 km northeast of Agadir.",
+      "extract_html": "<p>\n<b>Imouzzer Ida Ou Tanane</b> is a small village 60 km northeast of Agadir.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 30.679947,
+        "lon": -9.482857
+      },
+      "url": "https://en.wikivoyage.org/wiki/Imouzzer",
+      "page_id": 15523,
+      "revision": "5239731",
+      "timestamp": "2026-03-26T08:38:04Z"
+    },
+    {
+      "slug": "itzer",
+      "title": "Itzer",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Itzer</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "\nItzer is a city in Middle Atlas.",
+      "extract_html": "<p>\n<b>Itzer</b> is a city in Middle Atlas.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 32.8833,
+        "lon": -5.05
+      },
+      "url": "https://en.wikivoyage.org/wiki/Itzer",
+      "page_id": 15952,
+      "revision": "3771751",
+      "timestamp": "2019-05-02T00:04:33Z"
+    },
+    {
+      "slug": "jerada",
+      "title": "Jerada",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Jerada</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nJerada is the capital city of the Jerada Province in the Eastern portion of Mediterranean Morocco.",
+      "extract_html": "<p>\n<b>Jerada</b> is the capital city of the Jerada Province in the Eastern portion of Mediterranean Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 34.3167,
+        "lon": -2.1667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Jerada",
+      "page_id": 16263,
+      "revision": "4605834",
+      "timestamp": "2023-01-26T10:29:10Z"
+    },
+    {
+      "slug": "khamlia",
+      "title": "Khamlia",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Khamlia</span></span>",
+      "description": "human settlement in Morocco",
+      "extract": "\nKhamlia is a little village in desert by the biggest dunes Erg Chebi in Morocco.",
+      "extract_html": "<p>\n<b>Khamlia</b> is a little village in desert by the biggest dunes Erg Chebi in Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.0354,
+        "lon": -4.0076
+      },
+      "url": "https://en.wikivoyage.org/wiki/Khamlia",
+      "page_id": 17395,
+      "revision": "3771178",
+      "timestamp": "2019-04-30T23:26:45Z"
+    },
+    {
+      "slug": "khoukhate",
+      "title": "Khoukhate",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Khoukhate</span></span>",
+      "description": null,
+      "extract": "\nKhoukhate is a village in Khenifra Province, in the Middle Atlas mountains of Morocco.",
+      "extract_html": "<p>\n<b>Khoukhate</b> is a village in Khenifra Province, in the Middle Atlas mountains of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 32.9965,
+        "lon": -4.7948
+      },
+      "url": "https://en.wikivoyage.org/wiki/Khoukhate",
+      "page_id": 17467,
+      "revision": "3478389",
+      "timestamp": "2018-04-30T10:09:05Z"
+    },
+    {
+      "slug": "khouribga",
+      "title": "Khouribga",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Khouribga</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nKhouribga is the capital of Khouribga Province in the Béni Mellal-Khénifra region of Morocco. With a population of almost 200,000 in 2014, Khouribga owes its growth to the phosphate deposits nearby.",
+      "extract_html": "<p>\n<b>Khouribga</b> is the capital of Khouribga Province in the Béni Mellal-Khénifra region of Morocco. With a population of almost 200,000 in 2014, Khouribga owes its growth to the phosphate deposits nearby.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 32.88,
+        "lon": -6.9
+      },
+      "url": "https://en.wikivoyage.org/wiki/Khouribga",
+      "page_id": 208732,
+      "revision": "5062597",
+      "timestamp": "2025-05-14T13:52:32Z"
+    },
+    {
+      "slug": "larache",
+      "title": "Larache",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Larache</span></span>",
+      "description": "town in Morocco",
+      "extract": "\nLarache is a city in northern Morocco.",
+      "extract_html": "<p>\n<b>Larache</b> is a city in northern Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Larache_Fortress.jpg/330px-Larache_Fortress.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 35.1833,
+        "lon": -6.15
+      },
+      "url": "https://en.wikivoyage.org/wiki/Larache",
+      "page_id": 19129,
+      "revision": "5239029",
+      "timestamp": "2026-03-26T08:11:40Z"
+    },
+    {
+      "slug": "legzira",
+      "title": "Legzira",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Legzira</span></span>",
+      "description": "beach in Morocco",
+      "extract": "\nLegzira is a small beach resort 10 km north of Sidi Ifni, Morocco.",
+      "extract_html": "<p>\n<b>Legzira</b> is a small beach resort 10 km north of Sidi Ifni, Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Playa_de_Lagzira_en_Sidi_Ifni_%28Marruecos%29.jpg/330px-Playa_de_Lagzira_en_Sidi_Ifni_%28Marruecos%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 29.44,
+        "lon": -10.12
+      },
+      "url": "https://en.wikivoyage.org/wiki/Legzira",
+      "page_id": 162773,
+      "revision": "5080340",
+      "timestamp": "2025-06-20T11:13:54Z"
+    },
+    {
+      "slug": "mhamid",
+      "title": "M'Hamid",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">M&#039;Hamid</span></span>",
+      "description": "human settlement",
+      "extract": "\nM'Hamid is a small village in Zagora region of Morocco, 98 km after Zagora, one of the two places in Morocco where Sahara begins. It is \"the end of the road\", after it is only sands of Sahara, shepherds and caravan trails.",
+      "extract_html": "<p>\n<b>M'Hamid</b> is a small village in Zagora region of Morocco, 98 km after Zagora, one of the two places in Morocco where Sahara begins. It is \"the end of the road\", after it is only sands of Sahara, shepherds and caravan trails.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Morocco_341.jpg/330px-Morocco_341.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 29.8222,
+        "lon": -5.7208
+      },
+      "url": "https://en.wikivoyage.org/wiki/M'Hamid",
+      "page_id": 20618,
+      "revision": "5240546",
+      "timestamp": "2026-03-26T10:04:24Z"
+    },
+    {
+      "slug": "mrirt",
+      "title": "M'Rirt",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">M&#039;Rirt</span></span>",
+      "description": "town in Khénifra Province, Béni Mellal-Khénifra, Morocco",
+      "extract": "M'Rirt (مريرت) is in the Khénifra province in Middle Atlas, Morocco.",
+      "extract_html": "<p><b>M'Rirt</b> (مريرت) is in the Khénifra province in Middle Atlas, Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mrirt-nozav-crop.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "thumbnail_w": 319,
+      "thumbnail_h": 146,
+      "coordinates": {
+        "lat": 33.163,
+        "lon": -5.568
+      },
+      "url": "https://en.wikivoyage.org/wiki/M'Rirt",
+      "page_id": 151406,
+      "revision": "5246514",
+      "timestamp": "2026-03-28T18:32:10Z"
+    },
+    {
+      "slug": "marigha",
+      "title": "Marigha",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Marigha</span></span>",
+      "description": "douar in Morocco",
+      "extract": "\nMarigha (Berber:Imarighen) is a village in the mountainous High Atlas region around Marrakech in Morocco.",
+      "extract_html": "<p>\n<b>Marigha</b> (Berber:<i>Imarighen</i>) is a village in the mountainous High Atlas region around Marrakech in Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.193,
+        "lon": -8.052
+      },
+      "url": "https://en.wikivoyage.org/wiki/Marigha",
+      "page_id": 21391,
+      "revision": "4568101",
+      "timestamp": "2022-11-25T01:27:34Z"
+    },
+    {
+      "slug": "marrakech",
+      "title": "Marrakech",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Marrakech</span></span>",
+      "description": "City in Marrakesh-Safi, Morocco",
+      "extract": "Marrakech, also spelt Marrakesh, is one of the imperial cities of Morocco. Marrakech is the main tourist destination in Morocco. The city is divided into two parts: the Medina, the historical city, and the new European modern district called Gueliz or Ville Nouvelle. The Medina is full of intertwining narrow passageways and local shops full of character; it also contains the large square Djemaa El-Fna, where many hotels are located and tourists, locals and vendors congregate. In contrast, Gueliz plays host to modern restaurants, fast food chains and big brand stores.",
+      "extract_html": "<p><b>Marrakech</b>, also spelt <b>Marrakesh</b>, is one of the imperial cities of Morocco. Marrakech is the main tourist destination in Morocco. The city is divided into two parts: the Medina, the historical city, and the new European modern district called Gueliz or Ville Nouvelle. The Medina is full of intertwining narrow passageways and local shops full of character; it also contains the large square Djemaa El-Fna, where many hotels are located and tourists, locals and vendors congregate. In contrast, Gueliz plays host to modern restaurants, fast food chains and big brand stores.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Djemaa_el_Fna%2C_evening.JPG/330px-Djemaa_el_Fna%2C_evening.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 212,
+      "coordinates": {
+        "lat": 31.62594,
+        "lon": -7.98863
+      },
+      "url": "https://en.wikivoyage.org/wiki/Marrakech",
+      "page_id": 21485,
+      "revision": "5281746",
+      "timestamp": "2026-05-23T14:35:26Z"
+    },
+    {
+      "slug": "mediterranean-morocco",
+      "title": "Mediterranean Morocco",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Mediterranean Morocco</span></span>",
+      "description": null,
+      "extract": "\nMediterranean Morocco is a region in northern Morocco, home to some important sea ports such as Tangier and a variety of market and beach towns.",
+      "extract_html": "<p>\n<b>Mediterranean Morocco</b> is a region in northern Morocco, home to some important sea ports such as Tangier and a variety of market and beach towns.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 35.2492,
+        "lon": -3.9328
+      },
+      "url": "https://en.wikivoyage.org/wiki/Mediterranean_Morocco",
+      "page_id": 21876,
+      "revision": "5220260",
+      "timestamp": "2026-02-28T11:03:34Z"
+    },
+    {
+      "slug": "meknes",
+      "title": "Meknes",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Meknes</span></span>",
+      "description": "city in Morocco",
+      "extract": " \nMeknes (مكناس) is a city in the Middle Atlas region of Morocco. Meknes is a vibrant, modern city bustling with nightlife, restaurants and an impressive imperial city created in the 17th century by King Moulay Ismaïl, with numerous historical monuments and natural sites; it is also the nearest city to the Roman ruins of Volubilis (Oualili).",
+      "extract_html": "<p> \n<b>Meknes (مكناس)</b> is a city in the Middle Atlas region of Morocco. Meknes is a vibrant, modern city bustling with nightlife, restaurants and an impressive imperial city created in the 17th century by King Moulay Ismaïl, with numerous historical monuments and natural sites; it is also the nearest city to the Roman ruins of Volubilis (Oualili).</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Meknes.jpg/330px-Meknes.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 230,
+      "coordinates": {
+        "lat": 33.895,
+        "lon": -5.554722
+      },
+      "url": "https://en.wikivoyage.org/wiki/Meknes",
+      "page_id": 21911,
+      "revision": "5237006",
+      "timestamp": "2026-03-25T15:23:32Z"
+    },
+    {
+      "slug": "merzouga",
+      "title": "Merzouga",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Merzouga</span></span>",
+      "description": "small village in southeastern Morocco",
+      "extract": "Merzouga is a village in the Sahara Desert in Morocco, on the edge of Erg Chebbi, a 50-km long and 5-km wide set of sand dunes that reach up to 350 m above the plain and 808 m above sea level.",
+      "extract_html": "<p><b>Merzouga</b> is a village in the Sahara Desert in Morocco, on the edge of Erg Chebbi, a 50-km long and 5-km wide set of sand dunes that reach up to 350 m above the plain and 808 m above sea level.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Erg_Chebbi_Maroc.jpg/330px-Erg_Chebbi_Maroc.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 219,
+      "coordinates": {
+        "lat": 31.09917,
+        "lon": -4.01167
+      },
+      "url": "https://en.wikivoyage.org/wiki/Merzouga",
+      "page_id": 22069,
+      "revision": "5269380",
+      "timestamp": "2026-04-29T12:43:06Z"
+    },
+    {
+      "slug": "middle-atlas",
+      "title": "Middle Atlas",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Middle Atlas</span></span>",
+      "description": "mountain range in Morocco",
+      "extract": "\nThe Middle Atlas region of Morocco covers the mountain range as well as nearby cities such as Fez and Meknes.",
+      "extract_html": "<p>\nThe <b>Middle Atlas</b> region of Morocco covers the mountain range as well as nearby cities such as Fez and Meknes.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 33.5,
+        "lon": -4.5
+      },
+      "url": "https://en.wikivoyage.org/wiki/Middle_Atlas",
+      "page_id": 22228,
+      "revision": "4951369",
+      "timestamp": "2024-10-07T23:26:26Z"
+    },
+    {
+      "slug": "midelt",
+      "title": "Midelt",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Midelt</span></span>",
+      "description": "town in central Morocco",
+      "extract": "\nMidelt is a city in Morocco, in the Middle-Atlas.",
+      "extract_html": "<p>\n<b>Midelt</b> is a city in Morocco, in the Middle-Atlas.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 32.68,
+        "lon": -4.73
+      },
+      "url": "https://en.wikivoyage.org/wiki/Midelt",
+      "page_id": 22283,
+      "revision": "5242578",
+      "timestamp": "2026-03-26T12:21:20Z"
+    },
+    {
+      "slug": "mirleft",
+      "title": "Mirleft",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Mirleft</span></span>",
+      "description": "rural commune in Sidi Ifni Province, Morocco",
+      "extract": "Mirleft is in Anti Atlas, about 30 minutes south of Tiznit.",
+      "extract_html": "<p><b>Mirleft</b> is in Anti Atlas, about 30 minutes south of Tiznit.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 29.57972,
+        "lon": -10.03513
+      },
+      "url": "https://en.wikivoyage.org/wiki/Mirleft",
+      "page_id": 146694,
+      "revision": "5239071",
+      "timestamp": "2026-03-26T08:13:24Z"
+    },
+    {
+      "slug": "moulay-bousselham",
+      "title": "Moulay Bousselham",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Moulay Bousselham</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "\nMoulay Bousselham is in the North Atlantic Coast region of Morocco.",
+      "extract_html": "<p>\n<b>Moulay Bousselham</b> is in the North Atlantic Coast region of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 34.8829,
+        "lon": -6.2966
+      },
+      "url": "https://en.wikivoyage.org/wiki/Moulay_Bousselham",
+      "page_id": 165371,
+      "revision": "5232325",
+      "timestamp": "2026-03-20T14:35:57Z"
+    },
+    {
+      "slug": "moulay-idriss",
+      "title": "Moulay Idriss",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Moulay Idriss</span></span>",
+      "description": "human settlement",
+      "extract": "\nMoulay Idriss or Moulay Idriss Zerhoun is located north of Meknes and is considered the holiest city of Morocco.",
+      "extract_html": "<p>\n<b>Moulay Idriss</b> or Moulay Idriss Zerhoun is located north of Meknes and is considered the holiest city of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Moulay_Idriss_2.jpg/330px-Moulay_Idriss_2.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 233,
+      "coordinates": {
+        "lat": 34.054167,
+        "lon": -5.527222
+      },
+      "url": "https://en.wikivoyage.org/wiki/Moulay_Idriss",
+      "page_id": 138924,
+      "revision": "5111459",
+      "timestamp": "2025-08-18T21:41:47Z"
+    },
+    {
+      "slug": "nador",
+      "title": "Nador",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Nador</span></span>",
+      "description": "Moroccan town located in the Eastern Rif in the Iqel'iyen (Imazouzen) region",
+      "extract": "Nador is a coastal town and the second largest city in the Oriental province of Morocco.",
+      "extract_html": "<p><b>Nador</b> is a coastal town and the second largest city in the Oriental province of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Av_Youssef_ibn_Tachafin_a_Nador_%28cropped%29.jpg/330px-Av_Youssef_ibn_Tachafin_a_Nador_%28cropped%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 176,
+      "coordinates": {
+        "lat": 35.167105,
+        "lon": -2.930262
+      },
+      "url": "https://en.wikivoyage.org/wiki/Nador",
+      "page_id": 156571,
+      "revision": "5043787",
+      "timestamp": "2025-04-04T00:33:24Z"
+    },
+    {
+      "slug": "nkob",
+      "title": "Nkob",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Nkob</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "Nkob is a village in Zagora Region, Morocco.",
+      "extract_html": "<p><b>Nkob</b> is a village in Zagora Region, Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nkob-Morocco-1.jpg/330px-Nkob-Morocco-1.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 30.8722,
+        "lon": -5.8639
+      },
+      "url": "https://en.wikivoyage.org/wiki/Nkob",
+      "page_id": 24681,
+      "revision": "5241548",
+      "timestamp": "2026-03-26T11:03:12Z"
+    },
+    {
+      "slug": "north-atlantic-coast-morocco",
+      "title": "North Atlantic Coast (Morocco)",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">North Atlantic Coast (Morocco)</span></span>",
+      "description": null,
+      "extract": "\nThe North Atlantic Coast of Morocco is one of the busiest areas in the country and home to the capital city.",
+      "extract_html": "<p>\nThe <b>North Atlantic Coast</b> of Morocco is one of the busiest areas in the country and home to the capital city.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 34.47,
+        "lon": -6.7
+      },
+      "url": "https://en.wikivoyage.org/wiki/North_Atlantic_Coast_(Morocco)",
+      "page_id": 24830,
+      "revision": "5263496",
+      "timestamp": "2026-04-19T13:42:46Z"
+    },
+    {
+      "slug": "ouarzazate",
+      "title": "Ouarzazate",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Ouarzazate</span></span>",
+      "description": "City in Morocco",
+      "extract": "\nOuarzazate (ورزازات) is a city in Morocco and the largest town in the Saharan Morocco.",
+      "extract_html": "<p>\n<b>Ouarzazate (ورزازات)</b> is a city in Morocco and the largest town in the Saharan Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Ouarzazate_Medina.JPG/330px-Ouarzazate_Medina.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 30.9167,
+        "lon": -6.9167
+      },
+      "url": "https://en.wikivoyage.org/wiki/Ouarzazate",
+      "page_id": 26270,
+      "revision": "5272268",
+      "timestamp": "2026-05-05T19:28:26Z"
+    },
+    {
+      "slug": "oued-laou",
+      "title": "Oued Laou",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Oued Laou</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nOued Laou is a small town on the Mediterranean coast of Morocco.",
+      "extract_html": "<p>\n<b>Oued Laou</b> is a small town on the Mediterranean coast of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Akchour9.JPG/330px-Akchour9.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 440,
+      "coordinates": {
+        "lat": 35.45,
+        "lon": -5.0833
+      },
+      "url": "https://en.wikivoyage.org/wiki/Oued_Laou",
+      "page_id": 26276,
+      "revision": "5229688",
+      "timestamp": "2026-03-15T23:46:32Z"
+    },
+    {
+      "slug": "oujda",
+      "title": "Oujda",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Oujda</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nOujda is the capital city of the Oriental Morocco region, and is in the eastern part of Mediterranean Morocco.",
+      "extract_html": "<p>\n<b>Oujda</b> is the capital city of the Oriental Morocco region, and is in the eastern part of Mediterranean Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Market_of_Food_-_Oujda_-_Morroco.webm/330px--Market_of_Food_-_Oujda_-_Morroco.webm.jpg",
+      "thumbnail_w": 330,
+      "thumbnail_h": 182,
+      "coordinates": {
+        "lat": 34.68666667,
+        "lon": -1.91138889
+      },
+      "url": "https://en.wikivoyage.org/wiki/Oujda",
+      "page_id": 26278,
+      "revision": "5243894",
+      "timestamp": "2026-03-26T15:01:20Z"
+    },
+    {
+      "slug": "oukaimeden",
+      "title": "Oukaimeden",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Oukaimeden</span></span>",
+      "description": "skiing station in Marocco",
+      "extract": "Oukaimeden is a ski resort in the High Atlas. It is one of the few places in Morocco where skiing is possible, and it also boasts the highest ski lift in Africa.",
+      "extract_html": "<p><b>Oukaimeden</b> is a ski resort in the High Atlas. It is one of the few places in Morocco where skiing is possible, and it also boasts the highest ski lift in Africa.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Oukaimeden.jpg/330px-Oukaimeden.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 31.2,
+        "lon": -7.8667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Oukaimeden",
+      "page_id": 26279,
+      "revision": "5218623",
+      "timestamp": "2026-02-26T08:05:41Z"
+    },
+    {
+      "slug": "ourika-valley",
+      "title": "Ourika Valley",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Ourika Valley</span></span>",
+      "description": "river in Morocco",
+      "extract": "\nThe Ourika Valley is about 60 km by road from Marrakech in Morocco.",
+      "extract_html": "<p>\nThe <b>Ourika Valley</b> is about 60 km by road from Marrakech in Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/BerberHouseOurikaValley.jpg/330px-BerberHouseOurikaValley.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 31.4,
+        "lon": -7.783333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Ourika_Valley",
+      "page_id": 111696,
+      "revision": "5238685",
+      "timestamp": "2026-03-26T07:58:27Z"
+    },
+    {
+      "slug": "ouzoud-falls",
+      "title": "Ouzoud Falls",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Ouzoud Falls</span></span>",
+      "description": "Moroccan cultural heritage site",
+      "extract": "\nOuzoud Falls is a waterfall in the Atlas Mountains of Morocco.",
+      "extract_html": "<p>\n<b>Ouzoud Falls</b> is a waterfall in the Atlas Mountains of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cascades_d%27ouzoud_maroc_01.jpg/330px-Cascades_d%27ouzoud_maroc_01.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 498,
+      "coordinates": {
+        "lat": 32.01514,
+        "lon": -6.71961
+      },
+      "url": "https://en.wikivoyage.org/wiki/Ouzoud_Falls",
+      "page_id": 202270,
+      "revision": "4776931",
+      "timestamp": "2023-11-24T01:14:05Z"
+    },
+    {
+      "slug": "rabat",
+      "title": "Rabat",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Rabat</span></span>",
+      "description": "capital city of Morocco",
+      "extract": " \nRabat, literally \"Fortified Place\", is the capital city of Morocco. The city of Rabat is a UNESCO World Heritage Site.",
+      "extract_html": "<p> \n<b>Rabat</b>, literally \"Fortified Place\", is the capital city of Morocco. The city of Rabat is a UNESCO World Heritage Site.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Cath%C3%A9drale_Saint-Pierre_de_Rabat.JPG/330px-Cath%C3%A9drale_Saint-Pierre_de_Rabat.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 33.9966,
+        "lon": -6.84431
+      },
+      "url": "https://en.wikivoyage.org/wiki/Rabat",
+      "page_id": 29040,
+      "revision": "5283504",
+      "timestamp": "2026-05-27T07:51:40Z"
+    },
+    {
+      "slug": "rissani",
+      "title": "Rissani",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Rissani</span></span>",
+      "description": "town in Errachidia Province",
+      "extract": "Rissani is a small oasis town in Morocco that lies near the northwest edge of the Sahara desert.",
+      "extract_html": "<p><b>Rissani</b> is a small oasis town in Morocco that lies near the northwest edge of the Sahara desert.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Rissani-Sahara-Morocco-jleitao.jpg/330px-Rissani-Sahara-Morocco-jleitao.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 31.2833,
+        "lon": -4.2667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Rissani",
+      "page_id": 29792,
+      "revision": "4799823",
+      "timestamp": "2023-12-31T21:13:31Z"
+    },
+    {
+      "slug": "safi",
+      "title": "Safi",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Safi</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nSafi or Asfi is a city in western Morocco on the Atlantic Ocean. About 310,000 people live there (2014).",
+      "extract_html": "<p>\n<b>Safi</b> or <b>Asfi</b> is a city in western Morocco on the Atlantic Ocean. About 310,000 people live there (2014).</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 32.2833,
+        "lon": -9.2333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Safi",
+      "page_id": 203568,
+      "revision": "5285819",
+      "timestamp": "2026-05-31T20:33:32Z"
+    },
+    {
+      "slug": "saharan-morocco",
+      "title": "Saharan Morocco",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Saharan Morocco</span></span>",
+      "description": "region of Morocco in the Sahara desert",
+      "extract": "Saharan Morocco is a vast desert region dividing Morocco and Algeria. It's a hot, dry and often picturesque area. This area is not to be confused with Western Sahara, which is further south.",
+      "extract_html": "<p><b>Saharan Morocco</b> is a vast desert region dividing Morocco and Algeria. It's a hot, dry and often picturesque area. This area is not to be confused with Western Sahara, which is further south.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.9319,
+        "lon": -4.4244
+      },
+      "url": "https://en.wikivoyage.org/wiki/Saharan_Morocco",
+      "page_id": 30430,
+      "revision": "5176299",
+      "timestamp": "2025-12-11T22:46:34Z"
+    },
+    {
+      "slug": "saidia",
+      "title": "Saidia",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Saidia</span></span>",
+      "description": "Moroccan town located in the Eastern Rif in the Beni Mansour region",
+      "extract": "\nSaïdia, known as the \"Blue Pearl\", is a coastal town in northeastern Morocco. It is located in the Berkane Province in the north of Beni Znassen region, lying in the adjacent metropolitan area of Berkane itself, along the Mediterranean Sea to the north and Moroccan-Algerian border to the east. Its 14 km coastline is one of the longest beaches of Morocco and is characterized by its golden sand and Mediterranean climate, making it a popular international tourist destination. It hosts numerous resorts and attractions, including private beach resorts, shopping malls, golf courses, and other sports centers.",
+      "extract_html": "<p>\n<b>Saïdia</b>, known as the <i>\"Blue Pearl\"</i>, is a coastal town in northeastern Morocco. It is located in the Berkane Province in the north of Beni Znassen region, lying in the adjacent metropolitan area of Berkane itself, along the Mediterranean Sea to the north and Moroccan-Algerian border to the east. Its 14 km coastline is one of the longest beaches of Morocco and is characterized by its golden sand and Mediterranean climate, making it a popular international tourist destination. It hosts numerous resorts and attractions, including private beach resorts, shopping malls, golf courses, and other sports centers.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 35.09910379,
+        "lon": -2.26980309
+      },
+      "url": "https://en.wikivoyage.org/wiki/Saidia",
+      "page_id": 208044,
+      "revision": "4998235",
+      "timestamp": "2025-01-01T04:08:44Z"
+    },
+    {
+      "slug": "setti-fatma",
+      "title": "Setti Fatma",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Setti Fatma</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "\nSetti Fatma is a small village in the Ourika Valley in Morocco. The old original berber village has now been completely centered around tourism with the seven falls being the main attraction.",
+      "extract_html": "<p>\n<b>Setti Fatma</b> is a small village in the Ourika Valley in Morocco. The old original berber village has now been completely centered around tourism with the seven falls being the main attraction.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.2256,
+        "lon": -7.6758
+      },
+      "url": "https://en.wikivoyage.org/wiki/Setti_Fatma",
+      "page_id": 32247,
+      "revision": "5214341",
+      "timestamp": "2026-02-19T00:50:58Z"
+    },
+    {
+      "slug": "sidi-ifni",
+      "title": "Sidi Ifni",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Sidi Ifni</span></span>",
+      "description": "city in Guelmim-Oued Noun, Morocco",
+      "extract": "Sidi Ifni is a fishing town in the northern coastal part of Anti Atlas built by the Spanish in Art Deco style. It's a very calm and relaxed town – a place to go if Essaouira and Chefchaouen look too crowded for you. Don't expect a lot of tourists here, but there are plenty of older European grey-haired caravaners!",
+      "extract_html": "<p><b>Sidi Ifni</b> is a fishing town in the northern coastal part of Anti Atlas built by the Spanish in Art Deco style. It's a very calm and relaxed town – a place to go if Essaouira and Chefchaouen look too crowded for you. Don't expect a lot of tourists here, but there are plenty of older European grey-haired caravaners!</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 29.37011,
+        "lon": -10.17593
+      },
+      "url": "https://en.wikivoyage.org/wiki/Sidi_Ifni",
+      "page_id": 146662,
+      "revision": "5095365",
+      "timestamp": "2025-07-18T04:10:57Z"
+    },
+    {
+      "slug": "skoura",
+      "title": "Skoura",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Skoura</span></span>",
+      "description": "human settlement",
+      "extract": "Skoura is a town in Ouarzazate Province, Drâa-Tafilalet, Saharan Morocco. It consists of a modern town as well as a historical oasis and palmeraie with traditional rammed-earth architecture.",
+      "extract_html": "<p><b>Skoura</b> is a town in Ouarzazate Province, Drâa-Tafilalet, Saharan Morocco. It consists of a modern town as well as a historical oasis and palmeraie with traditional rammed-earth architecture.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Morocco%2C_Souss-Massa-Draa_Region%2C_Ouarzazate_Province%2C_Skoura_%289%29.JPG/330px-Morocco%2C_Souss-Massa-Draa_Region%2C_Ouarzazate_Province%2C_Skoura_%289%29.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 219,
+      "coordinates": {
+        "lat": 31.0598,
+        "lon": -6.557
+      },
+      "url": "https://en.wikivoyage.org/wiki/Skoura",
+      "page_id": 210672,
+      "revision": "5128142",
+      "timestamp": "2025-09-21T00:15:24Z"
+    },
+    {
+      "slug": "souss-massa-national-park",
+      "title": "Souss-Massa National Park",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Souss-Massa National Park</span></span>",
+      "description": "national park in Morocco",
+      "extract": "\nSouss-Massa National Park is about 60 km south of Agadir in Morocco.\nIt is most famous for its variety of birds.",
+      "extract_html": "<p>\n<b>Souss-Massa National Park</b> is about 60 km south of Agadir in Morocco.\nIt is most famous for its variety of birds.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Sandwich_terns_%28Thalasseus_sandvicensis%29_in_flight.jpg/330px-Sandwich_terns_%28Thalasseus_sandvicensis%29_in_flight.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 30.0833,
+        "lon": -9.6667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Souss-Massa_National_Park",
+      "page_id": 33343,
+      "revision": "5109676",
+      "timestamp": "2025-08-15T03:36:48Z"
+    },
+    {
+      "slug": "south-atlantic-coast-morocco",
+      "title": "South Atlantic Coast (Morocco)",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">South Atlantic Coast (Morocco)</span></span>",
+      "description": null,
+      "extract": "\nThe South Atlantic Coast of Morocco, home to some great beach towns, is more laid-back than its northern counterpart.",
+      "extract_html": "<p>\nThe <b>South Atlantic Coast</b> of Morocco, home to some great beach towns, is more laid-back than its northern counterpart.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/ArganGoatTreeBelow.jpg/330px-ArganGoatTreeBelow.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 220,
+      "coordinates": {
+        "lat": 30.9333,
+        "lon": -9
+      },
+      "url": "https://en.wikivoyage.org/wiki/South_Atlantic_Coast_(Morocco)",
+      "page_id": 33369,
+      "revision": "5239024",
+      "timestamp": "2026-03-26T08:11:29Z"
+    },
+    {
+      "slug": "tabant",
+      "title": "Tabant",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tabant</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "Tabant is a town in the High Atlas region of Morocco.",
+      "extract_html": "<p><b>Tabant</b> is a town in the High Atlas region of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.6546959,
+        "lon": -6.4229894
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tabant",
+      "page_id": 165039,
+      "revision": "5040170",
+      "timestamp": "2025-03-28T02:13:19Z"
+    },
+    {
+      "slug": "tacheddirt",
+      "title": "Tacheddirt",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tacheddirt</span></span>",
+      "description": "human settlement in Morocco",
+      "extract": "Tacheddirt is a small village high up (2314m) in the Atlas Mountains of Morocco. It is the highest settlement in the Rhirhaia valley, about 2.5 miles further up than Ikkiss.",
+      "extract_html": "<p><b>Tacheddirt</b> is a small village high up (2314m) in the Atlas Mountains of Morocco. It is the highest settlement in the Rhirhaia valley, about 2.5 miles further up than Ikkiss.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Tacheddirt_morning.JPG/330px-Tacheddirt_morning.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 31.1561,
+        "lon": -7.8461
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tacheddirt",
+      "page_id": 35024,
+      "revision": "5076567",
+      "timestamp": "2025-06-13T03:06:47Z"
+    },
+    {
+      "slug": "tafraoute",
+      "title": "Tafraoute",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tafraoute</span></span>",
+      "description": "town in Souss-Massa, Morocco",
+      "extract": "\nTafraoute is a city in the Anti Atlas region of Morocco.",
+      "extract_html": "<p>\n<b>Tafraoute</b> is a city in the Anti Atlas region of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 29.71666667,
+        "lon": -8.96666667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tafraoute",
+      "page_id": 35052,
+      "revision": "5122588",
+      "timestamp": "2025-09-11T02:55:32Z"
+    },
+    {
+      "slug": "taghazout",
+      "title": "Taghazout",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Taghazout</span></span>",
+      "description": "geographical object",
+      "extract": "\nTaghazout is a small port about 20 km north of Agadir in south-west Morocco.",
+      "extract_html": "<p>\n<b>Taghazout</b> is a small port about 20 km north of Agadir in south-west Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Blue_fishing_boats_in_Taghazout%2C_Morocco_%288628196631%29.jpg/330px-Blue_fishing_boats_in_Taghazout%2C_Morocco_%288628196631%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 30.533056,
+        "lon": -9.7
+      },
+      "url": "https://en.wikivoyage.org/wiki/Taghazout",
+      "page_id": 35062,
+      "revision": "5267395",
+      "timestamp": "2026-04-25T17:11:38Z"
+    },
+    {
+      "slug": "tamsahelte",
+      "title": "Tamsahelte",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tamsahelte</span></span>",
+      "description": "human settlement in Morocco",
+      "extract": "\nTamsahelte is a charming Berber village in the Ait Atta tribal region in Saharan Morocco.",
+      "extract_html": "<p>\n<b>Tamsahelte</b> is a charming Berber village in the Ait Atta tribal region in Saharan Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Tamsahelte.jpg/330px-Tamsahelte.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 30.8171,
+        "lon": -5.66
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tamsahelte",
+      "page_id": 205280,
+      "revision": "4986353",
+      "timestamp": "2024-12-15T11:03:36Z"
+    },
+    {
+      "slug": "tan-tan",
+      "title": "Tan-Tan",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tan-Tan</span></span>",
+      "description": "city in Morocco",
+      "extract": "Tan-Tan is in the Anti Atlas region of Morocco.",
+      "extract_html": "<p><b>Tan-Tan</b> is in the Anti Atlas region of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 28.43,
+        "lon": -11.1
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tan-Tan",
+      "page_id": 172555,
+      "revision": "5266401",
+      "timestamp": "2026-04-24T03:12:24Z"
+    },
+    {
+      "slug": "tangier",
+      "title": "Tangier",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tangier</span></span>",
+      "description": "city in and capital of Tanger-Tetouan-Al Hoceima, Morocco",
+      "extract": "Tangier is an important port city in Morocco. The third most populous city in the country, it's a popular entry point to Morocco and Africa as a whole due to its proximity to Spain, and an interesting destination in its own right.",
+      "extract_html": "<p><b><span class=\"external text\">Tangier</span></b> is an important port city in Morocco. The third most populous city in the country, it's a popular entry point to Morocco and Africa as a whole due to its proximity to Spain, and an interesting destination in its own right.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tangier_5184a.jpg/330px-Tangier_5184a.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 35.8,
+        "lon": -5.8333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tangier",
+      "page_id": 35257,
+      "revision": "5283204",
+      "timestamp": "2026-05-26T16:29:29Z"
+    },
+    {
+      "slug": "tarfaya",
+      "title": "Tarfaya",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tarfaya</span></span>",
+      "description": "City in Morocco",
+      "extract": "\nTarfaya is a small port town on the southwestern coast of Morocco.",
+      "extract_html": "<p>\n<b>Tarfaya</b> is a small port town on the southwestern coast of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Tarfaya_Skyline.jpg/330px-Tarfaya_Skyline.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 193,
+      "coordinates": {
+        "lat": 27.939444,
+        "lon": -12.926111
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tarfaya",
+      "page_id": 35332,
+      "revision": "5239134",
+      "timestamp": "2026-03-26T08:15:44Z"
+    },
+    {
+      "slug": "taroudannt",
+      "title": "Taroudannt",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Taroudannt</span></span>",
+      "description": "City in Souss-Massa, Morocco",
+      "extract": "\nTaroudannt is a market town in Southern Morocco about 72 km(45 miles) inland from Agadir. The city is pretty unspoiled by tourism without the many touts that define Marrakech.",
+      "extract_html": "<p>\n<b>Taroudannt</b> is a market town in Southern Morocco about 72 km(45 miles) inland from Agadir. The city is pretty unspoiled by tourism without the many touts that define Marrakech.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/TAROUDANNT_defensive_wall_%28js%29.jpg/330px-TAROUDANNT_defensive_wall_%28js%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 215,
+      "coordinates": {
+        "lat": 30.4667,
+        "lon": -8.8667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Taroudannt",
+      "page_id": 35356,
+      "revision": "4910170",
+      "timestamp": "2024-07-19T02:28:25Z"
+    },
+    {
+      "slug": "taza",
+      "title": "Taza",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Taza</span></span>",
+      "description": "city in Morocco",
+      "extract": "\nTaza is a city in Morocco, provincial capital of the region (\"wilaya\") Taza-Al Hoceima-Taounate.",
+      "extract_html": "<p>\n<b>Taza</b> is a city in Morocco, provincial capital of the region (\"wilaya\") Taza-Al Hoceima-Taounate.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Taza_%28%C3%9Cbersicht%29.jpg/330px-Taza_%28%C3%9Cbersicht%29.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 440,
+      "coordinates": {
+        "lat": 34.2167,
+        "lon": -4.0167
+      },
+      "url": "https://en.wikivoyage.org/wiki/Taza",
+      "page_id": 35461,
+      "revision": "5062288",
+      "timestamp": "2025-05-14T02:47:04Z"
+    },
+    {
+      "slug": "t-touan",
+      "title": "Tétouan",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tétouan</span></span>",
+      "description": "Moroccan city located in the Western Rif",
+      "extract": " \nTétouan is a city in Mediterranean Morocco. Tétouan's Medina has been inscribed on the UNESCO World Heritage List.",
+      "extract_html": "<p> \n<b>Tétouan</b> is a city in Mediterranean Morocco. Tétouan's Medina has been inscribed on the UNESCO World Heritage List.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bab_El_Ucla_2015.jpg/330px-Bab_El_Ucla_2015.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 35.56667,
+        "lon": -5.36667
+      },
+      "url": "https://en.wikivoyage.org/wiki/T%C3%A9touan",
+      "page_id": 35665,
+      "revision": "5269822",
+      "timestamp": "2026-04-30T12:52:24Z"
+    },
+    {
+      "slug": "tinejdad",
+      "title": "Tinejdad",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tinejdad</span></span>",
+      "description": "human settlement",
+      "extract": "Tinejdad or Afrekla is a town in the Draa-Tafilalet region of southeastern Morocco Tinejdad is a useful stopover town for travellers exploring the kasbahs route, Todra Gorges, and the Sahara Desert. The town is known for its palm groves and authentic Berber culture.",
+      "extract_html": "<p><b>Tinejdad</b> or <b>Afrekla</b> is a town in the Draa-Tafilalet region of southeastern Morocco Tinejdad is a useful stopover town for travellers exploring the kasbahs route, Todra Gorges, and the Sahara Desert. The town is known for its palm groves and authentic Berber culture.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/La_ville_de_tinejdad.jpg/330px-La_ville_de_tinejdad.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 184,
+      "coordinates": {
+        "lat": 31.5,
+        "lon": -5.016667
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tinejdad",
+      "page_id": 214755,
+      "revision": "5176302",
+      "timestamp": "2025-12-11T22:48:48Z"
+    },
+    {
+      "slug": "tinerhir",
+      "title": "Tinerhir",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tinerhir</span></span>",
+      "description": "human settlement",
+      "extract": "Tinerhir, or Tinghir, is a town in the High Atlas region of Morocco.",
+      "extract_html": "<p><b>Tinerhir</b>, or <b>Tinghir</b>, is a town in the High Atlas region of Morocco.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Morocco_Africa_Flickr_Rosino_December_2005_83957092.jpg/330px-Morocco_Africa_Flickr_Rosino_December_2005_83957092.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 330,
+      "coordinates": {
+        "lat": 31.5167,
+        "lon": -5.5333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tinerhir",
+      "page_id": 36062,
+      "revision": "5111605",
+      "timestamp": "2025-08-19T05:09:59Z"
+    },
+    {
+      "slug": "tiznit",
+      "title": "Tiznit",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Tiznit</span></span>",
+      "description": "town in the southern Morocco",
+      "extract": "Tiznit is in northern coastal part of the Anti Atlas.",
+      "extract_html": "<p><b>Tiznit</b> is in northern coastal part of the Anti Atlas.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 29.69339,
+        "lon": -9.73216
+      },
+      "url": "https://en.wikivoyage.org/wiki/Tiznit",
+      "page_id": 146663,
+      "revision": "4726236",
+      "timestamp": "2023-09-10T15:33:49Z"
+    },
+    {
+      "slug": "toubkal-national-park",
+      "title": "Toubkal National Park",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Toubkal National Park</span></span>",
+      "description": "national park in Morocco",
+      "extract": "\nToubkal National Park is a national park in the High Atlas region of Morocco. It's best known for Jbel Toubkal, the continent's highest mountain outside East Central Africa.",
+      "extract_html": "<p>\n<b>Toubkal National Park</b> is a national park in the High Atlas region of Morocco. It's best known for Jbel Toubkal, the continent's highest mountain outside East Central Africa.</p>",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Toubkal_National_Park_01.jpg/330px-Toubkal_National_Park_01.jpg?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail",
+      "thumbnail_w": 330,
+      "thumbnail_h": 248,
+      "coordinates": {
+        "lat": 31.083333,
+        "lon": -7.833333
+      },
+      "url": "https://en.wikivoyage.org/wiki/Toubkal_National_Park",
+      "page_id": 122802,
+      "revision": "5063036",
+      "timestamp": "2025-05-15T15:55:56Z"
+    },
+    {
+      "slug": "zagora",
+      "title": "Zagora",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Zagora</span></span>",
+      "description": "Town in Morocco",
+      "extract": "\nZagora (زكورة) is a town in southern Morocco.",
+      "extract_html": "<p>\n<b>Zagora</b> (زكورة) is a town in southern Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 30.3316,
+        "lon": -5.8376
+      },
+      "url": "https://en.wikivoyage.org/wiki/Zagora",
+      "page_id": 40238,
+      "revision": "5013761",
+      "timestamp": "2025-01-29T10:22:40Z"
+    },
+    {
+      "slug": "zaouiat-ahansal",
+      "title": "Zaouiat Ahansal",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Zaouiat Ahansal</span></span>",
+      "description": "rural commune in Morocco",
+      "extract": "Zaouiat Ahansal is in the High Atlas region of Morocco.",
+      "extract_html": "<p><b>Zaouiat Ahansal</b> is in the High Atlas region of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 31.8328,
+        "lon": -6.1805
+      },
+      "url": "https://en.wikivoyage.org/wiki/Zaouiat_Ahansal",
+      "page_id": 174267,
+      "revision": "5240066",
+      "timestamp": "2026-03-26T08:50:14Z"
+    },
+    {
+      "slug": "zaouiate-oued-ifrane",
+      "title": "Zaouiate Oued Ifrane",
+      "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Zaouiate Oued Ifrane</span></span>",
+      "description": "human settlement in Morocco",
+      "extract": "\nZaouiate Oued Ifrane is a city in the Middle Atlas mountains of Morocco.",
+      "extract_html": "<p>\n<b>Zaouiate Oued Ifrane</b> is a city in the Middle Atlas mountains of Morocco.</p>",
+      "thumbnail": null,
+      "thumbnail_w": null,
+      "thumbnail_h": null,
+      "coordinates": {
+        "lat": 33.1949,
+        "lon": -5.4225
+      },
+      "url": "https://en.wikivoyage.org/wiki/Zaouiate_Oued_Ifrane",
+      "page_id": 40292,
+      "revision": "4797336",
+      "timestamp": "2023-12-27T18:44:51Z"
+    }
+  ]
+}

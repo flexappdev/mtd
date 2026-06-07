@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { DESTINATIONS, LISTS, REGIONS } from "@/lib/mtd-v2/seed";
+import { listArticles } from "@/lib/wikivoyage";
 
 const PUBLIC_ROUTES = [
   "/",
@@ -67,5 +68,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.5,
   }));
-  return [...top, ...destinations, ...regions, ...lists];
+  const wikiArticles = listArticles().map((a) => ({
+    url: `${base}/wiki/${a.slug}`,
+    lastModified: a.timestamp ? new Date(a.timestamp) : now,
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }));
+  return [...top, ...destinations, ...regions, ...lists, ...wikiArticles];
 }
