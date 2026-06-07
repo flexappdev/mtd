@@ -44,7 +44,8 @@ S3 (com27 bucket) · Anthropic Claude Sonnet 4.6 streaming · Amazon / Booking /
 | `/morocco/[slug]` | Destination detail — cinema hero, "Where to stay" `HotelsGrid`, Sights, Restaurants, MoroccAI CTA, SaveButton, Wikipedia summary fallback |
 | `/guides` | Section index |
 | `/guides/books` · `/guides/cookbooks` · `/guides/gear` · `/guides/beauty` | `GuidesGrid` with Amazon `AffiliateLink` (`tag=fs08-21`, `rel="sponsored nofollow"`) |
-| `/media/images` · `/media/audio` · `/media/videos` · `/media/map` · `/media/pdf` | Tile grids over seed (map is region cards for now) |
+| `/media/images` · `/media/audio` · `/media/videos` · `/media/pdf` | Tile grids over seed |
+| `/media/map` | Interactive Leaflet map of Morocco with 83+ pinned points — 14 destinations (green) and 69 Wikivoyage articles (blue), each clickable to its full guide |
 | `/wiki` | All 83 Wikivoyage Morocco articles (CC BY-SA 4.0) with thumbnails + summaries |
 | `/wiki/[slug]` | Per-article detail — image, lead extract, MoroccAI deep-link, Wikivoyage source link |
 | `/moroccai` | 6 capability cards — each links to `/moroccai/chat?topic=…` |
@@ -122,7 +123,8 @@ bash scripts/sync-env.sh               # sync env vars from central .env
 - **Security headers.** `next.config.ts` sets X-Frame-Options DENY, X-Content-Type-Options nosniff, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy `camera=() microphone=() geolocation=() interest-cohort=()`, HSTS `max-age=63072000; includeSubDomains; preload`.
 - **Auth is single-user.** Middleware redirects everything except the public path allowlist to `/login` if there is no Supabase session for `mat@matsiems.com`. Set the `appai-dev-bypass=1` cookie for local Playwright runs.
 - **Sitemap is dynamic.** `src/app/sitemap.ts` enumerates leaf pages + all 14 destinations + 5 regions + 18 lists + 83 Wikivoyage articles.
-- **Wikivoyage content.** `data/wikivoyage-morocco.json` is the canonical local copy of 83 Morocco articles from en.wikivoyage.org (CC BY-SA 4.0). Refresh via `node scripts/fetch-wikivoyage.mjs`. Surfaced on `/wiki`, `/wiki/[slug]`, and as a section on `/morocco/[slug]` + `/places/regions/[id]` via `findArticleForDestination()` / `findArticleForRegion()`.
+- **Wikivoyage content.** `data/wikivoyage-morocco.json` is the canonical local copy of 83 Morocco articles from en.wikivoyage.org (CC BY-SA 4.0). Refresh via `node scripts/fetch-wikivoyage.mjs`. Surfaced on `/wiki`, `/wiki/[slug]`, and as a section on `/morocco/[slug]` + `/places/regions/[id]` via `findArticleForDestination()` / `findArticleForRegion()`. Their coordinates feed the `/media/map` Leaflet map.
+- **Leaflet on a Server Component.** `next/dynamic({ ssr: false })` isn't allowed inside a Server Component in Next 16, so the map is a 3-layer stack: server page → `MapClient` (`"use client"` wrapper that does the dynamic import) → `LeafletMap` (the actual react-leaflet code). All three live in `src/components/v2/`.
 
 ## Repo layout
 
@@ -145,7 +147,8 @@ src/
 │   │   ├── Tile.tsx · BigRankTile · Row
 │   │   ├── HotelsGrid.tsx · GuidesGrid.tsx · PageHeader.tsx · SectionPage.tsx
 │   │   ├── BookingCTA.tsx · AffiliateLink.tsx · AffiliateDisclosure.tsx
-│   │   └── SaveButton.tsx
+│   │   ├── SaveButton.tsx
+│   │   └── LeafletMap.tsx · MapClient.tsx     # client-only Leaflet stack
 │   ├── MonetisationFooter.tsx · NewsletterForm.tsx
 │   ├── admin/AdminNav.tsx
 │   └── ThemeProvider.tsx
