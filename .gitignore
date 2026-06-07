@@ -4,6 +4,9 @@ out/
 build/
 dist/
 *.tsbuildinfo
+# Next.js auto-generates this and flips its content between dev (./.next/dev/types/…)
+# and build (./.next/types/…) — keeping it out of the tree avoids constant dirty status.
+next-env.d.ts
 .DS_Store
 .env*.local
 .env
