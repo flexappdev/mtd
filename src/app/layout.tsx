@@ -5,6 +5,7 @@ import "@/styles/mtd-v2.css";
 import { FrontHeaderV2, StickyFooter } from "@/components/v2/FrontShellV2";
 import { AffiliateDisclosure } from "@/components/v2/AffiliateDisclosure";
 import MonetisationFooter from "@/components/MonetisationFooter";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { DESTINATIONS, TOTAL_RANKED } from "@/lib/mtd-v2/seed";
 
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} mtd-v2`}>
+        <GoogleAnalytics />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <FrontHeaderV2 />
           {children}

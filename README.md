@@ -89,6 +89,7 @@ npm run dev                         # http://localhost:19007
 | `MONGO_URI` / `MONGODB_URI` | Mongo loader (`/api/mtd/destinations`, `/`) | no — falls back to seed |
 | `ANTHROPIC_API_KEY` | `/api/moroccai/stream` | required for chat to work |
 | `NEXT_PUBLIC_SITE_URL` | sitemap, OG metadataBase | optional (defaults to `https://moroccotopdestinations.com`) |
+| `NEXT_PUBLIC_GA_ID` | `<GoogleAnalytics />` / `analytics.ts` | optional (no-op without — script doesn't render) |
 | `NEXT_PUBLIC_AMAZON_TAG` | `AffiliateLink` | optional (defaults to `fs08-21`) |
 | `NEXT_PUBLIC_BOOKING_AID` · `NEXT_PUBLIC_EXPEDIA_CAMREF` · `NEXT_PUBLIC_AGODA_CID` | `BookingCTA` | optional (fall back to non-referral search URLs) |
 | `LOOPS_API_KEY` *or* `RESEND_API_KEY` + `RESEND_AUDIENCE_ID` | `/api/newsletter` | optional (echo mode without) |
@@ -125,6 +126,7 @@ bash scripts/sync-env.sh               # sync env vars from central .env
 - **Sitemap is dynamic.** `src/app/sitemap.ts` enumerates leaf pages + all 14 destinations + 5 regions + 18 lists + 83 Wikivoyage articles.
 - **Wikivoyage content.** `data/wikivoyage-morocco.json` is the canonical local copy of 83 Morocco articles from en.wikivoyage.org (CC BY-SA 4.0). Refresh via `node scripts/fetch-wikivoyage.mjs`. Surfaced on `/wiki`, `/wiki/[slug]`, and as a section on `/morocco/[slug]` + `/places/regions/[id]` via `findArticleForDestination()` / `findArticleForRegion()`. Their coordinates feed the `/media/map` Leaflet map.
 - **Leaflet on a Server Component.** `next/dynamic({ ssr: false })` isn't allowed inside a Server Component in Next 16, so the map is a 3-layer stack: server page → `MapClient` (`"use client"` wrapper that does the dynamic import) → `LeafletMap` (the actual react-leaflet code). All three live in `src/components/v2/`.
+- **Google Analytics 4.** `src/lib/analytics.ts` exports `GA_ID` + `isAnalyticsEnabled()` (rejects empty and `G-X+` placeholders), `pageview()`, generic `event()`, and three helpers: `trackAffiliateClick` (Amazon), `trackBookingClick` (Booking/Expedia/Agoda), `trackNewsletterSignup`, `trackMoroccaiMessage`. `<GoogleAnalytics />` mounts in the root layout above the ThemeProvider — when `NEXT_PUBLIC_GA_ID` is unset or a placeholder, the component renders nothing, so disabling tracking is one env-var flip. IP anonymisation on.
 
 ## Repo layout
 
@@ -155,6 +157,7 @@ src/
 ├── lib/
 │   ├── mtd-v2/{seed,types}.ts            # canonical data
 │   ├── wikivoyage.ts                     # CC BY-SA Wikivoyage loader + dest/region lookup
+│   ├── analytics.ts                      # GA4 gtag wrapper + event helpers
 │   ├── moroccai/system-prompt.ts         # catalogue-grounded Claude prompt
 │   ├── og.ts                             # OG payload helper
 │   ├── saved.ts                          # localStorage favourites
