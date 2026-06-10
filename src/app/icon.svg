@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#C1272D"/>
+  <!-- Moroccan 5-pointed star (pentagram outline, green) -->
+  <polygon
+    points="32,14 36.1,26.3 49.1,26.4 38.7,34.2 42.6,46.6 32,39 21.4,46.6 25.3,34.2 14.9,26.4 27.9,26.3"
+    fill="none" stroke="#006644" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>
