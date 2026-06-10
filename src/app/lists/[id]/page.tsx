@@ -87,6 +87,8 @@ function ranked(kind: string): Row[] {
     }));
 }
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moroccotopdestinations.com";
+
 export default async function ListDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const list = LISTS.find((l) => l.id === id);
@@ -95,7 +97,27 @@ export default async function ListDetailPage({ params }: { params: Promise<{ id:
 
   const isHotelList = list.kind === "hotels";
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: list.title,
+    description: list.description ?? `${list.title} — ranked list`,
+    url: `${SITE_URL}/lists/${list.id}`,
+    numberOfItems: rows.length,
+    itemListElement: rows.slice(0, 20).map((r) => ({
+      "@type": "ListItem",
+      position: r.rank,
+      name: r.name,
+      url: `${SITE_URL}${r.href}`,
+    })),
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="space-y-8 p-8">
       <PageHeader
         crumb={`Lists · ${list.kind}`}
@@ -162,5 +184,6 @@ export default async function ListDetailPage({ params }: { params: Promise<{ id:
         </p>
       )}
     </div>
+    </>
   );
 }

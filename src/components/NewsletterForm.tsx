@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackNewsletterSignup } from "@/lib/analytics";
 
 type Status = "idle" | "loading" | "ok" | "error";
 
@@ -38,6 +39,7 @@ export default function NewsletterForm({
       setStatus("ok");
       setMessage("Subscribed — check your inbox.");
       setEmail("");
+      trackNewsletterSignup(source);
       try {
         window.dispatchEvent(new CustomEvent("newsletter:subscribed", { detail: { source } }));
       } catch {}

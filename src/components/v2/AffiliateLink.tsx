@@ -1,4 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 export const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG ?? "fs08-21";
 
@@ -24,6 +27,7 @@ export function AffiliateLink({ asin, children, className, style }: Props) {
       data-affiliate="amazon"
       className={className}
       style={{ textDecoration: "none", color: "inherit", ...style }}
+      onClick={() => trackAffiliateClick({ productId: asin, category: "amazon" })}
     >
       {children}
     </a>

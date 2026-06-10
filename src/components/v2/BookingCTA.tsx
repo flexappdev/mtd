@@ -1,4 +1,7 @@
+"use client";
+
 import type { Hotel } from "@/lib/mtd-v2/types";
+import { trackBookingClick } from "@/lib/analytics";
 
 const BOOKING_AID = process.env.NEXT_PUBLIC_BOOKING_AID ?? "";
 const EXPEDIA_CAMREF = process.env.NEXT_PUBLIC_EXPEDIA_CAMREF ?? "";
@@ -46,6 +49,7 @@ export function BookingCTA({ hotel, className }: Props) {
           rel={REL}
           className="mtd-booking-btn"
           style={btnStyle("#003580")}
+          onClick={() => trackBookingClick({ hotelId: hotel.name, network: "booking", rate: rates.booking })}
         >
           <span>Booking</span>
           <b>€{rates.booking}</b>
@@ -58,6 +62,7 @@ export function BookingCTA({ hotel, className }: Props) {
           rel={REL}
           className="mtd-booking-btn"
           style={btnStyle("#FFC72C", "#1a1a1a")}
+          onClick={() => trackBookingClick({ hotelId: hotel.name, network: "expedia", rate: rates.expedia })}
         >
           <span>Expedia</span>
           <b>€{rates.expedia}</b>
@@ -70,6 +75,7 @@ export function BookingCTA({ hotel, className }: Props) {
           rel={REL}
           className="mtd-booking-btn"
           style={btnStyle("#D5292E")}
+          onClick={() => trackBookingClick({ hotelId: hotel.name, network: "agoda", rate: rates.agoda })}
         >
           <span>Agoda</span>
           <b>€{rates.agoda}</b>

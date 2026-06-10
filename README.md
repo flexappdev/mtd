@@ -126,7 +126,8 @@ bash scripts/sync-env.sh               # sync env vars from central .env
 - **Sitemap is dynamic.** `src/app/sitemap.ts` enumerates leaf pages + all 14 destinations + 5 regions + 18 lists + 83 Wikivoyage articles.
 - **Wikivoyage content.** `data/wikivoyage-morocco.json` is the canonical local copy of 83 Morocco articles from en.wikivoyage.org (CC BY-SA 4.0). Refresh via `node scripts/fetch-wikivoyage.mjs`. Surfaced on `/wiki`, `/wiki/[slug]`, and as a section on `/morocco/[slug]` + `/places/regions/[id]` via `findArticleForDestination()` / `findArticleForRegion()`. Their coordinates feed the `/media/map` Leaflet map.
 - **Leaflet on a Server Component.** `next/dynamic({ ssr: false })` isn't allowed inside a Server Component in Next 16, so the map is a 3-layer stack: server page → `MapClient` (`"use client"` wrapper that does the dynamic import) → `LeafletMap` (the actual react-leaflet code). All three live in `src/components/v2/`.
-- **Google Analytics 4.** `src/lib/analytics.ts` exports `GA_ID` + `isAnalyticsEnabled()` (rejects empty and `G-X+` placeholders), `pageview()`, generic `event()`, and three helpers: `trackAffiliateClick` (Amazon), `trackBookingClick` (Booking/Expedia/Agoda), `trackNewsletterSignup`, `trackMoroccaiMessage`. `<GoogleAnalytics />` mounts in the root layout above the ThemeProvider — when `NEXT_PUBLIC_GA_ID` is unset or a placeholder, the component renders nothing, so disabling tracking is one env-var flip. IP anonymisation on.
+- **Google Analytics 4.** `src/lib/analytics.ts` exports `GA_ID` + `isAnalyticsEnabled()` (rejects empty and `G-X+` placeholders), `pageview()`, generic `event()`, and four event helpers: `trackAffiliateClick` (Amazon — fired in `AffiliateLink`), `trackBookingClick` (Booking/Expedia/Agoda — fired in `BookingCTA`), `trackNewsletterSignup` (fired in `NewsletterForm`), `trackMoroccaiMessage` (fired in `ChatClient` on every send). `<GoogleAnalytics />` mounts in the root layout above the ThemeProvider — when `NEXT_PUBLIC_GA_ID` is unset or a placeholder, the component renders nothing. IP anonymisation on. Consent Mode v2 initialised `denied` by default in the GA init script; `<ConsentBanner />` updates consent on Accept/Decline and replays the stored choice on every load.
+- **JSON-LD structured data.** Home page carries `Organization` + `WebSite` (with `SearchAction` pointing to `/places?q=`). Every `/lists/[id]` page carries an `ItemList` schema (top 20 items).
 
 ## Repo layout
 
@@ -188,6 +189,7 @@ Tracked in `~/APPS/logs/appai-backlog.json` under `pbi-2026-05-30-mtd-prodready`
 - ✅ P6 — newsletter + MonetisationFooter
 - ✅ P7 — `/admin/{bookings,affiliates,moroccai}`
 - ✅ P8 — security headers, sitemap, OOM guard, per-route OG
+- ✅ P10 — GA4 G-ZJTKS68ZZK + Consent Mode v2 + 4 event helpers wired + JSON-LD (Organization/WebSite/ItemList)
 - ⛔ P9 — Mongo seeder blocked at free-tier cluster's 500/500 collection cap; site degrades gracefully via seed fallback
 - ⛔ Vercel CLI redeploy blocked on "Not authorized" (link-time GitHub Login Connection failed — fix is `vercel logout && vercel login`)
 

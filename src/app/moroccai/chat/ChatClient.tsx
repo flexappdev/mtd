@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { trackMoroccaiMessage } from "@/lib/analytics";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -47,6 +48,7 @@ export function ChatClient({ dest, region, topic }: Props) {
     setMsgs(next);
     setInput("");
     setStreaming(true);
+    trackMoroccaiMessage({ dest, region, topic });
     // optimistic assistant placeholder
     setMsgs((m) => [...m, { role: "assistant", content: "" }]);
 

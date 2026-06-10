@@ -3,6 +3,32 @@ import { DESTINATIONS } from "@/lib/mtd-v2/seed";
 import { tryGetDb } from "@/lib/mongo";
 import type { Destination } from "@/lib/mtd-v2/types";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moroccotopdestinations.com";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#org`,
+      name: "Morocco Top Destinations",
+      url: SITE_URL,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Morocco Top Destinations",
+      url: SITE_URL,
+      publisher: { "@id": `${SITE_URL}/#org` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/places?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
+};
+
 export const revalidate = 300;
 
 async function loadDestinations(): Promise<Destination[]> {
@@ -22,5 +48,13 @@ async function loadDestinations(): Promise<Destination[]> {
 
 export default async function HomePage() {
   const destinations = await loadDestinations();
-  return <FrontHomeV2 destinations={destinations} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <FrontHomeV2 destinations={destinations} />
+    </>
+  );
 }
