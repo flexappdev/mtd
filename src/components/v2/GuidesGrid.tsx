@@ -20,7 +20,7 @@ export function GuidesGrid({ guides, emptyMessage }: Props) {
     <section className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {guides.map((g) => {
         const [from, to] = tint("guide-" + g.id);
-        const heroUrl = img("guide-" + g.hero, 600, 800);
+        const heroUrl = g.image ?? img("guide-" + g.hero, 600, 800);
         return (
           <AffiliateLink key={g.id} asin={g.asin}>
             <article

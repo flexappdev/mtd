@@ -22,6 +22,7 @@ export type Destination = {
   updated: string;
   initial: string;
   position: string;
+  image?: string;
 };
 
 export type Hotel = {
@@ -65,6 +66,7 @@ export type CuratedList = {
   hero: string;
   trending?: boolean;
   description?: string;
+  image?: string;
 };
 
 export type Video = {
@@ -76,6 +78,9 @@ export type Video = {
   date: string;
   series: string;
   real: boolean;
+  videoId?: string;
+  embedUrl?: string;
+  thumbUrl?: string;
 };
 
 export type Guide = {
@@ -87,6 +92,7 @@ export type Guide = {
   rating: number;
   reviews: number;
   hero: string;
+  image?: string;
 };
 
 export type WikiArticle = {

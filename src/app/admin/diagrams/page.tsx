@@ -436,6 +436,95 @@ function CodebaseDiagram() {
   );
 }
 
+function RegionsTreeDiagram() {
+  const regions = [
+    { id: "imperial",      name: "Imperial Cities",   dests: ["Marrakech", "Fes", "Rabat", "Meknes"],                  x: 40  },
+    { id: "coast",         name: "Atlantic Coast",    dests: ["Casablanca", "Essaouira", "Agadir"],                    x: 210 },
+    { id: "atlas",         name: "Atlas & Mountains", dests: ["Atlas Mts", "Ouarzazate", "Aït Benhaddou"],             x: 380 },
+    { id: "sahara",        name: "Sahara & Desert",   dests: ["Merzouga"],                                             x: 550 },
+    { id: "mediterranean", name: "Mediterranean",     dests: ["Chefchaouen", "Tangier", "Tetouan"],                    x: 680 },
+  ];
+  const W = 160;
+  return (
+    <svg viewBox="0 0 880 340" width="100%" style={{ maxWidth: 880, fontFamily: "Inter, sans-serif" }} aria-label="Morocco regions tree">
+      <Arrowhead />
+      {/* Root */}
+      <rect x={340} y={16} width={200} height={40} rx={8} fill={T.accentSoft} stroke={T.accent} strokeWidth={2} />
+      <text x={440} y={40} textAnchor="middle" fontSize={13} fontWeight={600} fill={T.accent}>Morocco</text>
+      <text x={440} y={52} textAnchor="middle" fontSize={10} fontFamily="'JetBrains Mono', monospace" fill={T.muted}>14 destinations</text>
+      {/* Regions */}
+      {regions.map((r) => {
+        const cx = r.x + W / 2;
+        return (
+          <g key={r.id}>
+            <line x1={440} y1={56} x2={cx} y2={96} stroke={T.hairline} strokeWidth={1} />
+            <rect x={r.x} y={96} width={W} height={40} rx={8} fill={T.paper2} stroke={T.ink} strokeWidth={1.5} />
+            <text x={cx} y={114} textAnchor="middle" fontSize={11} fontWeight={600} fill={T.ink}>{r.name}</text>
+            <text x={cx} y={128} textAnchor="middle" fontSize={10} fontFamily="'JetBrains Mono', monospace" fill={T.muted}>{r.dests.length} dests</text>
+            {/* Destinations */}
+            {r.dests.map((d, i) => {
+              const dy = 160 + i * 44;
+              return (
+                <g key={d}>
+                  <line x1={cx} y1={136} x2={cx} y2={dy} stroke={T.hairline} strokeWidth={1} strokeDasharray="2 3" />
+                  <rect x={r.x + 8} y={dy} width={W - 16} height={32} rx={6} fill="none" stroke={T.hairlineStrong} strokeWidth={1} />
+                  <text x={cx} y={dy + 20} textAnchor="middle" fontSize={11} fill={T.ink90}>{d}</text>
+                </g>
+              );
+            })}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function ContentPipelineDiagram() {
+  const steps = [
+    { id: "prompts",  label: "build-mtd-prompts",  sub: "42 editorial prompts",       accent: false },
+    { id: "runware",  label: "Runware FLUX",        sub: "runware:100@1 · 1024×1024",  accent: true  },
+    { id: "png",      label: "~/IMAGES/2026/",      sub: "mtd-{cat}-{slug}.png",       accent: false },
+    { id: "s3",       label: "S3 com27",            sub: "mtd/images/{cat}/{slug}.webp", accent: false },
+    { id: "seed",     label: "seed.ts patch",       sub: "image: 's3://…'",            accent: false },
+    { id: "vercel",   label: "next build",          sub: "real photography in prod",   accent: true  },
+  ];
+  return (
+    <svg viewBox="0 0 960 200" width="100%" style={{ maxWidth: 960, fontFamily: "Inter, sans-serif" }} aria-label="MTD content pipeline">
+      <Arrowhead />
+      {steps.map((s, i) => {
+        const x = 20 + i * 160;
+        return (
+          <g key={s.id}>
+            <rect x={x} y={60} width={140} height={52} rx={8}
+              fill={s.accent ? T.accentSoft : T.paper2}
+              stroke={s.accent ? T.accent : T.hairline}
+              strokeWidth={s.accent ? 2 : 1} />
+            <text x={x + 70} y={84} textAnchor="middle" fontSize={11}
+              fontFamily="'JetBrains Mono', monospace" fontWeight={s.accent ? 600 : 400}
+              fill={s.accent ? T.accent : T.ink}>{s.label}</text>
+            <text x={x + 70} y={100} textAnchor="middle" fontSize={10} fill={T.muted}>{s.sub}</text>
+            {i < steps.length - 1 && (
+              <line x1={x + 144} y1={86} x2={x + 160 - 4} y2={86}
+                stroke={s.accent ? T.accent : T.ink} strokeWidth={1.5}
+                markerEnd={s.accent ? "url(#arrow-accent)" : "url(#arrow)"} />
+            )}
+          </g>
+        );
+      })}
+      <text x={480} y={148} textAnchor="middle"
+        fontFamily="'Instrument Serif', Georgia, serif" fontStyle="italic"
+        fontSize={13} fill={T.ink90}>
+        Seed.ts is the single source of truth — S3 URLs drop in when scripts run.
+      </text>
+      {/* YouTube branch */}
+      <text x={480} y={170} textAnchor="middle" fontSize={10}
+        fontFamily="'JetBrains Mono', monospace" fill={T.muted}>
+        wire-videos.mjs: YouTube API → videoId + embedUrl → seed.ts FEATURED_VIDEOS
+      </text>
+    </svg>
+  );
+}
+
 export default function AdminDiagramsPage() {
   return (
     <div className="mx-auto max-w-5xl space-y-6">
@@ -502,6 +591,24 @@ export default function AdminDiagramsPage() {
         callout="Components stay dumb; lib stays pure; app holds the wiring."
       >
         <CodebaseDiagram />
+      </Section>
+
+      <Section
+        num="07"
+        title="Morocco regions & destinations"
+        subtitle="5 regions — 14 destinations. Each destination belongs to exactly one region."
+        callout="Imperial Cities carries the most traffic — and the most hotels."
+      >
+        <RegionsTreeDiagram />
+      </Section>
+
+      <Section
+        num="08"
+        title="Content pipeline"
+        subtitle="How AI-generated images and YouTube embeds flow from scripts into seed.ts and S3."
+        callout="Run build-mtd-prompts → gen-mtd-images → upload-mtd-images to activate real photography."
+      >
+        <ContentPipelineDiagram />
       </Section>
 
       <footer className="text-xs text-muted-foreground">

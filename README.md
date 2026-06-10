@@ -111,7 +111,16 @@ node scripts/seed-mongo.mjs            # idempotent upsert of v2 seed into mtd_*
 node scripts/seed-mongo.mjs --reset    # drop + reseed
 node scripts/fetch-wikivoyage.mjs      # crawl Category:Morocco → data/wikivoyage-morocco.json
 node scripts/fetch-wikivoyage.mjs --offline   # refresh summaries from cached page list
-bash scripts/sync-env.sh               # sync env vars from central .env
+bash scripts/sync-env.sh               # sync env vars from central .env (now includes RUNWARE_API_KEY + YOUTUBE_API_KEY)
+
+# Content pipeline (images + videos)
+node scripts/build-mtd-prompts.mjs     # build 42 Runware FLUX prompts → ~/IMAGES/2026/original/mtd-prompts.json
+node scripts/gen-mtd-images.mjs --dry-run            # preview prompts without API call
+node scripts/gen-mtd-images.mjs --parallel 4         # generate all 42 images (requires RUNWARE_API_KEY)
+node scripts/gen-mtd-images.mjs --category dest      # generate destination images only
+node scripts/upload-mtd-images.mjs --patch           # upload to S3 com27/mtd/images/ + patch seed.ts
+node scripts/wire-videos.mjs           # dry-run: search YouTube for 12 featured video IDs
+node scripts/wire-videos.mjs --patch   # patch seed.ts FEATURED_VIDEOS with videoId + embedUrl
 ```
 
 ## Architecture notes
@@ -128,6 +137,8 @@ bash scripts/sync-env.sh               # sync env vars from central .env
 - **Leaflet on a Server Component.** `next/dynamic({ ssr: false })` isn't allowed inside a Server Component in Next 16, so the map is a 3-layer stack: server page → `MapClient` (`"use client"` wrapper that does the dynamic import) → `LeafletMap` (the actual react-leaflet code). All three live in `src/components/v2/`.
 - **Google Analytics 4.** `src/lib/analytics.ts` exports `GA_ID` + `isAnalyticsEnabled()` (rejects empty and `G-X+` placeholders), `pageview()`, generic `event()`, and four event helpers: `trackAffiliateClick` (Amazon — fired in `AffiliateLink`), `trackBookingClick` (Booking/Expedia/Agoda — fired in `BookingCTA`), `trackNewsletterSignup` (fired in `NewsletterForm`), `trackMoroccaiMessage` (fired in `ChatClient` on every send). `<GoogleAnalytics />` mounts in the root layout above the ThemeProvider — when `NEXT_PUBLIC_GA_ID` is unset or a placeholder, the component renders nothing. IP anonymisation on. Consent Mode v2 initialised `denied` by default in the GA init script; `<ConsentBanner />` updates consent on Accept/Decline and replays the stored choice on every load.
 - **JSON-LD structured data.** Home page carries `Organization` + `WebSite` (with `SearchAction` pointing to `/places?q=`). Every `/lists/[id]` page carries an `ItemList` schema (top 20 items).
+- **AI content pipeline.** `Destination`, `CuratedList`, `Guide`, and `Video` types carry optional `image?`/`videoId?`/`embedUrl?` fields. When populated (by the scripts below), `FrontHomeV2`, `Tile`, `BigRankTile`, and `GuidesGrid` use the real S3 URLs / YouTube embeds; when empty, they fall back to the `img()` loremflickr placeholder. Pipeline: `build-mtd-prompts.mjs` → `gen-mtd-images.mjs` (Runware FLUX `runware:100@1`) → `upload-mtd-images.mjs` (S3 + seed patch). Video embeds: `wire-videos.mjs` (YouTube Data API v3 search → seed patch). All scripts load `.env.local` automatically.
+- **Diagrams.** `/admin/diagrams` has 8 inline SVG panels: architecture (01), auth flow (02), route map (03), data model (04), deploy pipeline (05), codebase layout (06), Morocco regions tree (07), content pipeline (08). All use the abc-diagrams aesthetic — emerald `#10b981` accent, dark theme, 4-grid SVG. `/moroccai` page has an inline MoroccAI capability flowchart. `/media/videos` shows YouTube iframe embeds when `embedUrl` is populated, metadata cards otherwise.
 
 ## Repo layout
 
@@ -190,6 +201,7 @@ Tracked in `~/APPS/logs/appai-backlog.json` under `pbi-2026-05-30-mtd-prodready`
 - ✅ P7 — `/admin/{bookings,affiliates,moroccai}`
 - ✅ P8 — security headers, sitemap, OOM guard, per-route OG
 - ✅ P10 — GA4 G-ZJTKS68ZZK + Consent Mode v2 + 4 event helpers wired + JSON-LD (Organization/WebSite/ItemList)
+- ✅ P11 — AI content pipeline (Runware FLUX scripts + YouTube wire + S3 upload + seed patch); 8 admin diagrams; MoroccAI flow diagram; image-ready Tile/BigRankTile/GuidesGrid/FrontHomeV2 components; YouTube embed-ready /media/videos page
 - ⛔ P9 — Mongo seeder blocked at free-tier cluster's 500/500 collection cap; site degrades gracefully via seed fallback
 - ⛔ Vercel CLI redeploy blocked on "Not authorized" (link-time GitHub Login Connection failed — fix is `vercel logout && vercel login`)
 

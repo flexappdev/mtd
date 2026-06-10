@@ -55,7 +55,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
       <section className="fo-hero-cinema">
         <div
           className="fo-hero-cinema-img"
-          style={{ backgroundImage: `url(${img(featured.id + "-hero", 1920, 1080)})` }}
+          style={{ backgroundImage: `url(${featured.image ?? img(featured.id + "-hero", 1920, 1080)})` }}
         />
         <div className="fo-hero-cinema-inner">
           <div className="featured-meta">
@@ -100,6 +100,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             key={d.id}
             rank={i + 1}
             seed={d.id}
+            imageUrl={d.image}
             name={d.name}
             meta={findRegion(d.region)?.name}
             href={`/morocco/${d.id}`}
@@ -154,6 +155,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
           <Tile
             key={l.id}
             seed={"list-" + l.hero}
+            imageUrl={l.image}
             kind="landscape"
             name={l.title}
             meta={`${l.items} entries · ${l.curator}`}

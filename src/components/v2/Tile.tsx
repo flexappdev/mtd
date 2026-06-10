@@ -5,6 +5,7 @@ type Kind = "landscape" | "portrait" | "square" | "wide" | "thin";
 
 type TileProps = {
   seed: string;
+  imageUrl?: string;
   name: string;
   meta?: string;
   rank?: number;
@@ -17,6 +18,7 @@ type TileProps = {
 
 export function Tile({
   seed,
+  imageUrl,
   name,
   meta,
   rank,
@@ -29,7 +31,7 @@ export function Tile({
   const [a, b] = tint(seed);
   const w = 800;
   const h = kind === "portrait" ? 1200 : kind === "thin" ? 1000 : 600;
-  const imgUrl = img(seed, w, h);
+  const imgUrl = imageUrl ?? img(seed, w, h);
 
   const inner = (
     <div className={`tile tile-${kind}`} style={{ ["--tint-a" as never]: `color-mix(in oklch, ${a} 35%, transparent)` }}>
@@ -72,19 +74,21 @@ export function Tile({
 
 export function BigRankTile({
   seed,
+  imageUrl,
   rank,
   name,
   meta,
   href,
 }: {
   seed: string;
+  imageUrl?: string;
   rank: number;
   name: string;
   meta?: string;
   href?: string;
 }) {
   const [a] = tint(seed);
-  const imgUrl = img(seed, 400, 600);
+  const imgUrl = imageUrl ?? img(seed, 400, 600);
 
   const inner = (
     <div className="tile-rank-big">

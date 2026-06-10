@@ -17,9 +17,63 @@ const CAPS: SectionTile[] = [
   { id: "ramadan", title: "Travelling during Ramadan", subtitle: "Opening hours, iftar plans, etiquette.", href: "/moroccai/chat?topic=ramadan" },
 ];
 
+function MoroccAIFlowDiagram() {
+  const T = {
+    paper: "#0c0a09", paper2: "#1c1917", ink: "#fafaf9", muted: "#a8a29e",
+    hairline: "#44403c", accent: "#c1272d", accentSoft: "rgba(193,39,45,0.18)",
+  };
+  const steps = [
+    { id: "user",    label: "You ask",        sub: "any Morocco question",       x: 40  },
+    { id: "chat",    label: "MoroccAI chat",  sub: "/moroccai/chat",             x: 220 },
+    { id: "claude",  label: "Claude Sonnet",  sub: "4.6 · streaming",            x: 400 },
+    { id: "catalog", label: "MTD Catalogue",  sub: "destinations / hotels / wiki", x: 590 },
+    { id: "answer",  label: "Streaming answer", sub: "with bookable hotel links", x: 760 },
+  ];
+  return (
+    <svg viewBox="0 0 980 140" width="100%" style={{ maxWidth: 980, fontFamily: "Inter, sans-serif" }} aria-label="MoroccAI flow">
+      <defs>
+        <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L8 4 L0 8 z" fill={T.ink} />
+        </marker>
+        <marker id="arr-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L8 4 L0 8 z" fill={T.accent} />
+        </marker>
+      </defs>
+      {steps.map((s, i) => {
+        const isAccent = s.id === "claude";
+        return (
+          <g key={s.id}>
+            <rect x={s.x} y={32} width={150} height={52} rx={8}
+              fill={isAccent ? T.accentSoft : T.paper2}
+              stroke={isAccent ? T.accent : T.hairline}
+              strokeWidth={isAccent ? 2 : 1} />
+            <text x={s.x + 75} y={55} textAnchor="middle" fontSize={13}
+              fontWeight={isAccent ? 600 : 400} fill={isAccent ? T.accent : T.ink}>{s.label}</text>
+            <text x={s.x + 75} y={73} textAnchor="middle" fontSize={10}
+              fontFamily="'JetBrains Mono', monospace" fill={T.muted}>{s.sub}</text>
+            {i < steps.length - 1 && (
+              <line x1={s.x + 154} y1={58} x2={steps[i + 1].x - 4} y2={58}
+                stroke={isAccent ? T.accent : T.ink} strokeWidth={isAccent ? 3 : 1.5}
+                markerEnd={isAccent ? "url(#arr-a)" : "url(#arr)"} />
+            )}
+          </g>
+        );
+      })}
+      <text x={490} y={122} textAnchor="middle"
+        fontFamily="'Instrument Serif', Georgia, serif" fontStyle="italic"
+        fontSize={13} fill={T.muted}>
+        Every answer is grounded in the MTD catalogue — no hallucinated hotels.
+      </text>
+    </svg>
+  );
+}
+
 export default function MoroccaiPage() {
   return (
     <div className="space-y-6">
+      <div className="mx-4 mt-4 overflow-hidden rounded-lg border border-zinc-800 bg-[#0c0a09] p-4 sm:mx-8">
+        <MoroccAIFlowDiagram />
+      </div>
       <SectionPage
         crumb="MoroccAI"
         title="MoroccAI — the Morocco travel agent"
