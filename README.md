@@ -201,7 +201,7 @@ Tracked in `~/APPS/logs/appai-backlog.json` under `pbi-2026-05-30-mtd-prodready`
 - ✅ P7 — `/admin/{bookings,affiliates,moroccai}`
 - ✅ P8 — security headers, sitemap, OOM guard, per-route OG
 - ✅ P10 — GA4 G-ZJTKS68ZZK + Consent Mode v2 + 4 event helpers wired + JSON-LD (Organization/WebSite/ItemList)
-- ✅ P11 — AI content pipeline (Runware FLUX scripts + YouTube wire + S3 upload + seed patch); 8 admin diagrams; MoroccAI flow diagram; image-ready Tile/BigRankTile/GuidesGrid/FrontHomeV2 components; YouTube embed-ready /media/videos page
+- ✅ P11 — AI content shipped: 42 FLUX hero images (14 dest + 18 list + 10 guide) live at `s3://com27/mtd/images/*` and wired into `seed.ts`; 12 `FEATURED_VIDEOS` now have real YouTube `videoId` + `embedUrl` + `thumbUrl`; 8 admin diagrams; MoroccAI inline SVG flow on `/moroccai`; image-ready Tile/BigRankTile/GuidesGrid/FrontHomeV2; YouTube iframe rendering on `/media/videos`
 - ⛔ P9 — Mongo seeder blocked at free-tier cluster's 500/500 collection cap; site degrades gracefully via seed fallback
 - ⛔ Vercel CLI redeploy blocked on "Not authorized" (link-time GitHub Login Connection failed — fix is `vercel logout && vercel login`)
 
