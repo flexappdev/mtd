@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { DESTINATIONS, LISTS, REGIONS } from "@/lib/mtd-v2/seed";
 import { listArticles } from "@/lib/wikivoyage";
+import { listItems as listTopics } from "@/lib/wikipedia-morocco";
 
 const PUBLIC_ROUTES = [
   "/",
@@ -17,6 +18,7 @@ const PUBLIC_ROUTES = [
   "/lists/food",
   "/lists/all",
   "/wiki",
+  "/topics",
   "/media",
   "/media/images",
   "/media/audio",
@@ -74,5 +76,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.4,
   }));
-  return [...top, ...destinations, ...regions, ...lists, ...wikiArticles];
+  const topics = listTopics().map((a) => ({
+    url: `${base}/topics/${a.slug}`,
+    lastModified: a.timestamp ? new Date(a.timestamp) : now,
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }));
+  return [...top, ...destinations, ...regions, ...lists, ...wikiArticles, ...topics];
 }

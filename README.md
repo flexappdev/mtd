@@ -48,6 +48,8 @@ S3 (com27 bucket) · Anthropic Claude Sonnet 4.6 streaming · Amazon / Booking /
 | `/media/map` | Interactive Leaflet map of Morocco with 83+ pinned points — 14 destinations (green) and 69 Wikivoyage articles (blue), each clickable to its full guide |
 | `/wiki` | All 83 Wikivoyage Morocco articles (CC BY-SA 4.0) with thumbnails + summaries |
 | `/wiki/[slug]` | Per-article detail — image, lead extract, MoroccAI deep-link, Wikivoyage source link |
+| `/topics` | The Morocco directory — 400+ items from a Wikipedia category walk (cities, kasbahs, mosques, mountains, cuisine, palaces, festivals, etc.) grouped by kind |
+| `/topics/[slug]` | Per-item detail — Wikipedia extract, thumbnail, coordinates, MoroccAI deep-link (CC BY-SA 3.0) |
 | `/moroccai` | 6 capability cards — each links to `/moroccai/chat?topic=…` |
 | `/moroccai/chat` | Live chat against Claude Sonnet 4.6 (`runtime = "nodejs"`) — catalogue-grounded system prompt with prompt cache. Reads `?dest=`, `?region=`, `?topic=` for context seeding |
 | `/saved` | Locally-saved destinations (`localStorage[mtd:saved]`) |

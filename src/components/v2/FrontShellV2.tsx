@@ -37,6 +37,7 @@ const NAV: NavItem[] = [
     ],
   },
   { id: "wiki", label: "Wiki", href: "/wiki" },
+  { id: "topics", label: "Topics", href: "/topics" },
   {
     id: "media",
     label: "Media",
