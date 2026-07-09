@@ -34,13 +34,15 @@ async function gatherCounts(): Promise<{
     (typeof CMS_COLLECTIONS)[keyof typeof CMS_COLLECTIONS],
   ]>;
   const results = await Promise.allSettled(
-    entries.map(([, cfg]) => db.collection(cfg.collection).countDocuments({})),
+    entries.map(([, cfg]) => db.collection(cfg.collection).countDocuments(cfg.filter)),
   );
   entries.forEach(([key, cfg], i) => {
     const r = results[i];
+    // Human-readable collection label: FLEET.<collection> + optional kind.
+    const kindSuffix = "kind" in cfg.filter && cfg.filter.kind ? ` · kind=${cfg.filter.kind}` : "";
     rows.push({
       label: cfg.label,
-      key: cfg.collection,
+      key: `FLEET.${cfg.collection}${kindSuffix}`,
       count: r.status === "fulfilled" ? r.value : null,
       href: `/admin/cms/${key}`,
     });

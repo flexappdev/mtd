@@ -3,11 +3,14 @@ import { CMS_COLLECTIONS, tryGetDb } from "@/lib/mongo";
 
 export const dynamic = "force-dynamic";
 
-async function countCollection(name: string): Promise<number | null> {
+async function countCollection(
+  collection: string,
+  filter: Record<string, unknown>,
+): Promise<number | null> {
   try {
     const db = await tryGetDb();
     if (!db) return null;
-    return await db.collection(name).countDocuments({});
+    return await db.collection(collection).countDocuments(filter);
   } catch {
     return null;
   }
@@ -18,7 +21,9 @@ export default async function CmsHome() {
     keyof typeof CMS_COLLECTIONS,
     (typeof CMS_COLLECTIONS)[keyof typeof CMS_COLLECTIONS],
   ]>;
-  const counts = await Promise.all(entries.map(([, cfg]) => countCollection(cfg.collection)));
+  const counts = await Promise.all(
+    entries.map(([, cfg]) => countCollection(cfg.collection, cfg.filter)),
+  );
 
   return (
     <div className="mx-auto max-w-5xl space-y-6">
@@ -43,7 +48,8 @@ export default async function CmsHome() {
             </div>
             <p className="mt-1 text-xs text-muted-foreground">{cfg.description}</p>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {cfg.collection}
+              FLEET.{cfg.collection}
+              {"kind" in cfg.filter && cfg.filter.kind ? ` · ${String(cfg.filter.kind)}` : ""}
             </p>
           </Link>
         ))}

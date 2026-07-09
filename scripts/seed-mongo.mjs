@@ -1,12 +1,19 @@
 #!/usr/bin/env node
-// Seed MTD Mongo from the v2 seed so /admin counts aren't zero and the
-// public pages read from real collections instead of the seed fallback.
+// Seed mtd data into the shared FLEET DB (post-2026-07-09 migration) so
+// /admin counts aren't zero and the public pages read from real
+// FLEET.{items,lists,pages,media,media_jobs} rows instead of the seed
+// fallback.
+//
+// All docs carry {app:'mtd'} plus a `kind` discriminator so they can be
+// co-located in shared FLEET collections. Uniqueness is on {app, kind, slug}
+// per FLEET rules — the composite key means mtd slugs never clash with
+// other apps' slugs in the same collection.
 //
 // Usage:
-//   node scripts/seed-mongo.mjs              # idempotent upsert
-//   node scripts/seed-mongo.mjs --reset      # drop+recreate the mtd_* collections
+//   node scripts/seed-mongo.mjs              # idempotent upsert (default)
+//   node scripts/seed-mongo.mjs --reset      # deleteMany({app:'mtd', kind:'<k>'}) then re-upsert
 //
-// Reads env from .env.local. Writes against MONGO_DB (default "mtd").
+// Reads env from .env.local. Writes into MONGO_DB (default "FLEET").
 
 import { MongoClient } from "mongodb";
 import { readFileSync } from "node:fs";
@@ -16,7 +23,7 @@ import { dirname, join } from "node:path";
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = dirname(here);
 
-// Minimal .env.local loader — only the keys we care about, no quotes handling.
+// Minimal .env.local loader — only the keys we care about.
 function loadEnv(path) {
   try {
     const raw = readFileSync(path, "utf8");
@@ -34,7 +41,8 @@ function loadEnv(path) {
 loadEnv(join(repo, ".env.local"));
 
 const URI = process.env.MONGO_URI || process.env.MONGODB_URI;
-const DB_NAME = process.env.MONGO_DB || process.env.MONGODB_DB || "mtd";
+const DB_NAME = process.env.MONGO_DB || process.env.MONGODB_DB || "FLEET";
+const APP = "mtd";
 const RESET = process.argv.includes("--reset");
 
 if (!URI) {
@@ -42,35 +50,11 @@ if (!URI) {
   process.exit(1);
 }
 
-// Load the seed via dynamic import so we share a single source of truth.
-// The seed is .ts but only contains data + tiny helpers — `tsx` or
-// pre-compile would be heavier than just rewriting a thin JSON exporter.
-// Cheapest path: re-declare the imports here as JSON-shaped arrays loaded
-// from the source via a regex parse. Even cheaper: ship the seed as a
-// runtime-evaluable .mjs.
-//
-// Pragmatic choice: read the .ts file and eval the relevant exports via
-// a tagged regex. The seed has no logic, only literal data, so this is safe.
-//
-// Better: just call tsx if available. Try that first.
-let seed;
-try {
-  const tsxPath = join(repo, "node_modules", ".bin", "tsx");
-  const { spawnSync } = await import("node:child_process");
-  const probe = spawnSync(tsxPath, ["--version"], { stdio: "ignore" });
-  if (probe.status === 0) {
-    // tsx is installed — we could route through it, but importing the .ts
-    // from node ESM requires --loader tsx, which means re-execing the
-    // process. Cheaper: just parse the .ts.
-  }
-} catch {}
-
-// Parse the seed module by reading the .ts file and using `Function` to
-// eval each named const. The seed uses no imports other than types.
+// Parse the seed module by reading the .ts file and evaluating each named
+// const via `Function`. The seed uses no imports other than types.
 const seedSrc = readFileSync(join(repo, "src/lib/mtd-v2/seed.ts"), "utf8");
 
 function extractArray(name) {
-  // Match: export const NAME: <type>[] = [\n ... \n];
   const re = new RegExp(`export const ${name}[^=]*=\\s*(\\[[\\s\\S]*?\\n\\]);`);
   const m = seedSrc.match(re);
   if (!m) throw new Error(`[seed] failed to extract ${name} from seed.ts`);
@@ -78,7 +62,7 @@ function extractArray(name) {
   return new Function(`return (${m[1]});`)();
 }
 
-seed = {
+const seed = {
   REGIONS: extractArray("REGIONS"),
   DESTINATIONS: extractArray("DESTINATIONS"),
   HOTELS: extractArray("HOTELS"),
@@ -90,16 +74,78 @@ seed = {
   WIKI_ARTICLES: extractArray("WIKI_ARTICLES"),
 };
 
+/** For each source array, describe:
+ *  - which FLEET collection it goes into,
+ *  - the `kind` discriminator (null if the collection is single-kind),
+ *  - and a slug function returning the {app, kind, slug} composite key. */
 const PLAN = [
-  { col: "mtd_regions", data: seed.REGIONS },
-  { col: "mtd_destinations", data: seed.DESTINATIONS },
-  { col: "mtd_hotels", data: seed.HOTELS },
-  { col: "mtd_sights", data: seed.SIGHTS },
-  { col: "mtd_restaurants", data: seed.RESTAURANTS },
-  { col: "mtd_lists", data: seed.LISTS },
-  { col: "mtd_videos", data: seed.FEATURED_VIDEOS },
-  { col: "mtd_guides", data: seed.GUIDES },
-  { col: "mtd_wiki", data: seed.WIKI_ARTICLES },
+  {
+    label: "regions",
+    collection: "items",
+    kind: "region",
+    data: seed.REGIONS,
+    slug: (d) => d.id,
+  },
+  {
+    label: "destinations",
+    collection: "items",
+    // Destinations carry their own per-doc `kind` in {city,sight,region};
+    // preserve that on the FLEET row. The `kind` here is the discriminator
+    // *for the row itself* (per-doc), not a single collection-wide kind.
+    kind: null,
+    data: seed.DESTINATIONS,
+    slug: (d) => d.id,
+    perDocKind: (d) => d.kind || "destination",
+  },
+  {
+    label: "hotels",
+    collection: "items",
+    kind: "hotel",
+    data: seed.HOTELS,
+    slug: (d) => d.id,
+  },
+  {
+    label: "sights",
+    collection: "items",
+    kind: "sight",
+    data: seed.SIGHTS,
+    slug: (d) => d.id,
+  },
+  {
+    label: "restaurants",
+    collection: "items",
+    kind: "restaurant",
+    data: seed.RESTAURANTS,
+    slug: (d) => d.id,
+  },
+  {
+    label: "lists",
+    collection: "lists",
+    kind: null,
+    data: seed.LISTS,
+    slug: (d) => d.id,
+  },
+  {
+    label: "videos",
+    collection: "media",
+    kind: "video",
+    data: seed.FEATURED_VIDEOS,
+    slug: (d) => d.id,
+  },
+  {
+    label: "guides",
+    collection: "media",
+    kind: "guide",
+    data: seed.GUIDES,
+    slug: (d) => d.id,
+  },
+  {
+    label: "wiki",
+    collection: "wiki",
+    kind: null,
+    data: seed.WIKI_ARTICLES,
+    slug: (d) => d.id,
+  },
 ];
 
 const client = new MongoClient(URI, { serverSelectionTimeoutMS: 5000 });
@@ -109,40 +155,68 @@ async function main() {
   await client.connect();
   const db = client.db(DB_NAME);
   console.log(`[seed] connected to ${DB_NAME} on ${URI.replace(/\/\/[^@]+@/, "//<creds>@")}`);
+  console.log(`[seed] writing docs with {app:'${APP}', kind, slug} composite key\n`);
 
   let total = 0;
-  for (const { col, data } of PLAN) {
+  for (const step of PLAN) {
+    const { label, collection, kind, data, slug, perDocKind } = step;
+    const c = db.collection(collection);
+
     if (RESET) {
-      try {
-        await db.collection(col).drop();
-        console.log(`[seed] dropped ${col}`);
-      } catch {
-        // collection may not exist
-      }
+      const resetFilter = kind
+        ? { app: APP, kind }
+        : perDocKind
+        ? { app: APP, kind: { $in: [...new Set(data.map(perDocKind))] } }
+        : { app: APP };
+      const r = await c.deleteMany(resetFilter);
+      console.log(`[seed] ${label}: deleted ${r.deletedCount} pre-existing FLEET.${collection} docs`);
     }
-    const c = db.collection(col);
+
     let upserts = 0;
     for (const doc of data) {
-      const id = doc.id;
-      if (!id) {
-        console.warn(`[seed] skipping ${col} doc without id:`, doc);
+      const s = slug(doc);
+      if (!s) {
+        console.warn(`[seed] skipping ${label} doc without slug/id:`, doc);
         continue;
       }
+      const rowKind = perDocKind ? perDocKind(doc) : kind;
+      const filter = rowKind
+        ? { app: APP, kind: rowKind, slug: s }
+        : { app: APP, slug: s };
+      const setDoc = {
+        ...doc,
+        app: APP,
+        slug: s,
+        ...(rowKind ? { kind: rowKind } : {}),
+        updatedAt: now,
+      };
+      // Never overwrite `_id` from the seed's `id` — leave Mongo to assign.
+      delete setDoc._id;
       await c.updateOne(
-        { id },
-        { $set: { ...doc, updatedAt: now }, $setOnInsert: { createdAt: now } },
+        filter,
+        { $set: setDoc, $setOnInsert: { createdAt: now } },
         { upsert: true },
       );
       upserts++;
     }
-    // Ensure index on id
-    await c.createIndex({ id: 1 }, { unique: true });
-    const total_after = await c.countDocuments({});
-    console.log(`[seed] ${col}: ${upserts} upserts → ${total_after} docs`);
+
+    // Ensure composite {app, kind, slug} index for reads.
+    try {
+      await c.createIndex({ app: 1, kind: 1, slug: 1 });
+    } catch {
+      // best-effort; existing index may already cover it
+    }
+
+    const count = kind
+      ? await c.countDocuments({ app: APP, kind })
+      : perDocKind
+      ? await c.countDocuments({ app: APP, kind: { $in: [...new Set(data.map(perDocKind))] } })
+      : await c.countDocuments({ app: APP });
+    console.log(`[seed] ${label}: ${upserts} upserts → FLEET.${collection}{app:'${APP}'${kind ? `, kind:'${kind}'` : ""}} · ${count} docs`);
     total += upserts;
   }
 
-  console.log(`[seed] done · ${total} upserts across ${PLAN.length} collections`);
+  console.log(`\n[seed] done · ${total} upserts across ${PLAN.length} logical collections`);
 }
 
 main()

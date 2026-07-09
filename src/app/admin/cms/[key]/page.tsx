@@ -25,7 +25,9 @@ export default async function CmsCollectionListPage({
   const cfg = CMS_COLLECTIONS[key];
 
   const db = await tryGetDb();
-  const docs = db ? await db.collection(cfg.collection).find({}).limit(500).toArray() : [];
+  const docs = db
+    ? await db.collection(cfg.collection).find(cfg.filter).limit(500).toArray()
+    : [];
 
   return (
     <div className="mx-auto max-w-5xl space-y-4">
@@ -36,7 +38,10 @@ export default async function CmsCollectionListPage({
         <h1 className="mt-1 text-2xl font-semibold tracking-tight">{cfg.label}</h1>
         <p className="text-sm text-muted-foreground">
           {docs.length} document{docs.length === 1 ? "" : "s"} ·{" "}
-          <span className="font-mono">{cfg.collection}</span>
+          <span className="font-mono">
+            FLEET.{cfg.collection}
+            {"kind" in cfg.filter && cfg.filter.kind ? ` · ${String(cfg.filter.kind)}` : ""}
+          </span>
         </p>
         {!db && (
           <p className="mt-2 text-xs text-amber-500">

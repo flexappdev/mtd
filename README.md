@@ -88,7 +88,8 @@ npm run dev                         # http://localhost:19007
 |---|---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase client | yes (admin auth) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase client | yes |
-| `MONGO_URI` / `MONGODB_URI` | Mongo loader (`/api/mtd/destinations`, `/`) | no — falls back to seed |
+| `MONGO_URI` / `MONGODB_URI` | Mongo loader (`/api/mtd/destinations`, `/`) — connects to shared **FLEET** DB scoped by `{app:'mtd'}` | no — falls back to seed |
+| `MONGO_DB` / `MONGODB_DB` | Override target DB (default `FLEET`) — set to `mtd` only when running the legacy fold script against the old dedicated DB | no |
 | `ANTHROPIC_API_KEY` | `/api/moroccai/stream` | required for chat to work |
 | `NEXT_PUBLIC_SITE_URL` | sitemap, OG metadataBase | optional (defaults to `https://moroccotopdestinations.com`) |
 | `NEXT_PUBLIC_GA_ID` | `<GoogleAnalytics />` / `analytics.ts` | optional (no-op without — script doesn't render) |
@@ -109,8 +110,9 @@ npm start            # next start --port 19007
 npm run typecheck    # tsc --noEmit
 npm run lint         # alias of typecheck
 
-node scripts/seed-mongo.mjs            # idempotent upsert of v2 seed into mtd_* collections
-node scripts/seed-mongo.mjs --reset    # drop + reseed
+node scripts/seed-mongo.mjs            # idempotent upsert of v2 seed into FLEET (app:'mtd')
+node scripts/seed-mongo.mjs --reset    # deleteMany({app:'mtd', kind:...}) then reseed
+node scripts/fold-mtd-to-fleet.mjs     # print the 9 mongo-fold commands (dry docs — no writes)
 node scripts/fetch-wikivoyage.mjs      # crawl Category:Morocco → data/wikivoyage-morocco.json
 node scripts/fetch-wikivoyage.mjs --offline   # refresh summaries from cached page list
 bash scripts/sync-env.sh               # sync env vars from central .env (now includes RUNWARE_API_KEY + YOUTUBE_API_KEY)
@@ -125,9 +127,50 @@ node scripts/wire-videos.mjs           # dry-run: search YouTube for 12 featured
 node scripts/wire-videos.mjs --patch   # patch seed.ts FEATURED_VIDEOS with videoId + embedUrl
 ```
 
+## Mongo (FLEET)
+
+As of 2026-07-09 mtd stores all its data in the shared cluster-wide **FLEET** database, joining the 6 already-migrated fleet sites (fs, xmas, wbp, ybl, fi, lituk). The dedicated per-app `mtd` DB with its 9 bespoke `mtd_*` collections is deprecated; a 7-day soak follows before it is dropped.
+
+**Discriminator:** every mtd doc carries `{app:'mtd'}`. Composite key `{app, kind, slug}` guarantees mtd slugs never clash with other apps sharing the same FLEET collection.
+
+**Collection remap (mtd → FLEET):**
+
+| Legacy `mtd.*`      | FLEET collection      | Discriminator                          | Notes |
+|---------------------|-----------------------|----------------------------------------|-------|
+| `mtd_destinations`  | `FLEET.items`         | `{app:'mtd', kind:city\|sight\|region}` | per-doc `kind` preserved from source |
+| `mtd_regions`       | `FLEET.items`         | `{app:'mtd', kind:'region'}`           | `place_slug` field reserved for taxonomy backfill |
+| `mtd_cities`        | `FLEET.items`         | `{app:'mtd', kind:'city'}`             | `place_slug` field reserved |
+| `mtd_sights`        | `FLEET.items`         | `{app:'mtd', kind:'sight'}`            | `place_slug` field reserved |
+| `mtd_hotels`        | `FLEET.items`         | `{app:'mtd', kind:'hotel'}`            | |
+| `mtd_restaurants`   | `FLEET.items`         | `{app:'mtd', kind:'restaurant'}`       | |
+| `mtd_lists`         | `FLEET.lists`         | `{app:'mtd'}`                          | |
+| `mtd_pages`         | `FLEET.pages`         | `{app:'mtd'}`                          | |
+| `mtd_prompts`       | `FLEET.media_jobs`    | `{app:'mtd', kind:'prompt'}`           | |
+| `s3_index`          | *(unchanged)*         | dev-tool sidecar, intentionally NOT folded into FLEET | |
+
+**Fold script (dry docs only — no writes):**
+
+```bash
+node scripts/fold-mtd-to-fleet.mjs           # print the 9 commands
+node scripts/fold-mtd-to-fleet.mjs --raw     # commands only, one per line
+```
+
+Each printed command targets the cockpit's generic idempotent fold engine at `~/APPS/appai/scripts/mongo-fold.mjs`. Runs default to `--dry`; append `--confirm` to write.
+
+**Post-fold cleanup (manual):**
+
+1. Verify FLEET reads work end-to-end on prod (public routes + `/admin`).
+2. Soak 7 days with FLEET as the sole read path.
+3. Confirm `~/APPS/appai/scripts/mongo-drift.mjs` shows zero writes to the legacy `mtd` DB.
+4. **User drops the `mtd` DB manually in Atlas UI** — the cluster credentials are `readWrite` only and `dropDatabase` from CLI fails (see `~/.claude/projects/-home-matsiems-APPS-appai/memory/feedback_mongo_atlas_500_cap.md`).
+
+**Client access:** `src/lib/mongo.ts` exports `fleetCol(kind)`, `APP_FILTER`, `withApp(doc)`, `CMS_COLLECTIONS` (label + collection + filter tuples per logical mtd table). All read paths flow through these helpers so the `{app:'mtd'}` scope is guaranteed.
+
+**Future — place taxonomy:** `src/lib/taxonomy.ts` also holds a stub client for shared `FLEET.taxonomy` place-* docs (city/region/country/sight). When step B8 of the fleet plan runs (see `~/.claude/plans/eager-sprouting-hammock.md`), the dedup script backfills `place_slug` on each mtd item row and travel sites can join to the canonical place doc for name/coords/hero instead of duplicating.
+
 ## Architecture notes
 
-- **Seed-first data.** Every page renders from `src/lib/mtd-v2/seed.ts` (DESTINATIONS, HOTELS, SIGHTS, RESTAURANTS, LISTS, GUIDES, REGIONS, FEATURED_VIDEOS, WIKI_ARTICLES). If `MONGO_URI` is set and Mongo is reachable, `loadDestinations()` reads from the `mtd_destinations` collection instead. The seed always works — Mongo is opt-in.
+- **Seed-first data.** Every page renders from `src/lib/mtd-v2/seed.ts` (DESTINATIONS, HOTELS, SIGHTS, RESTAURANTS, LISTS, GUIDES, REGIONS, FEATURED_VIDEOS, WIKI_ARTICLES). If `MONGO_URI` is set and Mongo is reachable, `loadDestinations()` reads from `FLEET.items` filtered by `{app:'mtd', kind in [city, sight, region]}` instead. The seed always works — Mongo is opt-in.
 - **MoroccAI runtime is Node, not Edge.** The Anthropic SDK v0.100+ imports `node:child_process` via its agent-toolset module — Edge can't bundle that. Streaming works the same on Node and the chat doesn't need geo-replication.
 - **System prompt is cached.** The catalogue block in `src/lib/moroccai/system-prompt.ts` ships with `cache_control: { type: "ephemeral" }` so multi-turn conversations re-use the cached context.
 - **Affiliate disclosure is non-negotiable.** `AffiliateDisclosure` mounts above the sticky footer in the root layout and links to `/legal/affiliates` and `/legal/privacy`. Required for FTC, UK CMA, EU DSA compliance.

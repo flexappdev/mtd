@@ -247,22 +247,25 @@ function RouteMapDiagram() {
 }
 
 function DataModelDiagram() {
+  // Post-2026-07-09 FLEET migration: all rows live in shared FLEET collections
+  // scoped by {app:'mtd', kind}. Legacy `mtd_*` collections in the dedicated
+  // `mtd` DB are deprecated (soaking pre-drop).
   const cols = [
-    { id: "mtd_destinations", x: 40, y: 56, refs: ["region"], count: 14 },
-    { id: "mtd_regions", x: 40, y: 200, refs: [], count: 5 },
-    { id: "mtd_hotels", x: 280, y: 40, refs: ["dest"], count: 20 },
-    { id: "mtd_sights", x: 280, y: 120, refs: ["dest"], count: 20 },
-    { id: "mtd_restaurants", x: 280, y: 200, refs: ["dest"], count: 9 },
-    { id: "mtd_videos", x: 280, y: 280, refs: ["dest"], count: 12 },
-    { id: "mtd_lists", x: 560, y: 40, refs: [], count: 18 },
-    { id: "mtd_wiki", x: 560, y: 120, refs: ["dest?"], count: 8 },
-    { id: "mtd_guides", x: 560, y: 200, refs: [], count: 10 },
+    { id: "items · kind=city|sight|region", x: 40, y: 56, refs: ["region"], count: 14 },
+    { id: "items · kind=region", x: 40, y: 200, refs: [], count: 5 },
+    { id: "items · kind=hotel", x: 280, y: 40, refs: ["dest"], count: 20 },
+    { id: "items · kind=sight", x: 280, y: 120, refs: ["dest"], count: 20 },
+    { id: "items · kind=restaurant", x: 280, y: 200, refs: ["dest"], count: 9 },
+    { id: "media · kind=video", x: 280, y: 280, refs: ["dest"], count: 12 },
+    { id: "lists", x: 560, y: 40, refs: [], count: 18 },
+    { id: "wiki", x: 560, y: 120, refs: ["dest?"], count: 8 },
+    { id: "media · kind=guide", x: 560, y: 200, refs: [], count: 10 },
   ];
   return (
     <svg viewBox="0 0 800 360" width="100%" style={{ maxWidth: 800, fontFamily: "Inter, sans-serif" }} aria-label="MTD data model">
       <Arrowhead />
       {cols.map((c) => {
-        const isAccent = c.id === "mtd_destinations";
+        const isAccent = c.id.startsWith("items · kind=city");
         return (
           <g key={c.id}>
             <rect
@@ -402,7 +405,7 @@ function CodebaseDiagram() {
         <rect x="576" y="80" width="320" height="120" rx="8" fill="none" stroke={T.ink} strokeWidth="2" />
         <text x="588" y="100" fontSize="13" fontFamily="'JetBrains Mono', monospace" fontWeight="500" fill={T.ink}>lib/</text>
         <text x="588" y="124" fontSize="11" fontFamily="'JetBrains Mono', monospace" fill={T.ink90}>supabase/{`{client,server,middleware}`}.ts</text>
-        <text x="588" y="140" fontSize="11" fontFamily="'JetBrains Mono', monospace" fill={T.ink90}>mongo.ts (COLLECTIONS + CMS_COLLECTIONS)</text>
+        <text x="588" y="140" fontSize="11" fontFamily="'JetBrains Mono', monospace" fill={T.ink90}>mongo.ts (fleetCol · APP_FILTER · CMS_COLLECTIONS)</text>
         <text x="588" y="156" fontSize="11" fontFamily="'JetBrains Mono', monospace" fill={T.ink90}>mtd-v2/seed.ts (REGIONS, DESTINATIONS…)</text>
         <text x="588" y="172" fontSize="11" fontFamily="'JetBrains Mono', monospace" fill={T.ink90}>app-config.ts (APP, DEV_BYPASS_COOKIE)</text>
         <text x="588" y="188" fontSize="11" fontFamily="'JetBrains Mono', monospace" fill={T.ink90}>fetchers.ts (shared FAD reads)</text>
@@ -569,7 +572,7 @@ export default function AdminDiagramsPage() {
       <Section
         num="04"
         title="Data model"
-        subtitle="Nine Mongo collections in MSTRAVELDB. Destinations is the foreign-key spine."
+        subtitle="Rows live in shared FLEET collections scoped by {app:'mtd', kind}. Destinations (kind=city|sight|region) is the foreign-key spine."
         callout="If you change destinations, audit everything."
       >
         <DataModelDiagram />
