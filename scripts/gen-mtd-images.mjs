@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Generate MTD asset images via Runware FLUX.
-// Reads: ~/IMAGES/2026/original/mtd-prompts.json  (built by build-mtd-prompts.mjs)
-// Writes: ~/IMAGES/2026/original/mtd-{category}-{slug}.png
+// Reads: ~/BO/imagai/2026/original/mtd-prompts.json  (built by build-mtd-prompts.mjs)
+// Writes: ~/BO/imagai/2026/original/mtd-{category}-{slug}.png
 //
 // Usage:
 //   node scripts/gen-mtd-images.mjs [--dry-run] [--parallel 4] [--size 1024]

@@ -486,7 +486,7 @@ function ContentPipelineDiagram() {
   const steps = [
     { id: "prompts",  label: "build-mtd-prompts",  sub: "42 editorial prompts",       accent: false },
     { id: "runware",  label: "Runware FLUX",        sub: "runware:100@1 · 1024×1024",  accent: true  },
-    { id: "png",      label: "~/IMAGES/2026/",      sub: "mtd-{cat}-{slug}.png",       accent: false },
+    { id: "png",      label: "~/BO/imagai/2026/",      sub: "mtd-{cat}-{slug}.png",       accent: false },
     { id: "s3",       label: "S3 com27",            sub: "mtd/images/{cat}/{slug}.webp", accent: false },
     { id: "seed",     label: "seed.ts patch",       sub: "image: 's3://…'",            accent: false },
     { id: "vercel",   label: "next build",          sub: "real photography in prod",   accent: true  },

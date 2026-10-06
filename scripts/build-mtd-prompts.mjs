@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Build Runware FLUX image-generation prompts for all MTD assets.
-// Output: ~/IMAGES/2026/original/mtd-prompts.json  (42 rows)
+// Output: ~/BO/imagai/2026/original/mtd-prompts.json  (42 rows)
 //
 // Usage: node scripts/build-mtd-prompts.mjs
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Upload generated MTD images to S3 (com27/mtd/images/) and patch seed.ts with real URLs.
 //
-// Input:  ~/IMAGES/2026/original/mtd-{category}-{slug}.png
+// Input:  ~/BO/imagai/2026/original/mtd-{category}-{slug}.png
 // Output: s3://com27/mtd/images/{category}/{slug}.webp
 //         Patches src/lib/mtd-v2/seed.ts (with --patch flag)
 //

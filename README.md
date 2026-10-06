@@ -118,7 +118,7 @@ node scripts/fetch-wikivoyage.mjs --offline   # refresh summaries from cached pa
 bash scripts/sync-env.sh               # sync env vars from central .env (now includes RUNWARE_API_KEY + YOUTUBE_API_KEY)
 
 # Content pipeline (images + videos)
-node scripts/build-mtd-prompts.mjs     # build 42 Runware FLUX prompts → ~/IMAGES/2026/original/mtd-prompts.json
+node scripts/build-mtd-prompts.mjs     # build 42 Runware FLUX prompts → ~/BO/imagai/2026/original/mtd-prompts.json
 node scripts/gen-mtd-images.mjs --dry-run            # preview prompts without API call
 node scripts/gen-mtd-images.mjs --parallel 4         # generate all 42 images (requires RUNWARE_API_KEY)
 node scripts/gen-mtd-images.mjs --category dest      # generate destination images only
