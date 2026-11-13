@@ -5,7 +5,8 @@ import { MOROCCO_PLACES } from "@/lib/mtd-data";
 
 const BRAND = "MTD";
 
-export const runtime = "edge";
+// nodejs, not edge: mtd-data imports the Mongo driver, which needs Node built-ins.
+export const runtime = "nodejs";
 export const contentType = "image/png";
 export const size = { width: 1200, height: 630 };
 export const alt = "Morocco Top Destinations";

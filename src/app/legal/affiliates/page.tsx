@@ -30,7 +30,12 @@ export default function AffiliatePolicyPage() {
           <li>
             <strong>Booking.com</strong>, <strong>Expedia</strong>,{" "}
             <strong>Agoda</strong> &mdash; hotel partner network. Applies to
-            every &ldquo;Book&rdquo; button on hotel and destination pages.
+            every &ldquo;Book&rdquo; button on hotel and destination pages,
+            and the &ldquo;Hotels in&rdquo; buttons on the Top 100 list.
+          </li>
+          <li>
+            <strong>GetYourGuide</strong> &mdash; tours and activities. Applies
+            to every &ldquo;Book a tour&rdquo; button on the Top 100 list.
           </li>
           <li>
             <strong>Awin</strong> &mdash; aggregator for additional travel and
