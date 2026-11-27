@@ -2,6 +2,7 @@ import { FrontHomeV2 } from "@/components/v2/FrontHomeV2";
 import { DESTINATIONS } from "@/lib/mtd-v2/seed";
 import { APP_FILTER, fleetCol, tryGetDb } from "@/lib/mongo";
 import type { Destination } from "@/lib/mtd-v2/types";
+import { getChannel, getSiteVideos } from "@/lib/travel-videos";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moroccotopdestinations.com";
 
@@ -49,14 +50,14 @@ async function loadDestinations(): Promise<Destination[]> {
 }
 
 export default async function HomePage() {
-  const destinations = await loadDestinations();
+  const [destinations, videos, channel] = await Promise.all([loadDestinations(), getSiteVideos(), getChannel()]);
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <FrontHomeV2 destinations={destinations} />
+      <FrontHomeV2 destinations={destinations} videos={videos} channel={channel} />
     </>
   );
 }

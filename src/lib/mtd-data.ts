@@ -6,44 +6,10 @@
 
 import { APP_FILTER, fleetCol, tryGetDb } from "@/lib/mongo";
 
-export type MoroccoPlace = { slug: string; name: string; region: string; category: string };
+import { CATEGORIES, MOROCCO_PLACES, type MoroccoPlace } from "@/lib/mtd-places";
 
-export const CATEGORIES = ["Imperial Cities", "Coastal", "Sahara", "Atlas", "Kasbahs", "Food"] as const;
-
-export const MOROCCO_PLACES: MoroccoPlace[] = [
-  { slug: "marrakesh", name: "Marrakesh", region: "Marrakesh-Safi", category: "Imperial Cities" },
-  { slug: "fez", name: "Fez, Morocco", region: "Fès-Meknès", category: "Imperial Cities" },
-  { slug: "meknes", name: "Meknes", region: "Fès-Meknès", category: "Imperial Cities" },
-  { slug: "rabat", name: "Rabat", region: "Rabat-Salé-Kénitra", category: "Imperial Cities" },
-  { slug: "casablanca", name: "Casablanca", region: "Casablanca-Settat", category: "Coastal" },
-  { slug: "essaouira", name: "Essaouira", region: "Marrakesh-Safi", category: "Coastal" },
-  { slug: "tangier", name: "Tangier", region: "Tanger-Tétouan-Al Hoceïma", category: "Coastal" },
-  { slug: "chefchaouen", name: "Chefchaouen", region: "Tanger-Tétouan-Al Hoceïma", category: "Coastal" },
-  { slug: "asilah", name: "Asilah", region: "Tanger-Tétouan-Al Hoceïma", category: "Coastal" },
-  { slug: "agadir", name: "Agadir", region: "Souss-Massa", category: "Coastal" },
-  { slug: "el-jadida", name: "El Jadida", region: "Casablanca-Settat", category: "Coastal" },
-  { slug: "merzouga", name: "Merzouga", region: "Drâa-Tafilalet", category: "Sahara" },
-  { slug: "erg-chebbi", name: "Erg Chebbi", region: "Drâa-Tafilalet", category: "Sahara" },
-  { slug: "zagora", name: "Zagora", region: "Drâa-Tafilalet", category: "Sahara" },
-  { slug: "mhamid", name: "M'Hamid El Ghizlane", region: "Drâa-Tafilalet", category: "Sahara" },
-  { slug: "atlas-mountains", name: "Atlas Mountains", region: "—", category: "Atlas" },
-  { slug: "high-atlas", name: "High Atlas", region: "—", category: "Atlas" },
-  { slug: "toubkal", name: "Toubkal", region: "Marrakesh-Safi", category: "Atlas" },
-  { slug: "imlil", name: "Imlil", region: "Marrakesh-Safi", category: "Atlas" },
-  { slug: "ouirgane", name: "Ouirgane", region: "Marrakesh-Safi", category: "Atlas" },
-  { slug: "ourika-valley", name: "Ourika Valley", region: "Marrakesh-Safi", category: "Atlas" },
-  { slug: "ait-benhaddou", name: "Aït Benhaddou", region: "Drâa-Tafilalet", category: "Kasbahs" },
-  { slug: "ouarzazate", name: "Ouarzazate", region: "Drâa-Tafilalet", category: "Kasbahs" },
-  { slug: "tinghir", name: "Tinghir", region: "Drâa-Tafilalet", category: "Kasbahs" },
-  { slug: "todra-gorge", name: "Todgha Gorge", region: "Drâa-Tafilalet", category: "Kasbahs" },
-  { slug: "dades-valley", name: "Dadès River", region: "Drâa-Tafilalet", category: "Kasbahs" },
-  { slug: "tagine", name: "Tagine", region: "—", category: "Food" },
-  { slug: "couscous", name: "Couscous", region: "—", category: "Food" },
-  { slug: "harira", name: "Harira", region: "—", category: "Food" },
-  { slug: "pastilla", name: "Pastilla", region: "—", category: "Food" },
-  { slug: "mint-tea", name: "Maghrebi mint tea", region: "—", category: "Food" },
-  { slug: "msemen", name: "Msemen", region: "—", category: "Food" },
-];
+export { CATEGORIES, MOROCCO_PLACES };
+export type { MoroccoPlace };
 
 // ---------------------------------------------------------------------------
 // FLEET-backed reader helpers (post-migration to FLEET.items {app:'mtd'}).

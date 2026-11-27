@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/v2/PageHeader";
 import { HotelsGrid } from "@/components/v2/HotelsGrid";
 import { SaveButton } from "@/components/v2/SaveButton";
+import { VideoCard } from "@/components/videos/VideoCard";
+import { getSiteVideos, videosForPlace } from "@/lib/travel-videos";
 import { MOROCCO_PLACES, getWikiSummary } from "@/lib/mtd-data";
 import { findArticleForDestination } from "@/lib/wikivoyage";
 import {
@@ -47,6 +49,7 @@ export default async function MoroccoPlacePage({ params }: { params: Promise<{ s
   const regionName = v2 ? findRegion(v2.region)?.name ?? v2.region : legacy?.region;
   const wiki = await getWikiSummary(displayName);
   const wv = v2 ? findArticleForDestination(v2.id) : undefined;
+  const placeVideos = videosForPlace(await getSiteVideos(), slug);
 
   return (
     <div className="space-y-10 p-8">
@@ -105,6 +108,23 @@ export default async function MoroccoPlacePage({ params }: { params: Promise<{ s
           </div>
         </div>
       </section>
+
+      {placeVideos.length > 0 && (
+        <section id="videos" className="space-y-3">
+          <h2 className="text-lg font-semibold text-zinc-100">
+            Watch {displayName}{" "}
+            <span className="ml-2 text-xs text-zinc-500">Siems Production · @MatSiems</span>
+          </h2>
+          <div className="flex gap-3 overflow-x-auto pb-2">
+            {placeVideos.map((v) => (
+              <VideoCard key={v.id} v={v} />
+            ))}
+            <Link href="/videos?country=Morocco" className="tv-btn tv-btn-ghost self-center">
+              All Morocco videos →
+            </Link>
+          </div>
+        </section>
+      )}
 
       {v2 && (
         <PageHeader
