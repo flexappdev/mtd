@@ -36,6 +36,7 @@ const NAV: NavItem[] = [
       { id: "all", label: "All lists", count: "10k+", href: "/lists/all" },
     ],
   },
+  { id: "videos", label: "Videos", href: "/videos" },
   { id: "wiki", label: "Wiki", href: "/wiki" },
   { id: "topics", label: "Topics", href: "/topics" },
   {

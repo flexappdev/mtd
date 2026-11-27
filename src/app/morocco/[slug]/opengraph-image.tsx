@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { ogPayload } from "@/lib/og";
 import { DESTINATIONS, findRegion, tint } from "@/lib/mtd-v2/seed";
-import { MOROCCO_PLACES } from "@/lib/mtd-data";
+import { MOROCCO_PLACES } from "@/lib/mtd-places";
 
 const BRAND = "MTD";
 

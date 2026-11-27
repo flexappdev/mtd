@@ -16,6 +16,8 @@ import {
 } from "@/lib/mtd-v2/seed";
 import type { Destination } from "@/lib/mtd-v2/types";
 import { BigRankTile, Row, Tile } from "./Tile";
+import { VideoChannelRail, VideoHero, VideoTopRails } from "@/components/videos/VideoHomeSections";
+import { CHANNEL_FALLBACK, type TravelChannel, type TravelVideo } from "@/lib/travel-videos";
 
 function formatNum(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -30,7 +32,17 @@ function guideKindHref(kind: string): string {
   return "/guides/gear";
 }
 
-export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: Destination[] }) {
+export function FrontHomeV2({
+  destinations = DESTINATIONS,
+  videos = [],
+  channel = CHANNEL_FALLBACK,
+}: {
+  destinations?: Destination[];
+  /** Travel videos from the mstravel catalog; empty hides every video section. */
+  videos?: TravelVideo[];
+  channel?: TravelChannel;
+}) {
+  const hasVideos = videos.length > 0;
   const visible = destinations.filter((d) => d.status === "live" || d.status === "preview");
   const ranked = [...visible].sort((a, b) => b.clicks30 - a.clicks30);
   const featured = ranked[0];
@@ -52,6 +64,12 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
 
   return (
     <main className="fo-main">
+      {hasVideos ? (
+        <>
+          <VideoHero videos={videos} channel={channel} />
+          <VideoTopRails videos={videos} channel={channel} />
+        </>
+      ) : (
       <section className="fo-hero-cinema">
         <div
           className="fo-hero-cinema-img"
@@ -93,6 +111,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
           </div>
         </div>
       </section>
+      )}
 
       <Row title="Top 10 places in Morocco" sub="Editorial ranking · this week">
         {ranked.slice(0, 10).map((d, i) => (
@@ -135,6 +154,9 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
         ))}
       </Row>
 
+      {hasVideos ? (
+        <VideoChannelRail videos={videos} />
+      ) : (
       <Row title="From Siems Production" sub={`${FEATURED_VIDEOS.length} of 10,000 episodes · youtube.com/user/siemsproduction`}>
         {FEATURED_VIDEOS.map((v) => (
           <Tile
@@ -149,6 +171,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
           />
         ))}
       </Row>
+      )}
 
       <Row title="Top 100s" sub={`${LISTS.length} ranked lists · 10,000+ entries`}>
         {LISTS.slice(0, 10).map((l) => (
@@ -231,7 +254,7 @@ export function FrontHomeV2({ destinations = DESTINATIONS }: { destinations?: De
             <p>Every sight, hotel, restaurant scored across {LISTS.length} top-N lists.</p>
           </div>
         </Link>
-        <Link href="/media/videos" className="fo-promo" style={{ textDecoration: "none", color: "inherit" }}>
+        <Link href={hasVideos ? "/videos" : "/media/videos"} className="fo-promo" style={{ textDecoration: "none", color: "inherit" }}>
           <div
             className="mtd-photo"
             style={{ backgroundImage: `url(${img("promo-videos", 720, 405)})`, position: "absolute", inset: 0 }}

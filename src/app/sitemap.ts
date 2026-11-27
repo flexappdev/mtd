@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { DESTINATIONS, LISTS, REGIONS } from "@/lib/mtd-v2/seed";
 import { listArticles } from "@/lib/wikivoyage";
 import { listItems as listTopics } from "@/lib/wikipedia-morocco";
+import { getSiteVideos } from "@/lib/travel-videos";
 
 const PUBLIC_ROUTES = [
   "/",
@@ -43,7 +44,9 @@ const PUBLIC_ROUTES = [
   "/legal/privacy",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 900;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://moroccotopdestinations.com";
   const now = new Date();
   const top = PUBLIC_ROUTES.map((path) => ({
@@ -82,5 +85,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.4,
   }));
-  return [...top, ...destinations, ...regions, ...lists, ...wikiArticles, ...topics];
+  const videos = (await getSiteVideos()).map((v) => ({
+    url: `${base}/videos/${v.id}`,
+    lastModified: v.published_at ? new Date(v.published_at) : now,
+    changeFrequency: "weekly" as const,
+    priority: v.country === "Morocco" ? 0.7 : 0.5,
+  }));
+  return [...top, ...destinations, ...videos, ...regions, ...lists, ...wikiArticles, ...topics];
 }
